@@ -28,3 +28,6 @@ Se tiene como propuesta de proyecto la transcripción y procesamiento de las act
 
 ### Banco de documentos
 https://drive.google.com/drive/folders/1caYMV8v8TAfw5IKsSn9Mq5XaPzOH0IZN?usp=sharing
+
+### Estado del Arte
+https://docs.google.com/spreadsheets/d/1_Gb5pxMOyaBMnCX3C0yLF1TvXAZkNkFLxZfa94PeyVA/edit?usp=sharing
