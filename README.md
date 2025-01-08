@@ -25,3 +25,6 @@ Las actas dejan la huella de una institución colonial y su devenir en el tiempo
 Se tiene como corpus el tomo 1 digitalizado, el resto está en proceso de digitalización.
 
 Se tiene como propuesta de proyecto la transcripción y procesamiento de las actas.
+
+### Banco de documentos
+https://drive.google.com/drive/folders/1caYMV8v8TAfw5IKsSn9Mq5XaPzOH0IZN?usp=sharing
