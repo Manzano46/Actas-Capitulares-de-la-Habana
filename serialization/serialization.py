@@ -187,3 +187,6 @@ if __name__ == "__main__":
 
     print("\n=== Texto Refinado ===")
     print(refined_text)
+
+
+#flax-community/spanish-t5-small
