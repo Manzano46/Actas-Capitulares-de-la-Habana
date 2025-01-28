@@ -1,6 +1,19 @@
+import os
+os.environ["TF_ENABLE_ONEDNN_OPTS"] = "0"
+os.environ["TF_CPP_MIN_LOG_LEVEL"] = "2"
+os.environ["TF_XLA_FLAGS"] = "--tf_xla_enable_xla_devices=false"
+
+
+import logging
+logging.getLogger("absl").setLevel(logging.ERROR)
+
 import spacy
 from symspellpy import SymSpell, Verbosity
 from transformers import TFAutoModelForSeq2SeqLM, AutoTokenizer
+
+
+import tensorflow as tf
+tf.compat.v1.logging.set_verbosity(tf.compat.v1.logging.ERROR)  # Suprimir logs de TensorFlow 1.x
 
 
 def capitalize_like(original: str, corrected: str) -> str:
@@ -90,48 +103,50 @@ def load_corrector_model(spacy_model: str,
 
     return nlp, sym_spell
 
+
 def refine_text(original_text, corrected_text, tokenizer, model, max_length=256):
     """
-    Envía al modelo un prompt que incluye:
-    - El texto original.
-    - El texto corregido por SymSpell.
-    Para que genere una versión final más coherente.
+    Envía al modelo un prompt para refinar el texto.
     """
-    # Prompt básico de ejemplo
+    # Prompt claro y explícito
     prompt = (
-        f"original:\n{original_text}\n\n"
-        f"corregido:\n{corrected_text}\n\n"
-        "final:"
+        f"Corrige el siguiente texto para que sea claro y correcto.\n"
+        f"Texto original:\n{original_text}\n\n"
+        f"Texto corregido:\n{corrected_text}\n\n"
+        f"Texto final (reescrito y limpio):"
     )
 
-    encoded = tokenizer(prompt, return_tensors="tf", padding=True)
+    # Tokenización
+    encoded = tokenizer(prompt, return_tensors="tf", padding=True, truncation=True, max_length=256)
 
-    # encoded tiene, entre otros, las keys "input_ids" y "attention_mask"
-    input_ids = encoded["input_ids"]         # shape => (batch_size, seq_length)
-    attention_mask = encoded["attention_mask"]  # shape => (batch_size, seq_length)
-
+    # Generación
     outputs = model.generate(
-        input_ids=input_ids,
-        attention_mask=attention_mask,
-        max_length=max_length,
-        do_sample=True,
-        top_k=5,
-        top_p=0.95,
-        temperature=0.2,
-        num_return_sequences=1,
-        repetition_penalty=1.2,
+        input_ids=encoded["input_ids"],
+        attention_mask=encoded["attention_mask"],
+        max_length=512,
+        do_sample=True,  # Generación creativa
+        temperature=0.7,
+        top_k=50,
+        top_p=0.9,
+        repetition_penalty=0.1,
         no_repeat_ngram_size=2
     )
 
 
+    # Decodificación de la salida
     final_text = tokenizer.decode(outputs[0], skip_special_tokens=True)
     return final_text
 
-def load_llm(model_name="google/mt5-small"):
+
+def load_llm(model_name="flax-community/spanish-t5-small"):
+    """
+    Carga el modelo y el tokenizador T5 específico para español.
+    """
     tokenizer = AutoTokenizer.from_pretrained(model_name)
     model = TFAutoModelForSeq2SeqLM.from_pretrained(model_name)
 
     return tokenizer, model
+
 
 if __name__ == "__main__":
     spacy_model = "es_core_news_sm"
@@ -154,8 +169,8 @@ if __name__ == "__main__":
     print("Texto original : ", text_ocr)
     print("Texto corregido: ", corrected_text)
 
-    tokenizer, model = load_llm("google/mt5-small")
+    tokenizer, model = load_llm("flax-community/spanish-t5-small")
 
     final_text = refine_text(text_ocr, corrected_text, tokenizer, model)
-    print("\n=== Versión final (refinada con GPT) ===")
+    print("\n=== Versión final (refinada con LLM) ===")
     print(final_text)
