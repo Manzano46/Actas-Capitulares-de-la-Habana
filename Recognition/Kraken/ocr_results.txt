@@ -1,0 +1,14 @@
+Resultados para la imagen: line_1.png
+	Modelo bdd-wormser-scriptorium-abbreviated-0.2:
+	
+
+	Modelo McCATMuS_nfd_nofix_V1:
+	
+
+Resultados para la imagen: line_2.png
+	Modelo bdd-wormser-scriptorium-abbreviated-0.2:
+	
+
+	Modelo McCATMuS_nfd_nofix_V1:
+	
+

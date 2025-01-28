@@ -1,89 +1,105 @@
+import json
 import os
+import subprocess
+import shutil
 from PIL import Image
-from kraken import binarization, pageseg, rpred
-from kraken.lib import models
+import xml.etree.ElementTree as ET
 
-def ocr_handwritten_image(image_path, seg_model_path, rec_model_path):
-    """
-    Realiza:
-      1. Binarización de la imagen (nlbin).
-      2. Segmentación en líneas con un modelo distinto (pageseg.segment + model=).
-      3. Reconocimiento línea a línea con rpred.rpred y otro modelo distinto.
-    Retorna el texto reconocido.
-    """
+def binarize_image(input_image, output_bw_image):
+    """Binariza la imagen y guarda el resultado."""
+    subprocess.run(['kraken', '-i', input_image, output_bw_image, 'binarize'])
 
-    # 1) Verificar rutas
-    if not os.path.isfile(seg_model_path):
-        raise FileNotFoundError(f"No se encontró el modelo de segmentación: {seg_model_path}")
-    if not os.path.isfile(rec_model_path):
-        raise FileNotFoundError(f"No se encontró el modelo de reconocimiento: {rec_model_path}")
-    if not os.path.isfile(image_path):
-        raise FileNotFoundError(f"No se encontró la imagen: {image_path}")
+def segment_image(input_bw_image, output_lines_dir):
+    """Segmenta la imagen binarizada en líneas y guarda las imágenes segmentadas."""
+    # Crea el directorio donde se guardarán las imágenes segmentadas
+    os.makedirs(output_lines_dir, exist_ok=True)
 
-    # 2) Cargar los modelos
-    print("[INFO] Cargando modelo de segmentación...")
-    seg_nn = models.load_any(seg_model_path)
+    # Ejecuta la segmentación
+    subprocess.run(['kraken', '-i', input_bw_image, 'lines.json', 'segment'])
 
-    print("[INFO] Cargando modelo de reconocimiento...")
-    rec_nn = models.load_any(rec_model_path)
+    # Extrae las posiciones de las líneas (esto es solo un ejemplo, deberías parsear XML adecuadamente)
+    segment_image_from_json(input_bw_image,"lines.json", output_lines_dir)
 
-    # 3) Binarizar la imagen
-    pil_img = Image.open(image_path).convert('L')
-    bin_img = binarization.nlbin(pil_img)
-    # nlbin aplica Otsu + deskew + limpieza interna que Kraken usa por defecto
 
-    # 4) Segmentar en líneas usando el modelo de segmentación
-    seg_result = pageseg.segment(
-        im=bin_img,
-        text_direction='horizontal-lr',
-        scale=1.0,
-        maxcolseps=0,  
-        model=seg_nn    # ← Asignamos específicamente el modelo de segmentación
-    )
 
-    # Verificar si hay cajas detectadas
-    if not hasattr(seg_result, 'boxes') or not seg_result.boxes:
-        print("[WARNING] No se encontraron líneas. Revisa la calidad de la imagen y el modelo.")
-        return ""
+def segment_image_from_json(image_path, json_file, output_lines_dir):
+    """Segmenta la imagen en líneas usando un archivo JSON y guarda las imágenes segmentadas."""
+    # Abrir el archivo JSON y cargar los datos
+    with open(json_file, 'r', encoding='utf-8') as file:
+        data = json.load(file)
+    
+    # Abrir la imagen original
+    original_image = Image.open(image_path)
+    
+    # Crear el directorio de salida si no existe
+    os.makedirs(output_lines_dir, exist_ok=True)
+    
+    # Iterar sobre las líneas en el archivo JSON
+    for idx, line in enumerate(data['lines']):
+        # Obtener las coordenadas de la caja delimitadora (bbox)
+        bbox = line['bbox']  # [x_min, y_min, x_max, y_max]
+        x_min, y_min, x_max, y_max = bbox
+        
+        # Recortar la imagen usando las coordenadas
+        cropped_image = original_image.crop((x_min, y_min, x_max, y_max))
+        
+        # Guardar la imagen recortada
+        cropped_image.save(f"{output_lines_dir}/line_{idx + 1}.png")
+    
 
-    print(f"Segmentación completa: {len(seg_result.boxes)} líneas encontradas.")
+def run_ocr_on_lines(output_lines_dir, ocr_models):
+    """Realiza OCR sobre las imágenes segmentadas con varios modelos OCR y guarda los resultados."""
+    all_ocr_results = []  # Lista para almacenar los resultados de todos los modelos OCR
 
-    # 5) Recortar las líneas detectadas
-    lines_crops = []
-    for box in seg_result['boxes']:
-        line_crop = bin_img.crop(box)
-        lines_crops.append(line_crop)
+    # Iterar sobre cada imagen segmentada
+    for line_image in os.listdir(output_lines_dir):
+        line_image_path = os.path.join(output_lines_dir, line_image)
+        line_ocr_results = []  # Lista para almacenar los resultados de OCR para cada imagen
 
-    # 6) Realizar el reconocimiento con el modelo de reconocimiento
-    #    rpred.rpred admite una lista de PIL Images
-    print("[INFO] Iniciando reconocimiento de texto...")
-    preds = rpred.rpred(
-        network=rec_nn,
-        im=lines_crops,
-        tags=[],
-        bidi_reordering=False,  # Ajustar si idioma es RTL
-        apply_box_threshold=False
-    )
+        # Ejecutar OCR con cada modelo
+        for model in ocr_models:
+            print(f"Ejecutando OCR con el modelo {model} sobre la imagen {line_image_path}")
+            result = subprocess.run(
+                ['kraken', '-i', line_image_path, line_image + '.txt', 'ocr', '-m', model],
+                capture_output=True
+            )
+            # Añadir los resultados de OCR del modelo
+            line_ocr_results.append(result.stdout.decode('utf-8'))
 
-    # 7) Extraer el texto
-    recognized_lines = []
-    for pred in preds:
-        # Cada pred puede tener varias salidas; típicamente la primera (pred.outputs[0]) es el texto
-        recognized_lines.append(pred.outputs[0].strip())
+        # Añadir los resultados de esta imagen (con todos los modelos) a la lista global
+        all_ocr_results.append({
+            'image': line_image,  # Nombre de la imagen segmentada
+            'ocr_results': line_ocr_results  # Resultados de OCR para cada modelo
+        })
 
-    recognized_text = "\n".join(recognized_lines)
-    return recognized_text
+    # Guardar los resultados en un archivo
+    output_file = 'ocr_results.txt'
+    with open(output_file, 'w') as f:
+        for image_result in all_ocr_results:
+            f.write(f"Resultados para la imagen: {image_result['image']}\n")
+            for idx, model_result in enumerate(image_result['ocr_results']):
+                f.write(f"\tModelo {ocr_models[idx]}:\n")
+                f.write(f"\t{model_result}\n")
+                f.write("\n")
+    
+
+def main(input_image, output_bw_image, output_lines_dir, output_file):
+    """Función principal que automatiza el proceso."""
+    # Paso 1: Binarización
+    #binarize_image(input_image, output_bw_image)
+
+    # Paso 2: Segmentación (espera a que termine la binarización)
+    #input_image_for_segment = Image.open(output_bw_image)
+    segment_image(output_bw_image, output_lines_dir)
+
+    # Paso 3: OCR (espera a que termine la segmentación)
+    run_ocr_on_lines(output_lines_dir, ocr_models)
 
 if __name__ == "__main__":
-    # Rutas de ejemplo
-    IMAGE_PATH = "image.jpg"
-    SEG_MODEL_PATH = "sinai_sam_rec_v4_best.mlmodel"  # Modelo distinto para segmentar
-    REC_MODEL_PATH = "McCATMuS_nfd_nofix_V1.mlmodel"  # Modelo para el reconocimiento final
+    input_image = 'line.jpg'  # Imagen de entrada
+    output_bw_image = 'binarized.png'  # Imagen binarizada
+    output_lines_dir = 'segmented_lines'  # Directorio para las líneas segmentadas
+    output_file = 'output.txt'  # Archivo donde se guardará el texto OCR
+    ocr_models = ['bdd-wormser-scriptorium-abbreviated-0.2', 'McCATMuS_nfd_nofix_V1']
 
-    try:
-        # Invocar la función de OCR
-        resultado = ocr_handwritten_image(IMAGE_PATH, SEG_MODEL_PATH, REC_MODEL_PATH)
-        print("Texto reconocido:\n")
-        print(resultado)
-    except Exception as e:
-        print("Ocurrió un error:", e)
+    main(input_image, output_bw_image, output_lines_dir, output_file)

@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 
 # 1. Cargar imagen
-image_path = './documento.jpg'
+image_path = './binarized.jpg'
 image = cv2.imread(image_path)
 
 if image is None:
