@@ -1,3 +1,4 @@
 scrapper/Filtered_Documents
 scrapper/Documents
 scrapper/corpus_data.json
+.env
