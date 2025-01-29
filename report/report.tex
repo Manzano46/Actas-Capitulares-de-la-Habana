@@ -77,10 +77,57 @@ En el momento de la segmentación jug\'o un papel fundamental la b\'usqueda de p
 
 Entre los desaf\'ios superados en el posprocesamiento nos encontramos con la conservaci\'on del español antiguo pues no encontramos un diccionario de frecuencias de esa época, pero solventamos este problema con el LLM utilizado, la obtención del mismo fue compleja, pues se probaron con otros, por ejemplo \textbf{GPT-2}, \textbf{"google/mt5-small"}, \textbf{flax-community/spanish-t5-small}, pero los resultados fueron p\'esimos en los tres casos, adem\'as de que no ten\'iamos un API c\'omoda y los modelos eran bastantes pesados, por lo que optamos por \textbf{Gemini}.
 
-\section{Conclusiones} \subsection{Impacto del Proyecto} \subsection{Recomendaciones para Futuras Implementaciones}
+\section{Conclusiones} 
+\subsection{Impacto del Proyecto} 
 
-\appendix \section{Anexos} \subsection{Documentación Adicional} \subsection{Códigos Fuente}
+\subsection{Recomendaciones para Futuras Implementaciones}
+Se recomienda utilar \textbf{SAM2} debido a su buen funcionamiento, pero se necesita de un proceso manual que quizas se pueda automatizar, luego de esto seguir utilizando \textbf{SimpleHTR}, pero se recomienda tener un dataset para hacerle un \textbf{fine tunning} al igual que al modelo generativo que no es espec\'ificamente para esta tarea, se pudiera volver a utilizar \textbf{GPT-2} pero entrenado en esta cuesti\'on y deberia de obtener buenos resultados.
 
-\bibliographystyle{plain} \bibliography{referencias}
+\bibliographystyle{plain} 
+\bibliography{referencias}
+
+\begin{thebibliography}{9}
+
+    \bibitem{Avila2020corpus}
+    Vicente Marcet Rodriguez
+    \textit{El copus de documentos de \'Avila del Hispanic Museum and Library (siglos XV y XVI). Descripci\'on y an\'alisis paleogr\'afico y gr\'afico-fonol\'ogico.}
+
+    \bibitem{granet2018transfer}
+    A. Granet, E. Morin, H. Mouchère, S. Quiniou, y C. Viard-Gaudin, 
+    \textit{Transfer Learning for Handwriting Recognition on Historical Documents}, 
+    ICPRAM, 2018.
+    
+    \bibitem{torres2025htr}
+    S. Torres Aguilar, 
+    \textit{Handwritten Text Recognition for Historical Documents using Visual Language Models and GANs}, 
+    ArXiv, 2025.
+    
+    \bibitem{granell2018transcription}
+    E. Granell, E. Chammas, L. Likforman-Sulem, C. D. Martínez-Hinarejos, C. Mokbel, y B. I. Cîrstea, 
+    \textit{Transcription of Spanish Historical Handwritten Documents with Deep Neural Networks}, 
+    Journal of Imaging, vol. 4, no. 15, 2018.
+    
+    \bibitem{survey_post_ocr}
+    THI TUYET HAI NGUYEN, ADAM JATOWT, MICKAEL COUSTATY and ANTOINE DOUCET
+    \textit{Survey of Post-OCR Processing Approaches}, 
+    2025.
+
+    \bibitem{LightweightOCR}
+    Yuning Du, Chenxia Li, Ruoyu Guo, Xiaoting Yin, Weiwei Liu,
+Jun Zhou, Yifan Bai, Zilin Yu, Yehua Yang, Qingqing Dang, Haoshuang Wang
+    \textit{PP-OCR: A Practical Ultra Lightweight OCR System}
+    
+    \bibitem{IJARSCT2023extraction}
+    Prof. Anuradha Thorat, Mayur Zagade, Shivani More, Manish Pasalkar, Anand Narute
+    \textit{Research Paper on Text Extraction using OCR}, 
+    IJARSCT, Volume 3, Issue 14, May 2023
+
+    \bibitem{IJIREM2022extraction}
+    Ojas Kumar Barawal, and Dr Yojna Arora
+    \textit{Text Extraction from Image }, 
+    IJIREM, Volume 9, Issue 3, May 2022
+
+\end{thebibliography}
+
 
 \end{document} $
