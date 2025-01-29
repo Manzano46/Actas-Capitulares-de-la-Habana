@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.10)  27 JAN 2025 21:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.10)  29 JAN 2025 11:05
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -268,9 +268,9 @@ File: photo_2025-01-27_21-34-01.jpg Graphic file (type jpg)
 <use photo_2025-01-27_21-34-01.jpg>
 Package pdftex.def Info: photo_2025-01-27_21-34-01.jpg  used on input line 59.
 (pdftex.def)             Requested size: 115.20264pt x 153.60081pt.
-
+ [4 <./CODEA-0205_2v.jpg> <./canny_image_aftergauss_eq2.png (PNG copy)> <./photo_2025-01-27_21-34-01.jpg>]
 No file report.bbl.
-[4 <./CODEA-0205_2v.jpg> <./canny_image_aftergauss_eq2.png (PNG copy)> <./photo_2025-01-27_21-34-01.jpg>] (./report.aux
+[5] (./report.aux
 LaTeX Info: Redefining \. on input line 11.
 LaTeX Info: Redefining \% on input line 11.
 )
@@ -282,18 +282,18 @@ Package rerunfilecheck Info: File `report.out' has not changed.
 (rerunfilecheck)             Checksum: D92C9CDD75404340FD08397CF45586D8;2156.
  ) 
 Here is how much of TeX's memory you used:
- 9849 strings out of 474050
- 155169 string characters out of 5746298
+ 9863 strings out of 474050
+ 155362 string characters out of 5746298
  1938754 words of memory out of 5000000
- 32164 multiletter control sequences out of 15000+600000
+ 32174 multiletter control sequences out of 15000+600000
  563240 words of font info for 53 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,8n,79p,1736b,452s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,8n,79p,1736b,535s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <c:/Users/Admin/.texlive2024/texmf-var/fonts/pk/ljfour/public/cm/cmmi10.657pk> <c:/Users/Admin/.texlive2024/texmf-var/fonts/pk/ljfour/public/cm/cmbx12.600pk> <c:/Users/Admin/.texlive2024/texmf-var/fonts/pk/ljfour/public/cm/cmr10.657pk> <c:/Users/Admin/.texlive2024/texmf-var/fonts/pk/ljfour/public/cm/cmbx10.657pk> <c:/Users/Admin/.texlive2024/texmf-var/fonts/pk/ljfour/public/cm/cmbx12.720pk> <c:/texlive/2024/texmf-dist/fonts/pk/ljfour/public/cm/dpi600/cmr12.pk> <c:/texlive/2024/texmf-dist/fonts/pk/ljfour/public/cm/dpi600/cmr17.pk>
-Output written on report.pdf (4 pages, 1481428 bytes).
+Output written on report.pdf (5 pages, 1485010 bytes).
 PDF statistics:
- 373 PDF objects out of 1000 (max. 8388607)
- 133 compressed objects within 2 object streams
- 22 named destinations out of 1000 (max. 500000)
+ 385 PDF objects out of 1000 (max. 8388607)
+ 140 compressed objects within 2 object streams
+ 26 named destinations out of 1000 (max. 500000)
  141 words of extra memory for PDF output out of 10000 (max. 10000000)
 

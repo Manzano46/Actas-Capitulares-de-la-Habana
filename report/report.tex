@@ -45,7 +45,7 @@ Debido a todo lo expuesto el proyecto fue enfocado en una b\'usqueda exhaustiva 
 
 Como lenguaje principal se utilizo python, debido a que brinda un f\'acil acceso a librerias de procesamiento de texto e im\'agenes. Entre las librerias utilizadas destacan \textbf{Kraken}, \textbf{PIL}, \textbf{TensorFlow}, \textbf{Numpy},  \textbf{matplotlib}, \textbf{scipy}, \textbf{spacy}, \textbf{symspellpy} y \textbf{transformers}.
 
-El LLM utilizado fue \textbf{mrm8488/spanish-gpt2} por cuestiones económicas, como diccionario de frequencias utilizamos \href{https://github.com/hermitdave/FrequencyWords/blob/master/content/2016/es/es_full.txt}{spanish frequency dictionary} (se considero la creaci\'on de un diccionario a partir de un libro escrito por Luis XV pero se tendr\'ian muy pocas palabras en comparaci\'on con el utilizado), el modelo de spacy utilizado fue \textbf{es core news sm}.
+El LLM utilizado fue \textbf{Gemini} por cuestiones económicas, como diccionario de frequencias utilizamos \href{https://github.com/hermitdave/FrequencyWords/blob/master/content/2016/es/es_full.txt}{spanish frequency dictionary} (se considero la creaci\'on de un diccionario a partir de un libro escrito por Luis XV pero se tendr\'ian muy pocas palabras en comparaci\'on con el utilizado), el modelo de spacy utilizado fue \textbf{es core news sm}.
 
 Entre los datos recopilados inicialmente se utiliz\'o \href{https://zenodo.org/records/1490009/files/Rodrigo%20corpus%201.0.0.tar.gz?download=1}{dataset de rodrigo} es un dataset de Español antiguo, pero la tipograf\'ia no coincide, en este caso se utiliza letra g\'otica, luego se encontr\'o todo un corpus de documentos en Español de años anteriores a 1900 \href{https://corpuscodea.es/}{CODEA} y con una estructura que podiamos aprovechar, la mayor\'ia de los documentos presentan una triple representaci\'on, la imagen, una transcripción paleogr\'afica, y una presentanci\'on cr\'itica. El dataset inicialmente tiene alrededor de 4000 documentos, pero luego de filtrar por el tipo de letra requerida se reduce a 546, recalcando la dificultad de los datos.
 
@@ -58,7 +58,21 @@ En la primera etapa del producto se logra una mejora considerable en la imagen, 
 
 \begin{figure}[h] \centering \begin{minipage}{1.0\textwidth} \includegraphics[width=0.32\textwidth]{CODEA-0205_2v.jpg} \includegraphics[width=0.32\textwidth]{canny_image_aftergauss_eq2.png} \includegraphics[width=0.32\textwidth]{photo_2025-01-27_21-34-01.jpg} \caption{Original, detecci\'on de bordes, operaciones morfol\'ogicas de izquieda a derecha} \label{fig:tresfotos} \end{minipage} \end{figure}
 
+En la \'ultima etapa una vez procesadas la im\'agenes con las t\'ecnicas para mejorarlas y luego extraido el texto con los diferentes OCRs, se realiz\'o un posprocesamiento para mejorar la calidad de las transcripciones, inspirados en el DataSet de CODEA, brindamos una transcripción cr\'itica del documento. Dada la naturaleza de los documentos y los errores inherentes al OCR, implementamos un pipeline para corregir errores ortogr\'aficos y ajustar la chorencia del texto, de esta forma refinando la salida.
+
+Se utiliz\'o un modelo de lenguaje \textbf{Spacy} para segmentar el texto en tokens, para as\'i identificar palabras y elementos no alfab\'eticos. Cada token fue corregido utilizando SymSpell, una herramienta basada en un diccionario de frecuencias, para separar correctamente palabras unidas y capitalizarlas. Tras  las correcciones se utiliz\'o un modelo generativo, Gemini para realizar un refinamiento sem\'antico y estil\'istico; corrigiendo as\'i el formato del texto y la gram\'atica, adem\'as de mantener el contexto hist\'orico del español antiguio. Tambi\'en se consideraron las diferentes salidas y se combinaron en una sola.
+
+A continuaci\'on un ejemplo del flujo:
+
+\begin{enumerate}
+    \item Essta es una prueva de ectraccion de teexto. Connoscida cosa sea a todos los queesta carta uieren como yo don Fferrando por la gracia de dios hey de Castiella
+    \item Esta es una prueba de extracción de texto. Conocida cosa sea a todos los que esta carta vieren como yo don Fferrando por la gracia de Dios hay de Castilla
+    \item Esta es una prueba de extracción de texto. Conocida cosa sea a todos aquellos que esta carta vieran, como yo, don Fernando, por la gracia de Dios, rey de Castilla.
+\end{enumerate}
+
 \subsection{Desafíos Superados}
+
+Entre los desaf\'ios superados en el posprocesamiento nos encontramos con la conservaci\'on del español antiguo pues no encontramos un diccionario de frecuencias de esa época, pero solventamos este problema con el LLM utilizado, la obtención del mismo fue compleja, pues se probaron con otros, por ejemplo \textbf{GPT-2}, \textbf{"google/mt5-small"}, \textbf{flax-community/spanish-t5-small}, pero los resultados fueron p\'esimos en los tres casos, adem\'as de que no ten\'iamos un API c\'omoda y los modelos eran bastantes pesados, por lo que optamos por \textbf{Gemini}.
 
 \section{Conclusiones} \subsection{Impacto del Proyecto} \subsection{Recomendaciones para Futuras Implementaciones}
 
