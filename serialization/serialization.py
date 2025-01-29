@@ -87,22 +87,10 @@ def load_corrector_model(spacy_model: str, frequency_dictionary_path: str, max_e
     return nlp, sym_spell
 
 
-def refine_text_with_gemini(original_text: str, corrected_text: str, gemini_model_name="gemini-2.0-flash-exp"):
+def refine_text_with_gemini(original_text: str, corrected_text: str, chat):
     """
     Envía el texto corregido a Gemini para refinamiento.
     """
-    # Crear el sistema de instrucciones para Gemini
-    chat = genai.GenerativeModel(
-        model_name=gemini_model_name,
-        system_instruction=[
-            """
-            Eres un asistente que ayuda a refinar textos. Analiza el siguiente texto original y corregido,
-            y reescríbelo en un formato limpio, coherente y gramaticalmente correcto. Los textos son documentos históricos
-            extraídos mediante OCR, por lo que pueden contener errores típicos del procesamiento OCR. Los documentos son
-            cartas en Cuba de los siglos XV y XVI, manten el español antiguo.
-            """
-        ]
-    ).start_chat(history=[])
 
     # Crear el mensaje de entrada para Gemini
     message = (
@@ -119,7 +107,7 @@ def refine_text_with_gemini(original_text: str, corrected_text: str, gemini_mode
         print(f"An error occurred with Gemini: {e}")
         return corrected_text  # Devuelve el texto corregido si hay un error
 
-def correction(text_ocr: str) -> str:
+def correction(text_ocr: str, nlp, sym_spell, chat) -> str:
     """
         Procesa el texto proviniente del OCR para mejorarlo
         
@@ -129,28 +117,12 @@ def correction(text_ocr: str) -> str:
         Returns:
         str: Texto refinado final.
     """
-    
-    # Cargar claves de entorno para Gemini
-    load_dotenv()
-    GENAI_API_KEY = os.getenv("GENAI_API_KEY")
-    genai.configure(api_key=GENAI_API_KEY)
-    
-    spacy_model = "es_core_news_sm"
-    frequency_dictionary_path = "serialization/spanish_frequency_dictionary.txt"
-
-    # Cargar modelo SymSpell y Spacy
-    nlp, sym_spell = load_corrector_model(
-        spacy_model=spacy_model,
-        frequency_dictionary_path=frequency_dictionary_path,
-        max_edit_distance=3,
-        prefix_length=7
-    )
 
     # Corregir texto usando SymSpell y Spacy
     corrected_text = correct_text(text_ocr, nlp, sym_spell, try_segmentation=True)
 
     # Refinar texto con Gemini
-    final_text = refine_text_with_gemini(text_ocr, corrected_text)
+    final_text = refine_text_with_gemini(text_ocr, corrected_text, chat)
     
     return final_text
 
@@ -159,7 +131,7 @@ import os
 import google.generativeai as genai
 from dotenv import load_dotenv
 
-def combine(texts: List[str], gemini_model_name: str = "gemini-2.0-flash-exp") -> str:
+def combine(texts: List[str], chat) -> str:
     """
     Procesa las diferentes representaciones de una línea devueltas por OCR y otros métodos,
     y devuelve una versión refinada con ayuda de Gemini.
@@ -171,21 +143,6 @@ def combine(texts: List[str], gemini_model_name: str = "gemini-2.0-flash-exp") -
     Returns:
         str: Texto refinado final.
     """
-    # Cargar claves de entorno para Gemini
-    load_dotenv()
-    GENAI_API_KEY = os.getenv("GENAI_API_KEY")
-    genai.configure(api_key=GENAI_API_KEY)
-
-    # Crear el modelo generativo y configurar el sistema de instrucciones
-    chat = genai.GenerativeModel(
-        model_name=gemini_model_name,
-        system_instruction="""
-        Eres un asistente que ayuda a refinar textos. Analiza las siguientes representaciones de una línea de texto,
-        y reescribe solo una en un formato limpio, coherente y gramaticalmente correcto. Los textos son documentos históricos
-        extraídos mediante OCR, por lo que pueden contener errores típicos del procesamiento OCR. Los documentos son
-        cartas en Cuba de los siglos XV y XVI, manten el español antiguo en tu respuesta.
-        """
-    ).start_chat(history=[])
 
     # Concatenar las representaciones de la línea
     aux = "\n\n".join([f"- {text}" for text in texts])
