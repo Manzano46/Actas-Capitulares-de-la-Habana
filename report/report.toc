@@ -10,4 +10,4 @@
 \contentsline {subsection}{\numberline {3.2}Desafíos Superados}{5}{subsection.3.2}%
 \contentsline {section}{\numberline {4}Conclusiones}{5}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Impacto del Proyecto}{5}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Recomendaciones para Futuras Implementaciones}{5}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.2}Recomendaciones para Futuras Implementaciones}{6}{subsection.4.2}%
