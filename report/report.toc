@@ -8,9 +8,9 @@
 \contentsline {section}{\numberline {3}Resultados}{3}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Logros Principales}{3}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}Desafíos Superados}{5}{subsection.3.2}%
-\contentsline {section}{\numberline {4}Conclusiones}{5}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Impacto del Proyecto}{5}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Recomendaciones para Futuras Implementaciones}{5}{subsection.4.2}%
-\contentsline {section}{\numberline {A}Anexos}{5}{appendix.Alph1}%
-\contentsline {subsection}{\numberline {A.1}Documentación Adicional}{5}{subsection.Alph1.1}%
-\contentsline {subsection}{\numberline {A.2}Códigos Fuente}{5}{subsection.Alph1.2}%
+\contentsline {section}{\numberline {4}Conclusiones}{6}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Impacto del Proyecto}{6}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Recomendaciones para Futuras Implementaciones}{6}{subsection.4.2}%
+\contentsline {section}{\numberline {A}Anexos}{6}{appendix.Alph1}%
+\contentsline {subsection}{\numberline {A.1}Documentación Adicional}{6}{subsection.Alph1.1}%
+\contentsline {subsection}{\numberline {A.2}Códigos Fuente}{6}{subsection.Alph1.2}%
