@@ -27,11 +27,11 @@ projection = np.sum(inv, axis=1)  # Suma por filas
 
 # 6. Buscar transiciones para identificar líneas
 projection = np.sum(inv, axis=1)
-max_val = np.max(projection)
+max_val = np.max(projection) 
 mean_val = np.mean(projection)
 
 # Por ejemplo, podrías subir el umbral a algo mayor al default
-line_threshold = max(0.2 * max_val, 1.0 * mean_val)
+line_threshold = max(0.1 * max_val, 0.63 * mean_val)
 # Ajusta según los resultados que observes
 
 inside_line = False

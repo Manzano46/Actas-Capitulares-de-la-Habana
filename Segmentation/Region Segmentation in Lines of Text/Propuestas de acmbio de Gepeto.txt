@@ -1,0 +1,107 @@
+¡Claro! Analicemos el código y los posibles errores que podrían estar afectando la segmentación de líneas en tu documento manuscrito.
+
+Posibles Errores y Mejoras:
+
+1. Preprocesamiento de la Imagen:
+
+  •  Binarización: Estás usando el método de Otsu (cv2.THRESH_OTSU), que es bueno, pero en documentos manuscritos puede ser sensible a la iluminación irregular y al ruido. Aquí te sugiero:
+    *  Adaptative Thresholding: Prueba con umbralización adaptativa, por ejemplo, cv2.adaptiveThreshold con cv2.ADAPTIVE_THRESH_GAUSSIAN_C o cv2.ADAPTIVE_THRESH_MEAN_C. Esto puede manejar mejor las variaciones de iluminación.
+    *  Filtrado: Aplica un filtro de suavizado (blur) antes de la umbralización para reducir el ruido. cv2.GaussianBlur o cv2.medianBlur son buenas opciones.
+  •  Dilatación: La dilatación (cv2.dilate) con un kernel pequeño está bien, pero dependiendo del grosor de las letras y la separación entre ellas, podrías considerar:
+    *  Ajustar el kernel: Experimenta con diferentes tamaños y formas de kernel. Un kernel vertical o rectangular puede ser útil para conectar trazos de letras que pertenecen a la misma línea.
+  •  Inversión (Comentada):
+    *  Comentaste la línea inv = cv2.bitwise_not(thresh). Esta línea es fundamental si tu texto es negro sobre fondo blanco, ya que el algoritmo busca máximos en la proyección, y quieres que el texto sea el que sume más. Si tu texto es oscuro, debes invertir la imagen binarizada para que el texto se represente con valores más altos. Revisa tu imagen, si el texto es oscuro, debes descomentar esa línea.
+
+2. Proyección Horizontal y Umbral:
+
+  •  Proyección: Calcular la proyección sumando píxeles por fila es correcto para detectar líneas horizontales.
+  •  Umbral Dinámico: Estás usando un umbral dinámico que depende del máximo y la media de la proyección: line_threshold = max(0.2  max_val, 1.0  mean_val). Esto es un buen punto de partida, pero puede ser sensible a casos específicos:
+    *  Ajuste Fino: Experimenta con los factores de 0.2 y 1.0. También considera agregar o restar un valor constante para un ajuste más fino.
+    *  Rango de la proyección: Si notas que las líneas no están bien segmentadas prueba a normalizar la proyección, luego busca máximos locales. Los valores por encima de un umbral, cercano a esos máximos, corresponderán a líneas.
+    *  Promedios Móviles: Considera utilizar promedios móviles de la proyección en lugar de la suma directa de cada fila. Esto puede hacer que la detección de transiciones sea más robusta frente a fluctuaciones locales.
+
+3. Segmentación y Almacenamiento:
+
+  •  Almacenamiento de lines: Estás guardando subimágenes de las líneas en la lista lines. ¡Perfecto!
+  •  Guardar/Mostrar: Estás guardando las subimágenes en archivos y/o mostrándolas en pantalla. ¡Excelente!
+
+4. Errores específicos detectados:
+
+  •  Repetición de la suma: Estás calculando la suma de las filas dos veces. Deberías calcular la suma una sola vez, y después usarla para determinar la posición de las líneas.
+  •  Ausencia de umbral mínimo: A veces, el umbral que calculas puede ser muy bajo, y la segmentación de las líneas se ve afectada. Un buen enfoque podría ser incluir un valor mínimo que sirva como umbral en el caso que el que calculas dinámicamente sea muy bajo.
+
+Código con Posibles Mejoras:
+*****************************************************************************************************************
+import cv2
+import numpy as np
+
+# 1. Cargar imagen
+image_path = './documento.jpg'
+image = cv2.imread(image_path)
+
+if image is None:
+    raise FileNotFoundError(f"Image file not found at {image_path}")
+
+# 2. Preprocesamiento
+gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+
+# Ajusta los parámetros del filtro según tu imagen
+blurred = cv2.GaussianBlur(gray, (5, 5), 0)
+#blurred = cv2.medianBlur(gray,5)
+
+
+#Umbral adaptativo
+thresh = cv2.adaptiveThreshold(blurred, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY_INV, 11, 2)
+# Prueba umbralización global, en caso de que adaptativa no funcione bien
+# _, thresh = cv2.threshold(blurred, 0, 255, cv2.THRESH_BINARY_INV | cv2.THRESH_OTSU)
+
+
+kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (3, 3))
+thresh = cv2.dilate(thresh, kernel, iterations=1)
+
+inv = cv2.bitwise_not(thresh) # Descomentar si el texto es oscuro
+
+# 3. Calcular proyección horizontal
+projection = np.sum(inv, axis=1)  # Suma por filas
+max_val = np.max(projection)
+mean_val = np.mean(projection)
+
+
+# Ajuste fino del umbral
+min_threshold = 20  # Un mínimo para asegurar que segmentamos algo. Ajusta según tu documento
+line_threshold = max(0.2 * max_val, 1.0 * mean_val, min_threshold) #Valor mínimo para asegurar que se segmenta algo
+
+
+# 4. Buscar transiciones para identificar líneas
+inside_line = False
+start = 0
+lines = []
+
+for i, row_sum in enumerate(projection):
+    if row_sum > line_threshold and not inside_line:
+        inside_line = True
+        start = i
+    elif row_sum <= line_threshold and inside_line:
+        inside_line = False
+        end = i
+        line_img = inv[start:end, :]
+        if line_img.size > 0:
+          lines.append(line_img) #Solo guardamos si hay píxeles
+
+# 5. Mostrar o guardar el resultado de cada línea
+for idx, l_img in enumerate(lines):
+    cv2.imwrite(f'line_{idx}.png', l_img)
+    #O puedes mostrarlo en pantalla:
+    #cv2.imshow(f'line_{idx}', l_img)
+    #cv2.waitKey(0)
+#cv2.destroyAllWindows()
+*************************************************************************************************************
+
+Recomendaciones Adicionales:
+
+•  Visualización Intermedia: Después de cada paso de procesamiento (umbralización, dilatación), visualiza la imagen resultante para entender mejor cómo está afectando el resultado.
+•  Datos de Prueba: Crea un pequeño conjunto de imágenes de prueba que representen diferentes casos (iluminación, calidad del manuscrito) para probar tu algoritmo.
+•  Parámetros Variables: Al principio define algunas variables como blur_size, kernel_size, etc. y varía esos parámetros y observa cómo afectan al resultado.
+•  Debug: Imprime las variables intermedias del código, como los umbrales, para entender cómo el algoritmo está funcionando.
+
+¡Espero que estas sugerencias te ayuden a mejorar la segmentación de líneas en tu documento manuscrito! Si tienes más preguntas, no dudes en consultarme.
