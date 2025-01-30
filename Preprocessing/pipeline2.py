@@ -41,6 +41,9 @@ def cleanup_image(input_folder, output_folder):
     if not os.path.exists(output_folder):
         os.makedirs(output_folder)
 
+    if not os.path.exists(output_folder+'_morph'):
+        os.makedirs(output_folder+'_morph')
+
     # Iterar sobre todos los archivos en la carpeta de entrada
     for filename in os.listdir(input_folder):
         input_path = os.path.join(input_folder, filename)
@@ -53,7 +56,7 @@ def cleanup_image(input_folder, output_folder):
                 print(f"Error al leer la imagen: {input_path}")
                 continue
 
-            gray_image = custom_grayscale(image)
+            gray_image = custom_grayscale(input_path)
 
             equalized_image = cv2.equalizeHist(gray_image)
 
@@ -69,9 +72,19 @@ def cleanup_image(input_folder, output_folder):
             edges = cv2.Canny(denoised_image, 75, 150)
 
             output_filename = f"{os.path.splitext(filename)[0]}.png"
-            output_path = os.path.join(output_folder, output_filename)
+            output_path_morph = os.path.join(output_folder+'_morph', output_filename)
 
-            cv2.imwrite(output_path, dilated)
+            cv2.imwrite(output_path_morph, dilated)
+
+            # Carga la imagen
+            image_morph = Image.open(output_path_morph)
+
+            # Aplica binarización
+            binary_image = kraken.binarization.nlbin(image_morph)
+
+            # Guarda la imagen binarizada
+            output_path = os.path.join(output_folder, output_filename)
+            binary_image.save(output_path)
 
             print(f"Procesada: {filename} -> {output_path}")
         else:
