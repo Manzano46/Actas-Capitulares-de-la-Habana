@@ -4,3 +4,6 @@ scrapper/corpus_data.json
 .env
 .pyc
 __pycache__
+.png
+.jpg
+data
