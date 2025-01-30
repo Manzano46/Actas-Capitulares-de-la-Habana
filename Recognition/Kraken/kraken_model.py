@@ -148,3 +148,16 @@ def get_transcription(input_image):
     return ocr_results
 
 
+def binarize_and_segment(input_img):
+
+    output_bw_image = input_img[:-4] + '.png'  # Imagen binarizada
+    output_lines_dir = 'segmented_lines'  # Directorio para las líneas segmentadas
+
+    # Paso 1: Binarización
+    binarize_image(input_img, output_bw_image)
+
+     # Paso 2: Segmentacion
+    segment_image(output_bw_image, output_lines_dir)
+
+
+binarize_and_segment('img1.jpg')
