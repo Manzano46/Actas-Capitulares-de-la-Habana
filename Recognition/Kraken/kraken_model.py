@@ -118,29 +118,6 @@ def run_ocr_on_image(image, output_dir, ocr_models):
 
     print("OCR completado para todas las imágenes segmentadas.")
 
-
-# def main(input_image, output_bw_image, output_lines_dir, output_file):
-#     """Función principal que automatiza el proceso."""
-#     # Paso 1: Binarización
-#     binarize_image(input_image, output_bw_image)
-
-#     # Paso 2: Segmentación (espera a que termine la binarización)
-#     #input_image_for_segment = Image.open(output_bw_image)
-#     segment_image(output_bw_image, output_lines_dir)
-
-#     # Paso 3: OCR (espera a que termine la segmentación)
-#     run_ocr_on_lines(output_lines_dir, ocr_models)
-#     #run_ocr_on_image(output_bw_image, output_dir, ocr_models)
-
-# if __name__ == "__main__":
-#     input_image = 'line.jpg'  # Imagen de entrada
-#     output_bw_image = 'binarized.png'  # Imagen binarizada
-#     output_lines_dir = 'segmented_lines'  # Directorio para las líneas segmentadas
-#     output_dir = './Output/'  # Archivo donde se guardará el texto OCR
-#     ocr_models = ['bdd-wormser-scriptorium-abbreviated-0.2', 'McCATMuS_nfd_nofix_V1']
-
-#     main(input_image, output_bw_image, output_lines_dir, output_dir)
-
 def get_transcription(input_image):
     """Función principal que automatiza el proceso."""
 
