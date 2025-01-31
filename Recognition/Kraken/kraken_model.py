@@ -6,7 +6,7 @@ import sys
 from tkinter import Image
 import xml.etree.ElementTree as ET
 
-from Recognition.SimpleHTR.SimpleHTR.src.main import run_inference
+#from Recognition.SimpleHTR.SimpleHTR.src.main import run_inference
 
 
 def binarize_image(input_image, output_bw_image):
