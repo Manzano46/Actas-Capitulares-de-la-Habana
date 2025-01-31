@@ -149,21 +149,24 @@ def get_transcription(input_image):
 
     simpleHTR_lines = run_inference('Recognition/Kraken/segmented_lines/')
 
+    HTR_text = ''
+
     with open("data/output_ocr/simpleHTR.txt", "w") as archivo:
         for item in simpleHTR_lines:
             for word in item:
-                archivo.write(word)  
+                archivo.write(word) 
+                HTR_text += word 
 
     # Paso 2: Segmentacion y OCR 
     run_ocr_on_image(output_bw_image, output_dir, ocr_models)
 
     ocr_results = []
 
-    ocr_results.append(simpleHTR_lines)
+    #ocr_results.append(HTR_text)
 
     for result in os.listdir(output_dir):
         # Leer el archivo generado por Kraken para esta imagen
-        with open(output_dir + result, 'r', encoding='utf-8') as f:
+        with open(output_dir + '/' + result, 'r', encoding='utf-8') as f:
             ocr_text = f.read()
 
         # Añadir los resultados de OCR del modelo
@@ -186,5 +189,3 @@ def binarize_and_segment(input_img):
      # Paso 2: Segmentacion
     segment_image(output_bw_image, output_lines_dir)
 
-
-print(get_transcription('data/output_preprocessing/binarized.png'))
