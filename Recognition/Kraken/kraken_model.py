@@ -1,8 +1,13 @@
 import json
 import os
+from pathlib import Path
 import subprocess
-from PIL import Image
+import sys
+from tkinter import Image
 import xml.etree.ElementTree as ET
+
+from Recognition.SimpleHTR.SimpleHTR.src.main import run_inference
+
 
 def binarize_image(input_image, output_bw_image):
     """Binariza la imagen y guarda el resultado."""
@@ -121,18 +126,39 @@ def run_ocr_on_image(image, output_dir, ocr_models):
 def get_transcription(input_image):
     """Función principal que automatiza el proceso."""
 
-    output_bw_image = input_image[:-4] + '.png'  # Imagen binarizada
+    #output_bw_image = input_image[:-4] + '.png'  # Imagen binarizada
+    output_bw_image = input_image
     output_lines_dir = 'segmented_lines'  # Directorio para las líneas segmentadas
     output_dir = './Output/'  # Archivo donde se guardará el texto OCR
     ocr_models = ['bdd-wormser-scriptorium-abbreviated-0.2', 'McCATMuS_nfd_nofix_V1']
 
+    if os.path.exists(output_lines_dir):
+        # Eliminar todos los archivos dentro de la carpeta de lineas
+        for archivo in os.listdir(output_lines_dir):
+            ruta_archivo = os.path.join(output_lines_dir, archivo)
+            try:
+                # Si es un archivo, lo eliminamos
+                if os.path.isfile(ruta_archivo):
+                    os.remove(ruta_archivo)
+            except Exception as e:
+                print(f"Error al eliminar {ruta_archivo}: {e}")
+
     # Paso 1: Binarización
-    binarize_image(input_image, output_bw_image)
+    #binarize_image(input_image, output_bw_image)
+
+    segment_image(output_bw_image, output_lines_dir)
+
+    simpleHTR_lines = []
+
+    for line in os.listdir(output_lines_dir):
+        simpleHTR_lines.append(run_inference('../Kraken/segmented_lines/' + line)[0])
 
     # Paso 2: Segmentacion y OCR 
     run_ocr_on_image(output_bw_image, output_dir, ocr_models)
 
     ocr_results = []
+
+    ocr_results.append(simpleHTR_lines)
 
     for result in os.listdir(output_dir):
         # Leer el archivo generado por Kraken para esta imagen
@@ -160,4 +186,4 @@ def binarize_and_segment(input_img):
     segment_image(output_bw_image, output_lines_dir)
 
 
-binarize_and_segment('img1.jpg')
+get_transcription('../../data/output_preprocessing/binarized.png')

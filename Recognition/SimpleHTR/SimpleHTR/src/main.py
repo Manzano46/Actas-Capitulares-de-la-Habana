@@ -1,15 +1,16 @@
 import argparse
 import json
+from types import SimpleNamespace
 from typing import Tuple, List
 
-import cv2
-import editdistance
-from path import Path
+import cv2 
+import editdistance # type: ignore
+from path import Path # type: ignore
 
 from dataloader_iam import DataLoaderIAM, Batch
 from model import Model, DecoderType
 from preprocessor import Preprocessor
-from PIL import Image
+from PIL import Image # type: ignore
 
 
 class FilePaths:
@@ -153,26 +154,41 @@ def infer(model: Model, fn_img: Path) -> None:
 
     batch = Batch([img], None, 1)
     recognized, probability = model.infer_batch(batch, True)
-    print(f'Recognized: "{recognized[0]}"')
-    print(f'Probability: {probability[0]}')
+    return recognized, probability
 
 
-def parse_args() -> argparse.Namespace:
-    """Parses arguments from the command line."""
-    parser = argparse.ArgumentParser()
+def parse_args() -> SimpleNamespace:
+    """Parses arguments with default values."""
+    
+    # Definir los valores predeterminados
+    args = SimpleNamespace()
+    args.mode = 'infer'  # Siempre en 'infer'
+    args.decoder = 'bestpath'  # Valor por defecto del decodificador
+    args.batch_size = 100  # Tamaño de lote
+    args.data_dir = None  # No se especifica un directorio de datos
+    args.fast = False  # No carga muestras de LMDB por defecto
+    args.line_mode = False  # No leer líneas de texto por defecto
+    args.img_file = Path('../data/word.jpg')  # Ruta de la imagen predeterminada
+    args.early_stopping = 25  # Número de épocas de parada temprana
+    args.dump = False  # No volcar salida a CSV por defecto
 
-    parser.add_argument('--mode', choices=['train', 'validate', 'infer'], default='infer')
-    parser.add_argument('--decoder', choices=['bestpath', 'beamsearch', 'wordbeamsearch'], default='bestpath')
-    parser.add_argument('--batch_size', help='Batch size.', type=int, default=100)
-    parser.add_argument('--data_dir', help='Directory containing IAM dataset.', type=Path, required=False)
-    parser.add_argument('--fast', help='Load samples from LMDB.', action='store_true')
-    parser.add_argument('--line_mode', help='Train to read text lines instead of single words.', action='store_true')
-    parser.add_argument('--img_file', help='Image used for inference.', type=Path, default='../data/word.jpg')
-    parser.add_argument('--early_stopping', help='Early stopping epochs.', type=int, default=25)
-    parser.add_argument('--dump', help='Dump output of NN to CSV file(s).', action='store_true')
+    return args
 
-    return parser.parse_args()
+# def parse_args() -> argparse.Namespace:
+#     """Parses arguments from the command line."""
+#     parser = argparse.ArgumentParser()
 
+#     parser.add_argument('--mode', choices=['train', 'validate', 'infer'], default='infer')
+#     parser.add_argument('--decoder', choices=['bestpath', 'beamsearch', 'wordbeamsearch'], default='bestpath')
+#     parser.add_argument('--batch_size', help='Batch size.', type=int, default=100)
+#     parser.add_argument('--data_dir', help='Directory containing IAM dataset.', type=Path, required=False)
+#     parser.add_argument('--fast', help='Load samples from LMDB.', action='store_true')
+#     parser.add_argument('--line_mode', help='Train to read text lines instead of single words.', action='store_true')
+#     parser.add_argument('--img_file', help='Image used for inference.', type=Path, default='../data/word.jpg')
+#     parser.add_argument('--early_stopping', help='Early stopping epochs.', type=int, default=25)
+#     parser.add_argument('--dump', help='Dump output of NN to CSV file(s).', action='store_true')
+
+#     return parser.parse_args()
 
 def main():
     """Main function."""
@@ -212,8 +228,18 @@ def main():
     # infer text on test image
     elif args.mode == 'infer':
         model = Model(char_list_from_file(), decoder_type, must_restore=True, dump=args.dump)
-        infer(model, args.img_file)
+        return infer(model, args.img_file)
+    
 
+def run_inference(img_file: Path):
+    """Run inference on the provided image file."""
+    args = parse_args()
 
-if __name__ == '__main__':
-    main()
+    decoder_mapping = {'bestpath': DecoderType.BestPath,
+                       'beamsearch': DecoderType.BeamSearch,
+                       'wordbeamsearch': DecoderType.WordBeamSearch}
+    decoder_type = decoder_mapping[args.decoder]
+
+    # Infer text on test image
+    model = Model(char_list_from_file(), decoder_type, must_restore=True, dump=args.dump)
+    return infer(model, img_file)
