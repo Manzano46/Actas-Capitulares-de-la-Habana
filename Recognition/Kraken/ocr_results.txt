@@ -1,0 +1,9 @@
+Resultados para la imagen: line_1.png
+	Modelo bdd-wormser-scriptorium-abbreviated-0.2:
+	{'model': 'bdd-wormser-scriptorium-abbreviated-0.2', 'text': 'tgete'}
+
+	Modelo McCATMuS_nfd_nofix_V1:
+	{'model': 'McCATMuS_nfd_nofix_V1', 'text': ''}
+
+Resultados para la imagen: line_2.png
+	Modelo bdd-wormser-scriptorium-abbreviated-0.2:
