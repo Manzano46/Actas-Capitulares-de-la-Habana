@@ -2,9 +2,8 @@ import json
 import os
 from pathlib import Path
 import subprocess
-import sys
-from tkinter import Image
 import xml.etree.ElementTree as ET
+from PIL import Image
 
 from Recognition.SimpleHTR.SimpleHTR.src.main import run_inference
 
@@ -19,10 +18,10 @@ def segment_image(input_bw_image, output_lines_dir):
     os.makedirs(output_lines_dir, exist_ok=True)
 
     # Ejecuta la segmentación
-    subprocess.run(['kraken', '-i', input_bw_image, 'lines.json', 'segment'])
+    subprocess.run(['kraken', '-i', input_bw_image, 'Recognition/Kraken/lines.json', 'segment'])
 
     # Extrae las posiciones de las líneas (esto es solo un ejemplo, deberías parsear XML adecuadamente)
-    segment_image_from_json(input_bw_image,"lines.json", output_lines_dir)
+    segment_image_from_json(input_bw_image,"Recognition/Kraken/lines.json", output_lines_dir)
 
 
 
@@ -68,7 +67,7 @@ def run_ocr_on_lines(output_lines_dir, ocr_models):
             print(f"Ejecutando OCR con el modelo {model} sobre la imagen {line_image}")
             output_txt = './Output/' + line_image[:-4] + '-' + model + '.txt'  # Nombre del archivo de salida
             subprocess.run(
-                ['kraken', '-i', './segmented_lines/' + line_image, output_txt, 'ocr', '--no-segmentation', '-m', model + '.mlmodel'])
+                ['kraken', '-i', 'Recognition/Kraken/segmented_lines/' + line_image, output_txt, 'ocr', '--no-segmentation', '-m', model + '.mlmodel'])
 
             # Leer el archivo generado por Kraken para esta imagen
             with open(output_txt, 'r', encoding='utf-8') as f:
@@ -115,7 +114,7 @@ def run_ocr_on_image(image, output_dir, ocr_models):
 
     # Ejecutar OCR con cada modelo
     for model in ocr_models:
-        output_txt = output_dir + image[:-4] + '-' + model + '.txt'  # Nombre del archivo de salida
+        output_txt = output_dir + '/' + model + '.txt'  # Nombre del archivo de salida
         print(f"Ejecutando OCR con el modelo {model} sobre la imagen {image}")
         
         # Ejecutar el comando de OCR
@@ -128,8 +127,8 @@ def get_transcription(input_image):
 
     #output_bw_image = input_image[:-4] + '.png'  # Imagen binarizada
     output_bw_image = input_image
-    output_lines_dir = 'segmented_lines'  # Directorio para las líneas segmentadas
-    output_dir = './Output/'  # Archivo donde se guardará el texto OCR
+    output_lines_dir = 'Recognition/Kraken/segmented_lines'  # Directorio para las líneas segmentadas
+    output_dir = 'data/output_ocr'  # Archivo donde se guardará el texto OCR
     ocr_models = ['bdd-wormser-scriptorium-abbreviated-0.2', 'McCATMuS_nfd_nofix_V1']
 
     if os.path.exists(output_lines_dir):
@@ -148,10 +147,12 @@ def get_transcription(input_image):
 
     segment_image(output_bw_image, output_lines_dir)
 
-    simpleHTR_lines = []
+    simpleHTR_lines = run_inference('Recognition/Kraken/segmented_lines/')
 
-    for line in os.listdir(output_lines_dir):
-        simpleHTR_lines.append(run_inference('Recognition/Kraken/segmented_lines/' + line)[0])
+    with open("data/output_ocr/simpleHTR.txt", "w") as archivo:
+        for item in simpleHTR_lines:
+            for word in item:
+                archivo.write(word)  
 
     # Paso 2: Segmentacion y OCR 
     run_ocr_on_image(output_bw_image, output_dir, ocr_models)
@@ -177,7 +178,7 @@ def get_transcription(input_image):
 def binarize_and_segment(input_img):
 
     output_bw_image = input_img[:-4] + '.png'  # Imagen binarizada
-    output_lines_dir = 'segmented_lines'  # Directorio para las líneas segmentadas
+    output_lines_dir = 'Recognition/Kraken/segmented_lines'  # Directorio para las líneas segmentadas
 
     # Paso 1: Binarización
     binarize_image(input_img, output_bw_image)
@@ -186,4 +187,4 @@ def binarize_and_segment(input_img):
     segment_image(output_bw_image, output_lines_dir)
 
 
-get_transcription('../../data/output_preprocessing/binarized.png')
+print(get_transcription('data/output_preprocessing/binarized.png'))

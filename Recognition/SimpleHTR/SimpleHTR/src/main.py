@@ -1,4 +1,5 @@
 import json
+import os
 from types import SimpleNamespace
 from typing import Tuple, List
 
@@ -6,17 +7,17 @@ import cv2
 import editdistance 
 from path import Path 
 
-from dataloader_iam import DataLoaderIAM, Batch
-from model import Model, DecoderType
-from preprocessor import Preprocessor
+from Recognition.SimpleHTR.SimpleHTR.src.dataloader_iam import DataLoaderIAM, Batch
+from Recognition.SimpleHTR.SimpleHTR.src.model import Model, DecoderType
+from Recognition.SimpleHTR.SimpleHTR.src.preprocessor import Preprocessor
 from PIL import Image 
 
 
 class FilePaths:
     """Filenames and paths to data."""
-    fn_char_list = '../model/charList.txt'
-    fn_summary = '../model/summary.json'
-    fn_corpus = '../data/corpus.txt'
+    fn_char_list = 'Recognition/SimpleHTR/SimpleHTR/model/charList.txt'
+    fn_summary = 'Recognition/SimpleHTR/SimpleHTR/model/summary.json'
+    fn_corpus = 'Recognition/SimpleHTR/SimpleHTR/data/corpus.txt'
 
 
 def get_img_height() -> int:
@@ -164,7 +165,7 @@ def parse_args() -> SimpleNamespace:
     args.mode = 'infer'  # Siempre en 'infer'
     args.decoder = 'bestpath'  # Valor por defecto del decodificador
     args.batch_size = 100  # Tamaño de lote
-    args.data_dir = None  # No se especifica un directorio de datos
+    args.data_dir = False  # No se especifica un directorio de datos
     args.fast = False  # No carga muestras de LMDB por defecto
     args.line_mode = False  # No leer líneas de texto por defecto
     args.img_file = Path('../data/word.jpg')  # Ruta de la imagen predeterminada
@@ -230,7 +231,7 @@ def main():
         return infer(model, args.img_file)
     
 
-def run_inference(img_file: Path):
+def run_inference(images_file: Path):
     """Run inference on the provided image file."""
     args = parse_args()
 
@@ -241,4 +242,8 @@ def run_inference(img_file: Path):
 
     # Infer text on test image
     model = Model(char_list_from_file(), decoder_type, must_restore=True, dump=args.dump)
-    return infer(model, img_file)
+    simpleHTR_lines = []
+    for line in os.listdir(images_file):
+        simpleHTR_lines.append(infer(model, 'Recognition/Kraken/segmented_lines/' + line)[0])
+
+    return simpleHTR_lines
