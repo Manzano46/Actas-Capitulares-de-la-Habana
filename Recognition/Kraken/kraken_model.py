@@ -6,7 +6,7 @@ import sys
 from tkinter import Image
 import xml.etree.ElementTree as ET
 
-#from Recognition.SimpleHTR.SimpleHTR.src.main import run_inference
+from Recognition.SimpleHTR.SimpleHTR.src.main import run_inference
 
 
 def binarize_image(input_image, output_bw_image):
@@ -151,7 +151,7 @@ def get_transcription(input_image):
     simpleHTR_lines = []
 
     for line in os.listdir(output_lines_dir):
-        simpleHTR_lines.append(run_inference('../Kraken/segmented_lines/' + line)[0])
+        simpleHTR_lines.append(run_inference('Recognition/Kraken/segmented_lines/' + line)[0])
 
     # Paso 2: Segmentacion y OCR 
     run_ocr_on_image(output_bw_image, output_dir, ocr_models)

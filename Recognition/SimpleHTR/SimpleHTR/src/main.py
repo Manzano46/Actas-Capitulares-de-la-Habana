@@ -1,16 +1,15 @@
-import argparse
 import json
 from types import SimpleNamespace
 from typing import Tuple, List
 
 import cv2 
-import editdistance # type: ignore
-from path import Path # type: ignore
+import editdistance 
+from path import Path 
 
 from dataloader_iam import DataLoaderIAM, Batch
 from model import Model, DecoderType
 from preprocessor import Preprocessor
-from PIL import Image # type: ignore
+from PIL import Image 
 
 
 class FilePaths:
@@ -102,7 +101,7 @@ def train(model: Model,
             break
 
 
-def validate(model: Model, loader: DataLoaderIAM, line_mode: bool) -> Tuple[float, float]:
+#def validate(model: Model, loader: DataLoaderIAM, line_mode: bool) -> Tuple[float, float]:
     """Validates NN."""
     print('Validate NN')
     loader.validation_set()
