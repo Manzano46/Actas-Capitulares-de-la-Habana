@@ -6,6 +6,27 @@
 \usepackage[utf8]{inputenc} 
 \usepackage{graphicx}
 \usepackage{hyperref}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows}
+
+% Definición de estilos para los bloques y flechas
+\tikzstyle{startstop} = [
+  rectangle,
+  rounded corners,
+  minimum width=3cm,
+  minimum height=1cm,
+  text centered,
+  draw=black
+]
+\tikzstyle{process} = [
+  rectangle,
+  minimum width=3.2cm,
+  minimum height=1cm,
+  text centered,
+  draw=black
+]
+\tikzstyle{arrow} = [thick,->,>=stealth]
+
 
 \title{Actas Capitulares de la Habana} \author{Edian Broche Castro \\ Roger Fuentes Rodr\'iguez \\ Kevin Manzano Rodr\'iguez \\ Massiel Paz Otaño \\ Jackson Claudio Vera Pineda} \date{}
 
@@ -41,13 +62,68 @@ Nos encontramos con dos grandes problemas: falta de datos para llevar a cabo el 
 
 Debido a todo lo expuesto, el proyecto fue enfocado en una b\'usqueda exhaustiva de datos clasificados, un procesamiento minucioso de las im\'agenes, el uso de varios OCRs, y un posprocesamiento con diccionarios del idioma y LLM.
 
+\begin{figure}[h!]
+    \centering
+    \begin{tikzpicture}[node distance=2.0cm]
+    
+    % Bloques principales
+    \node (start) [startstop] {Inicio};
+    \node (clean) [process, below of=start] {Limpieza de Imágenes};
+    \node (segment) [process, below of=clean] {Segmentación de Líneas};
+    
+    % Tres OCR, dispuestos en forma triangular debajo de "segment"
+    \node (ocr1) [process, below left of=segment, xshift=-1.5cm] {OCR 1};
+    \node (ocr2) [process, below of=segment, yshift=-0.5cm] {OCR 2};
+    \node (ocr3) [process, below right of=segment, xshift=1.5cm] {OCR 3};
+    
+    % LLM debajo de los tres OCR
+    \node (llm) [process, below of=ocr2, yshift=-1.0cm] {LLM correcciones};
+
+    \node (llm2) [process, below of=llm, yshift=-1.0cm] {LLM combinaciones};
+
+    
+    % Flechas lineales
+    \draw [arrow] (start) -- (clean);
+    \draw [arrow] (clean) -- (segment);
+    
+    % Flechas desde segment a cada OCR
+    \draw [arrow] (segment) -- (ocr1);
+    \draw [arrow] (segment) -- (ocr2);
+    \draw [arrow] (segment) -- (ocr3);
+    
+    % Flechas desde cada OCR hasta el LLM
+    \draw [arrow] (ocr1) -- (llm);
+    \draw [arrow] (ocr2) -- (llm);
+    \draw [arrow] (ocr3) -- (llm);
+    \draw [arrow] (llm) -- (llm2);
+    
+    
+    
+    
+    \end{tikzpicture}
+    \caption{Diagrama de flujo con tres OCR que convergen en el LLM y un loop de retroalimentación.}
+    \label{fig:workflow}
+    \end{figure}
+
 \subsection{Recursos Utilizados}
 
 Como lenguaje principal se utilizó Python, debido a que brinda un f\'acil acceso a bibliotecas de procesamiento de texto e im\'agenes. Entre las utilizadas destacan: \textbf{Kraken}, \textbf{PIL}, \textbf{TensorFlow}, \textbf{Numpy}, \textbf{matplotlib}, \textbf{scipy}, \textbf{spacy}, \textbf{symspellpy}, \textbf{transformers}, \textbf{cv2}, \textbf{sam2}.
 
 El LLM utilizado fue \textbf{Gemini} por cuestiones económicas, y como diccionario de frequencias, \href{https://github.com/hermitdave/FrequencyWords/blob/master/content/2016/es/es_full.txt}{spanish frequency dictionary} (se consideró la creaci\'on de un diccionario a partir de un libro escrito por Luis XV, pero se tendr\'ian muy pocas palabras en comparaci\'on con el utilizado). El modelo de spacy empleado fue \textbf{es core news sm}.
 
+\textbf{Gemini} emplea una arquitectura tipo transformer basada en autoatención, similar a los enfoques modernos de modelos de lenguaje (\textbf{LLM}).  Además, se ha entrenado específicamente en un corpus mixto multilingüe que incluye textos en español. Aunque no es un modelo especializado en español antiguo, su mejor manejo del idioma y su facilidad de uso fueron factores decisivos.
+
+En contraste, \textbf{GPT 2} no solo se centra mayoritariamente en inglés, sino que su despliegue eficiente requiere infraestructuras y optimizaciones adicionales. \textbf{T5} (incluso en variantes como \textbf{T5 base} o \textbf{T5 large}) tiende a ser más pesado en cuanto a recursos computacionales, haciendo que su uso para posprocesamiento resulte más costoso.
+
+Por tanto, se optó por \textbf{Gemini} como un equilibrio entre rendimiento, soporte de español, punto clave en el proyecto al manejar un gran volumen de documentos y requerir un ciclo iterativo de corrección, donde la velocidad y la reducción de costos son fundamentales.
+
 Entre los datos recopilados inicialmente se utiliz\'o \href{https://zenodo.org/records/1490009/files/Rodrigo%20corpus%201.0.0.tar.gz?download=1}{dataset de rodrigo}. Este, es un dataset de Español antiguo, pero la tipograf\'ia no coincide, pues en este caso se utiliza letra g\'otica y nuestro (se necesita que sea procesal-cortesana). Luego, se encontr\'o todo un corpus de documentos en Español de años anteriores a 1900: \href{https://corpuscodea.es/}{CODEA} y con una estructura que se puede aprovechar. La mayor\'ia de los documentos presentan una triple representaci\'on: la imagen, una transcripción paleogr\'afica, y una presentanci\'on cr\'itica. El dataset inicialmente tiene alrededor de 4000 documentos, pero luego de filtrar por el tipo de letra requerida se reduce a 546, recalcando la dificultad de los datos.\\
+
+\textbf{SimpleHTR} se basa en una red neuronal recurrente (\textbf{LSTM}) que aplica \textbf{Connectionist Temporal Classification} (\textbf{CTC}) para alinear secuencias de caracteres sin necesidad de segmentarlas rígidamente. El modelo está entrenado en manuscritos latinos, cercanos en estructura al español antiguo, lo que lo hace relativamente apropiado para este tipo de documentos.
+
+\textbf{sinai sam rec v4 best} emplea una arquitectura \textbf{CRNN} (red neuronal combinada de convoluciones y \textbf{LSTM}), común en \textbf{Handwritten Text Recognition} para capturar tanto características espaciales como temporales. Está optimizado para manuscritos históricos, lo que facilita el reconocimiento de trazos irregulares o antiguos.
+
+\textbf{McCATMuS nfd nofix V1} también aprovecha un enfoque neuronal profundo (recurrente y/o convolucional), especializado en la transcripción de textos históricos con variaciones tipográficas. En concreto, se ha ajustado para manejar grafías antiguas y caracteres poco comunes, buscando reducir la tasa de error en documentos premodernos.
 
 AQUI FALTAN AGREGAR COSAS (resultado de cada OCR)\\
 
@@ -73,6 +149,19 @@ Luego de segmentada la imagen, esta es pasada a 3 OCRs distintos: \textbf{Simple
 En la \'ultima etapa, una vez procesadas la im\'agenes con las t\'ecnicas para mejorarlas y extraído el texto con los diferentes OCRs, se realiz\'o un posprocesamiento para mejorar la calidad de las transcripciones. Inspirados en el DataSet de CODEA, se brindó una transcripción cr\'itica del documento. Dada la naturaleza de los documentos y los errores inherentes al OCR, implementamos un pipeline para corregir errores ortogr\'aficos y ajustar la chorencia del texto, refinando la salida.\\
 
 Se utiliz\'o un modelo de lenguaje \textbf{Spacy} para segmentar el texto en tokens, para as\'i identificar palabras y elementos no alfab\'eticos. Cada token fue corregido utilizando \textit{SymSpell}, una herramienta basada en un diccionario de frecuencias, para separar correctamente palabras unidas y capitalizarlas. Tras  las correcciones, se utiliz\'o un modelo generativo, \textit{Gemini} para realizar un refinamiento sem\'antico y estil\'istico, corrigiendo as\'i el formato del texto y la gram\'atica, adem\'as de mantener el contexto hist\'orico del español antiguio. Tambi\'en se consideraron las diferentes salidas y se combinaron en una sola.\\
+
+Para unificar las tres salidas de OCR (SimpleHTR, sinai-sam-rec-v4-best y McCATMuS-nfd-nofix-V1) en una sola versión depurada, empleamos el mismo LLM (Gemini) con un enfoque de prompt colaborativo. Se le proporcionó como entrada las tres transcripciones generadas, por ejemplo en formato:
+
+Texto A: (Salida OCR 1 luego pasada al LLM)
+Texto B: (Salida OCR 2 luego pasada al LLM)
+Texto C: (Salida OCR 3 luego pasada al LLM)
+A continuación, se formuló la instrucción al LLM para que:
+
+Compare las tres versiones,
+Identifique coincidencias y divergencias,
+Corrija inconsistencias ortográficas o gramaticales,
+Genere una transcripción unificada que mantuviese la fidelidad al original histórico.
+Dado que el LLM ya contaba con un contexto de idioma español y cierta base en ortografía “antigua” (aunque no perfecta), pudo ponderar en cada fragmento cuál de las tres salidas era más coherente y acercarse a la mejor hipótesis conjunta. Este procedimiento automatiza la “votación” o ensamblaje de hipótesis sin necesidad de implementar manualmente reglas de combinación. El resultado final es un texto donde los errores u omisiones de un OCR se compensan con los aciertos de los otros, y se afina la coherencia mediante la capacidad generativa del modelo.
 
 A continuaci\'on un ejemplo del flujo:
 

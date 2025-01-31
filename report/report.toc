@@ -5,9 +5,9 @@
 \contentsline {section}{\numberline {2}Metodología}{2}{section.2}%
 \contentsline {subsection}{\numberline {2.1}Enfoque del Proyecto}{2}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Recursos Utilizados}{3}{subsection.2.2}%
-\contentsline {section}{\numberline {3}Resultados}{3}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Logros Principales}{3}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Desafíos Superados}{6}{subsection.3.2}%
-\contentsline {section}{\numberline {4}Conclusiones}{6}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Impacto del Proyecto}{6}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Recomendaciones para Futuras Implementaciones}{6}{subsection.4.2}%
+\contentsline {section}{\numberline {3}Resultados}{5}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Logros Principales}{5}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Desafíos Superados}{8}{subsection.3.2}%
+\contentsline {section}{\numberline {4}Conclusiones}{8}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Impacto del Proyecto}{8}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Recomendaciones para Futuras Implementaciones}{8}{subsection.4.2}%
