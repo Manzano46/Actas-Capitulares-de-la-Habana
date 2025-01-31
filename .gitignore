@@ -2,3 +2,5 @@ scrapper/Filtered_Documents
 scrapper/Documents
 scrapper/corpus_data.json
 .env
+.pyc
+__pycache__
