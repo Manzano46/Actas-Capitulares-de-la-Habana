@@ -28,7 +28,9 @@
 \tikzstyle{arrow} = [thick,->,>=stealth]
 
 
-\title{Actas Capitulares de la Habana} \author{Edian Broche Castro \\ Roger Fuentes Rodr\'iguez \\ Kevin Manzano Rodr\'iguez \\ Massiel Paz Otaño \\ Jackson Claudio Vera Pineda} \date{}
+\title{Actas Capitulares de la Habana} 
+\author{Edian Broche Castro \\ Roger Fuentes Rodr\'iguez \\ Kevin Manzano Rodr\'iguez \\ Massiel Paz Otaño \\ Jackson Claudio Vera Pineda} 
+\date{}
 
 \begin{document}
 
@@ -39,28 +41,30 @@
 \section{Introducción}
 \subsection{Objetivo del Proyecto} 
 
-Se tiene como objetivo desarrollar una propuesta de transcripción y procesamiento de un conjunto de imágenes, para su posterior uso como dataset en futuros proyectos para identificar entidades nombradas y crear grafos de conocimiento.  
+El objetivo de este proyecto es desarrollar una propuesta de transcripción y procesamiento de un conjunto de imágenes, para su posterior uso como dataset en futuros proyectos que identifiquen entidades nombradas y creen grafos de conocimiento.  
 
 \subsection{Contexto}
 
-Se tiene una serie documental perteneciente al fondo Ayuntamiento de La Habana del Archivo Histórico de la Oficina del Historiador de la Ciudad de la Habana.
+Se dispone de una serie documental perteneciente al fondo Ayuntamiento de La Habana del Archivo Histórico de la Oficina del Historiador de la Ciudad de la Habana.
 
-Esta serie documental se divide en dos grupos o subseries: los libros originales (1550 - 1898) y los libros trasuntados (1550 - 1809). Los primeros destacan por su riqueza de contenido y forma; los segundos por dejar constancia de la labor del Ayuntamiento para garantizar la perdurabilidad en el tiempo de este tipo documental, al ser copias realizadas en la segunda mitad del siglo XIX.
+Esta serie documental se divide en dos grupos o subseries: los libros originales (1550 - 1898) y los libros trasuntados (1550 - 1809). Los primeros destacan por su riqueza de contenido y forma; los segundos reflejan la labor del Ayuntamiento para garantizar la perdurabilidad de este tipo documental, al ser copias realizadas en la segunda mitad del siglo XIX.
 
-Las actas dejan la huella de una institución colonial y su devenir en el tiempo: el Ayuntamiento. Ellas recogen los planteamientos y discusiones de aquellos problemas que interesaron a los pobladores del lugar, ya fueran de índole económica, política o social; están reflejados los hechos más significativos de cada una de las épocas.
+Las actas dejan la huella de una institución colonial y su devenir en el tiempo: el Ayuntamiento. En ellas se recogen los planteamientos y discusiones de aquellos problemas que interesaban a los pobladores del lugar, ya fueran de índole económica, política o social, reflejando los hechos más significativos de cada época.
 
-Se tiene como corpus el tomo 1 digitalizado, el resto está en proceso de digitalización.
+Por el momento, se cuenta con el tomo 1 digitalizado, mientras que el resto se encuentra en proceso de digitalización.
 
-\section{Metodología} 
-\subsection{Enfoque del Proyecto} 
+\section{Metodología}
+\subsection{Enfoque del Proyecto}
 
-Existen m\'ultiples herramientas para la transcripción de documentos hist\'oricos entre estas destacan \href{https://www.transkribus.org/}{Transkribus} la cual fue recomendada por el cliente por su uso en anteriores trabajos, pero debido al deterioro de los documentos adem\'as del tipo espec\'ifico de tipograf\'ia los resultados no eran satisfactorios. Debido al bajo \textbf{accuracy} provisto por esta herramienta creada por especialistas en el tema podemos asumir que el problema es bastante complejo.
+Existen múltiples herramientas para la transcripción de documentos históricos. Entre estas, destaca \href{https://www.transkribus.org/}{Transkribus}, recomendada por el cliente por su uso en trabajos anteriores. No obstante, debido al deterioro de los documentos y al tipo específico de tipografía, los resultados no han sido satisfactorios. El bajo \textbf{accuracy} reportado por dicha herramienta, creada por especialistas en el tema, indica la complejidad del problema.
 
-\begin{center} \includegraphics[width=1.0\textwidth]{transkribus} \end{center}
+\begin{center} 
+\includegraphics[width=1.0\textwidth]{transkribus} 
+\end{center}
 
-Nos encontramos con dos grandes problemas: falta de datos para llevar a cabo el entrenamiento de alg\'un modelo, pues muchos de los datasets encontrados no poseen el idioma requerido (Español) ni el tipo de letra (procesal-cortesana); y una tarea que solo un ojo humano especializado podr\'ia realizar (tip\'ografo)
+En este proyecto se afrontan dos grandes dificultades: la falta de datos para entrenar un modelo que maneje español con tipografía \textit{procesal-cortesana}, y la complejidad propia de la tarea, que normalmente requiere la atención de un especialista (tipógrafo o paleógrafo).
 
-Debido a todo lo expuesto, el proyecto fue enfocado en una b\'usqueda exhaustiva de datos clasificados, un procesamiento minucioso de las im\'agenes, el uso de varios OCRs, y un posprocesamiento con diccionarios del idioma y LLM.
+Ante estas circunstancias, el proyecto se orienta hacia la búsqueda exhaustiva de datos clasificados, un procesamiento minucioso de las imágenes, el uso de varios OCR y un posprocesamiento apoyado en diccionarios del idioma y un LLM.
 
 \begin{figure}[h!]
     \centering
@@ -80,7 +84,6 @@ Debido a todo lo expuesto, el proyecto fue enfocado en una b\'usqueda exhaustiva
     \node (llm) [process, below of=ocr2, yshift=-1.0cm] {LLM correcciones};
 
     \node (llm2) [process, below of=llm, yshift=-1.0cm] {LLM combinaciones};
-
     
     % Flechas lineales
     \draw [arrow] (start) -- (clean);
@@ -96,74 +99,89 @@ Debido a todo lo expuesto, el proyecto fue enfocado en una b\'usqueda exhaustiva
     \draw [arrow] (ocr2) -- (llm);
     \draw [arrow] (ocr3) -- (llm);
     \draw [arrow] (llm) -- (llm2);
-    
-    
-    
-    
+
     \end{tikzpicture}
-    \caption{Diagrama de flujo con tres OCR que convergen en el LLM y un loop de retroalimentación.}
+    \caption{Diagrama de flujo con tres OCR que convergen en el LLM y un proceso de combinaciones.}
     \label{fig:workflow}
-    \end{figure}
+\end{figure}
 
 \subsection{Recursos Utilizados}
 
-Como lenguaje principal se utilizó Python, debido a que brinda un f\'acil acceso a bibliotecas de procesamiento de texto e im\'agenes. Entre las utilizadas destacan: \textbf{Kraken}, \textbf{PIL}, \textbf{TensorFlow}, \textbf{Numpy}, \textbf{matplotlib}, \textbf{scipy}, \textbf{spacy}, \textbf{symspellpy}, \textbf{transformers}, \textbf{cv2}, \textbf{sam2}.
+Se ha elegido Python como lenguaje principal por su facilidad de acceso a bibliotecas de procesamiento de texto e imágenes. Entre las utilizadas destacan: \texttt{Kraken}, \texttt{PIL}, \texttt{TensorFlow}, \texttt{Numpy}, \texttt{matplotlib}, \texttt{scipy}, \texttt{spaCy}, \texttt{symspellpy}, \texttt{transformers}, \texttt{cv2} y \texttt{sam2}.
 
-El LLM utilizado fue \textbf{Gemini} por cuestiones económicas, y como diccionario de frequencias, \href{https://github.com/hermitdave/FrequencyWords/blob/master/content/2016/es/es_full.txt}{spanish frequency dictionary} (se consideró la creaci\'on de un diccionario a partir de un libro escrito por Luis XV, pero se tendr\'ian muy pocas palabras en comparaci\'on con el utilizado). El modelo de spacy empleado fue \textbf{es core news sm}.
+El LLM utilizado es \texttt{Gemini}, principalmente por motivos económicos. Como diccionario de frecuencias se empleó \href{https://github.com/hermitdave/FrequencyWords/blob/master/content/2016/es/es_full.txt}{spanish frequency dictionary}, pues la creación de un diccionario a partir de obras antiguas resultaba muy limitada. El modelo de \texttt{spaCy} usado fue \texttt{es\_core\_news\_sm}.
 
-\textbf{Gemini} emplea una arquitectura tipo transformer basada en autoatención, similar a los enfoques modernos de modelos de lenguaje (\textbf{LLM}).  Además, se ha entrenado específicamente en un corpus mixto multilingüe que incluye textos en español. Aunque no es un modelo especializado en español antiguo, su mejor manejo del idioma y su facilidad de uso fueron factores decisivos.
+\texttt{Gemini} adopta una arquitectura \textit{transformer} basada en autoatención, de forma similar a los LLM modernos. Además, se ha entrenado en un corpus mixto multilingüe que incluye español. Aunque no se especializa en español antiguo, su sólido manejo del idioma y su facilidad de uso resultaron decisivos.
 
-En contraste, \textbf{GPT 2} no solo se centra mayoritariamente en inglés, sino que su despliegue eficiente requiere infraestructuras y optimizaciones adicionales. \textbf{T5} (incluso en variantes como \textbf{T5 base} o \textbf{T5 large}) tiende a ser más pesado en cuanto a recursos computacionales, haciendo que su uso para posprocesamiento resulte más costoso.
+Por contraste, \texttt{GPT-2} se centra mayoritariamente en inglés y requiere optimizaciones adicionales; \texttt{T5} (incluso en sus variantes \texttt{base} o \texttt{large}) demanda más recursos computacionales, encareciendo su uso continuo.
 
-Por tanto, se optó por \textbf{Gemini} como un equilibrio entre rendimiento, soporte de español, punto clave en el proyecto al manejar un gran volumen de documentos y requerir un ciclo iterativo de corrección, donde la velocidad y la reducción de costos son fundamentales.
+Por ello, se optó por \texttt{Gemini} como un equilibrio entre rendimiento y compatibilidad con el español, un factor esencial al manejar gran volumen de documentos y requerir un ciclo iterativo de corrección.
 
-Entre los datos recopilados inicialmente se utiliz\'o \href{https://zenodo.org/records/1490009/files/Rodrigo%20corpus%201.0.0.tar.gz?download=1}{dataset de rodrigo}. Este, es un dataset de Español antiguo, pero la tipograf\'ia no coincide, pues en este caso se utiliza letra g\'otica y nuestro (se necesita que sea procesal-cortesana). Luego, se encontr\'o todo un corpus de documentos en Español de años anteriores a 1900: \href{https://corpuscodea.es/}{CODEA} y con una estructura que se puede aprovechar. La mayor\'ia de los documentos presentan una triple representaci\'on: la imagen, una transcripción paleogr\'afica, y una presentanci\'on cr\'itica. El dataset inicialmente tiene alrededor de 4000 documentos, pero luego de filtrar por el tipo de letra requerida se reduce a 546, recalcando la dificultad de los datos.\\
+Para la recopilación de datos se comenzó con el \href{https://zenodo.org/records/1490009/files/Rodrigo%20corpus%201.0.0.tar.gz?download=1}{dataset de Rodrigo}, que abarca español antiguo pero tipografía gótica (no procesal-cortesana). Luego se recurrió al corpus \href{https://corpuscodea.es/}{CODEA}, con documentos anteriores a 1900 que incluyen imágenes, transcripciones paleográficas y versiones críticas. Tras filtrar por el tipo de letra requerida, el total se redujo a 546 documentos, lo cual demuestra la dificultad de obtener datos adecuados.\\
 
-\textbf{SimpleHTR} se basa en una red neuronal recurrente (\textbf{LSTM}) que aplica \textbf{Connectionist Temporal Classification} (\textbf{CTC}) para alinear secuencias de caracteres sin necesidad de segmentarlas rígidamente. El modelo está entrenado en manuscritos latinos, cercanos en estructura al español antiguo, lo que lo hace relativamente apropiado para este tipo de documentos.
+\texttt{SimpleHTR} se basa en una red neuronal recurrente (LSTM) con \textit{Connectionist Temporal Classification} (CTC) para alinear secuencias de caracteres sin segmentación estricta. Entrenado en manuscritos latinos, ofrece una estructura cercana al español antiguo.
 
-\textbf{sinai sam rec v4 best} emplea una arquitectura \textbf{CRNN} (red neuronal combinada de convoluciones y \textbf{LSTM}), común en \textbf{Handwritten Text Recognition} para capturar tanto características espaciales como temporales. Está optimizado para manuscritos históricos, lo que facilita el reconocimiento de trazos irregulares o antiguos.
+\texttt{sinai-sam-rec-v4-best} emplea una arquitectura CRNN (red neuronal de convolución y LSTM), utilizada frecuentemente en \textit{Handwritten Text Recognition} al capturar rasgos tanto espaciales como temporales. Está optimizado para manuscritos históricos, útil ante trazos irregulares.
 
-\textbf{McCATMuS nfd nofix V1} también aprovecha un enfoque neuronal profundo (recurrente y/o convolucional), especializado en la transcripción de textos históricos con variaciones tipográficas. En concreto, se ha ajustado para manejar grafías antiguas y caracteres poco comunes, buscando reducir la tasa de error en documentos premodernos.
+\texttt{McCATMuS-nfd-nofix-V1} también se basa en métodos neuronales profundos, con foco en textos históricos de variada tipografía. En particular, se ajusta a grafías antiguas y caracteres poco comunes, reduciendo la tasa de error en documentos premodernos.
 
-AQUI FALTAN AGREGAR COSAS (resultado de cada OCR)\\
+\textbf{AQUÍ FALTAN AGREGAR RESULTADOS} (comparación de cada OCR)\\
 
-\section{Resultados} 
-\subsection{Logros Principales} 
+\section{Resultados}
+\subsection{Logros Principales}
 
-En la primera etapa del producto se logra una mejora considerable en la imagen, haciendo uso de un pipeline para limpiar las im\'agenes, llev\'andola a escala de grises, y aplicando t\'ecnicas de filtrado como filtro Gaussiano, para disminuir el ruido general de la imagen, ecualización de histograma para mejorar el contraste de la imagen y resaltar la letra en los documentos, y operaciones morfológicas de erosión y dilatación para mejorar el trazo en los documentos. Finalizando con una binarización de la biblioteca \textit{Kraken}, con modelos basados en redes neuronales profundas y binarización adaptativa, y entrenados con documentos históricos. La figura \ref{fig:tresfotosmodelo} muestra el resultado de una foto pasando por las etapas claves del procesamiento.\\
+En la primera etapa se logra una mejora considerable de las imágenes, aplicando un pipeline de limpieza que las convierte a escala de grises e incluye varias técnicas de filtrado (filtro gaussiano para reducir ruido, ecualización de histograma para mejorar contraste, y operaciones morfológicas de erosión y dilatación para resaltar los trazos). Finalmente, se emplea la binarización de \texttt{Kraken}, con redes neuronales profundas y binarización adaptativa entrenada en documentos históricos. En la figura \ref{fig:tresfotosmodelo} se observa la evolución desde la imagen original hasta la binarizada.
 
-Para el tratado de las manchas debido a la longevidad de los documentos(son amarillos) se implement\'o un conversor personalizado de la imagen de color a escala de grises, ponderando las componentes rgb de forma diferente a lo usual (que es el promedio);$r + g$ es el equivalente al amarillo por lo que se ponderó $r$ y $g$ en menor grado variando los par\'ametros para tratar de contrarrestar el ruido.
+Para tratar las manchas producidas por la antigüedad (tonos amarillos), se implementa un conversor personalizado a escala de grises que pondera \textit{r} y \textit{g} de forma distinta a la habitual, atenuando así el efecto amarillo.
 
-\begin{figure}[h] \centering \begin{minipage}{1.0\textwidth} \includegraphics[width=0.32\textwidth]{original.jpg} \includegraphics[width=0.32\textwidth]{morph.jpg} \includegraphics[width=0.32\textwidth]{kraken.jpg} \caption{Original, en escala de grises con letra reconstruida, imagen binarizada} \label{fig:tresfotosmodelo} \end{minipage} \end{figure}
+\begin{figure}[h] 
+\centering 
+\begin{minipage}{1.0\textwidth} 
+\includegraphics[width=0.32\textwidth]{original.jpg} 
+\includegraphics[width=0.32\textwidth]{morph.jpg} 
+\includegraphics[width=0.32\textwidth]{kraken.jpg} 
+\caption{Original, en escala de grises con letra reforzada, e imagen binarizada.} 
+\label{fig:tresfotosmodelo} 
+\end{minipage} 
+\end{figure}
 
-Por otra parte, se intentó el uso de algoritmos de detecci\'on de bordes como \textit{sobel}, \textit{Canny}, y \textit{laplaciano} , el \'ultimo no funcionó bien porque depende de la segunda derivada de los cambios pixel a pixel, y esto en documentos de texto, donde el documento es blanco y las letras son negras, sumado a que los cambios de papel tinta son muy abruptos, indefine la derivada y causó malos resultados. En los otros dos casos el ajuste fue aceptable en algunos casos como se muestra en la figura \ref{fig:tresfotos}, pero no así en la mayoría de los documentos.\\
+También se evalúan algoritmos de detección de bordes como \textit{sobel}, \textit{Canny} y \textit{laplaciano}. El último no funciona bien por su sensibilidad a cambios drásticos pixel a pixel (papel vs. tinta). Sobel y Canny muestran algunos buenos resultados en ciertos documentos, como se aprecia en la figura \ref{fig:tresfotos}, pero no de modo uniforme.
 
-\begin{figure}[h] \centering \begin{minipage}{1.0\textwidth} \includegraphics[width=0.32\textwidth]{CODEA-0205_2v.jpg} \includegraphics[width=0.32\textwidth]{canny_image_aftergauss_eq2.png} \includegraphics[width=0.32\textwidth]{photo_2025-01-27_21-34-01.jpg} \caption{Original, detecci\'on de bordes, operaciones morfol\'ogicas de izquieda a derecha} \label{fig:tresfotos} \end{minipage} \end{figure}
+\begin{figure}[h] 
+\centering 
+\begin{minipage}{1.0\textwidth} 
+\includegraphics[width=0.32\textwidth]{CODEA-0205_2v.jpg} 
+\includegraphics[width=0.32\textwidth]{canny_image_aftergauss_eq2.png} 
+\includegraphics[width=0.32\textwidth]{photo_2025-01-27_21-34-01.jpg} 
+\caption{Original, detección de bordes y operaciones morfológicas (de izquierda a derecha).} 
+\label{fig:tresfotos} 
+\end{minipage} 
+\end{figure}
 
-Se intent\'o adem\'as el uso de filtros de mediana, para aminorar el ruido \textit{sal y pimienta}, as\'i como filtro bilateral, sin mejor\'ias significativas en los resultados. Se probó la binarizaci\'on de la imagen, definiendo un umbral de intensidad donde si $x > threshold$ se toma como letra y en caso contrario como fondo, pero en zonas de sombra, probando con diferentes valores para threshold no se detecta bien la escritura, tambi\'en se intentó binarizaci\'on adaptativa convencional pero se recuperaba mucho ruido y manchas en el documento.\\
+También se prueba el filtrado mediano para reducir el ruido “sal y pimienta” y el filtrado bilateral, sin mejoras significativas. La binarización mediante un umbral fijo no detecta bien la letra en zonas de sombra, y la binarización adaptativa convencional recupera demasiado ruido.\\
 
+Tras la binarización, las imágenes pasan por dos procesos de segmentación: uno interno de \texttt{Kraken} y otro basado en proyección de histogramas. El primero ofrece resultados superiores. Para segmentaciones manuales se investiga \texttt{SAM2}, sin lograr automatización completa. Dicha herramienta es efectiva con líneas rectas, algo que no se cumple en manuscritos antiguos.\\
 
-Luego de binarizadas las im\'agenes son pasadas por dos procesos de segmentación, uno que brinda \textbf{Kraken} y una proyecci\'on de histogramas (se sugiere utilizar la primera pues otorga mejores resultados), y en caso de un proceso manual ser\'ia mejor utilizar \textbf{SAM2}, pero no logramos automatizar el proceso. Sin embargo, esta última herramienta, aunque poderosa, no ofrece resultados tan satisfactorios, pues en el momento de encerrar manualmente en \textit{cajas} a cada línea del documento, es necesario que estas (las líneas) sean lo más rectas posibles; lo cual se hace complejo de encontrar dado que se trata de documentos manuscritos. \\
-Luego de segmentada la imagen, esta es pasada a 3 OCRs distintos: \textbf{SimpleHTR}, \textbf{sinai-sam-rec-v4-best}, \textbf{McCATMuS-nfd-nofix-V1}, los cuales son modelos especializados en \textbf{handrwitten recognition}. Los dos \'ultimos provienen de Kraken. Cada uno tuvo que tratarse de forma diferente dado que el primero necesita la imagen segmentada, y los otros solamente los \textbf{bounding box}.\\
+Finalmente, la imagen segmentada se procesa con tres OCR distintos: \texttt{SimpleHTR}, \texttt{sinai-sam-rec-v4-best} y \texttt{McCATMuS-nfd-nofix-V1}. Los dos últimos aprovechan \texttt{Kraken}, mientras que \texttt{SimpleHTR} requiere una segmentación previa en líneas.
 
-En la \'ultima etapa, una vez procesadas la im\'agenes con las t\'ecnicas para mejorarlas y extraído el texto con los diferentes OCRs, se realiz\'o un posprocesamiento para mejorar la calidad de las transcripciones. Inspirados en el DataSet de CODEA, se brindó una transcripción cr\'itica del documento. Dada la naturaleza de los documentos y los errores inherentes al OCR, implementamos un pipeline para corregir errores ortogr\'aficos y ajustar la chorencia del texto, refinando la salida.\\
+\subsection{Posprocesamiento y Combinación}
 
-Se utiliz\'o un modelo de lenguaje \textbf{Spacy} para segmentar el texto en tokens, para as\'i identificar palabras y elementos no alfab\'eticos. Cada token fue corregido utilizando \textit{SymSpell}, una herramienta basada en un diccionario de frecuencias, para separar correctamente palabras unidas y capitalizarlas. Tras  las correcciones, se utiliz\'o un modelo generativo, \textit{Gemini} para realizar un refinamiento sem\'antico y estil\'istico, corrigiendo as\'i el formato del texto y la gram\'atica, adem\'as de mantener el contexto hist\'orico del español antiguio. Tambi\'en se consideraron las diferentes salidas y se combinaron en una sola.\\
+Después de extraer el texto con los distintos OCR, se procede a un posprocesamiento para mejorar la fidelidad de las transcripciones. Inspirándose en el dataset de CODEA, se adopta una transcripción crítica de los documentos. Dada la complejidad de los manuscritos y los errores de OCR, se implementa un pipeline que corrige errores ortográficos y refina la coherencia.
 
-Para unificar las tres salidas de OCR (SimpleHTR, sinai-sam-rec-v4-best y McCATMuS-nfd-nofix-V1) en una sola versión depurada, empleamos el mismo LLM (Gemini) con un enfoque de prompt colaborativo. Se le proporcionó como entrada las tres transcripciones generadas, por ejemplo en formato:
+En primer lugar, se usa \texttt{spaCy} para segmentar el texto en \textit{tokens}, aislando palabras y símbolos no alfabéticos. Cada palabra se corrige con \texttt{SymSpell}, que se apoya en un diccionario de frecuencias para separar palabras unidas y reponer grafías correctas. Luego, un modelo generativo (\texttt{Gemini}) refina la semántica y el estilo, ayudando a mantener un tono cercano al español antiguo.
 
-Texto A: (Salida OCR 1 luego pasada al LLM)
-Texto B: (Salida OCR 2 luego pasada al LLM)
-Texto C: (Salida OCR 3 luego pasada al LLM)
-A continuación, se formuló la instrucción al LLM para que:
+\textbf{Combinación de OCR con el LLM.}  
+Para unificar las salidas de los tres OCR (\texttt{SimpleHTR}, \texttt{sinai-sam-rec-v4-best} y \texttt{McCATMuS-nfd-nofix-V1}), se emplea \texttt{Gemini} con un enfoque de “prompt colaborativo”. Este recibe:
 
-Compare las tres versiones,
-Identifique coincidencias y divergencias,
-Corrija inconsistencias ortográficas o gramaticales,
-Genere una transcripción unificada que mantuviese la fidelidad al original histórico.
-Dado que el LLM ya contaba con un contexto de idioma español y cierta base en ortografía “antigua” (aunque no perfecta), pudo ponderar en cada fragmento cuál de las tres salidas era más coherente y acercarse a la mejor hipótesis conjunta. Este procedimiento automatiza la “votación” o ensamblaje de hipótesis sin necesidad de implementar manualmente reglas de combinación. El resultado final es un texto donde los errores u omisiones de un OCR se compensan con los aciertos de los otros, y se afina la coherencia mediante la capacidad generativa del modelo.
+\begin{itemize}
+\item Texto A: salida del OCR 1  
+\item Texto B: salida del OCR 2  
+\item Texto C: salida del OCR 3
+\end{itemize}
 
-A continuaci\'on un ejemplo del flujo:
+Se le indica que compare las tres versiones, identifique coincidencias y divergencias, corrija inconsistencias ortográficas o gramaticales, y produzca una transcripción unificada fiel al original histórico. Gracias a la base en español y la capacidad generativa, \texttt{Gemini} pondera cada fragmento, compensando errores de un OCR con aciertos de otro.
+
+Por ejemplo:
 
 \begin{enumerate}
     \item Essta es una prueva de ectraccion de teexto. Connoscida cosa sea a todos los queesta carta uieren como yo don Fferrando por la gracia de dios hey de Castiella
@@ -173,17 +191,18 @@ A continuaci\'on un ejemplo del flujo:
 
 \subsection{Desafíos Superados}
 
-En el momento de la segmentación jug\'o un papel fundamental la b\'usqueda de par\'ametros adecuados para que tuviera mejor rendimiento los procesos posteriores.\\
+Uno de los principales retos se observa en la segmentación, que precisa ajustar parámetros para optimizar los siguientes pasos. 
 
-Entre los desaf\'ios superados en el posprocesamiento nos encontramos con la conservaci\'on del español antiguo, pues no hallamos un diccionario de frecuencias de esa época; sin embargo, solventamos este problema con el LLM utilizado, la obtención del mismo fue compleja, pues se probaron con otros, por ejemplo: \textbf{GPT-2}, \textbf{"google/mt5-small"}, \textbf{flax-community/spanish-t5-small}, pero los resultados fueron p\'esimos en los tres casos, adem\'as de que no ten\'iamos un API c\'omoda y los modelos eran bastantes pesados, por lo que optamos por \textbf{Gemini}.
+Además, la conservación del español antiguo complica el posprocesamiento. Al no existir un diccionario de frecuencias específico, se recurre a un LLM que, si bien no es perfecto, ofrece una aproximación plausible. Se evalúan \texttt{GPT-2}, \texttt{google/mt5-small} y \texttt{flax-community/spanish-t5-small}, pero fracasan por limitaciones de recursos o mala adaptación al dominio. Finalmente, \texttt{Gemini} cumple con la exigencia, equilibrando precisión y costo de uso.
 
-\section{Conclusiones} 
-\subsection{Impacto del Proyecto} 
+\section{Conclusiones}
+\subsection{Impacto del Proyecto}
 
-El proyecto planea ser utilizado para la transcripción de documentos hist\'oricos archivados en la oficina del historiador, inicialmente se tiene un solo tomo, pero luego de terminar el proceso de digitalizaci\'on de los siguientes tomos ya se podr\'a directamente pasar a transcripci\'on para su posterior an\'alisis. También puede utilizarse el resultado del mismo para convertirlo en producto reutilizable con el objetivo de crear alguna herramienta para encontrar entidades, y poder realizar búsqueda de interés, para encontrar información valiosa en estos documentos. 
+Este proyecto se concibe para la transcripción de documentos históricos resguardados en la Oficina del Historiador. Inicialmente se cuenta con un tomo digitalizado, y a medida que se digitalicen los siguientes, se podrán aplicar directamente estas técnicas de transcripción y análisis. Asimismo, los resultados pueden servir de base para productos reutilizables, como herramientas que busquen entidades o información valiosa en estos manuscritos.
 
 \subsection{Recomendaciones para Futuras Implementaciones}
-Se recomienda indagar sobre la posibilidad de usar el algoritmo \textit{DBSCAN} para la segmentación en este tipo de documentos, debido a la naturaleza curva e irregular de las líneas en documentos manuscritos con tipografía\textit{procesal-cortesana}. Luego, seguir utilizando \textbf{SimpleHTR}, pero se recomienda tener un dataset para hacerle un \textbf{fine tunning} al igual que al modelo generativo que no es espec\'ificamente para esta tarea. Se pudiera volver a utilizar \textbf{GPT-2} pero entrenado en esta cuesti\'on y debería de obtener buenos resultados.
+
+Se sugiere explorar el uso de \textit{DBSCAN} para la segmentación de líneas en manuscritos curvos e irregulares, propios de la tipografía \textit{procesal-cortesana}. También se recomienda entrenar o afinar (\textit{fine-tuning}) \texttt{SimpleHTR} y el modelo generativo para mejorar la precisión en español antiguo. Por último, \texttt{GPT-2} podría reutilizarse entrenándose específicamente en este dominio, lo que potencialmente derivaría en buenos resultados.
 
 \bibliographystyle{plain} 
 \bibliography{referencias}
@@ -191,7 +210,7 @@ Se recomienda indagar sobre la posibilidad de usar el algoritmo \textit{DBSCAN} 
 \begin{thebibliography}{9}
 
     \bibitem{Avila2020corpus}
-    Vicente Marcet Rodriguez
+    Vicente Marcet Rodriguez,
     \textit{El copus de documentos de \'Avila del Hispanic Museum and Library (siglos XV y XVI). Descripci\'on y an\'alisis paleogr\'afico y gr\'afico-fonol\'ogico.}
 
     \bibitem{granet2018transfer}
@@ -210,26 +229,25 @@ Se recomienda indagar sobre la posibilidad de usar el algoritmo \textit{DBSCAN} 
     Journal of Imaging, vol. 4, no. 15, 2018.
     
     \bibitem{survey_post_ocr}
-    THI TUYET HAI NGUYEN, ADAM JATOWT, MICKAEL COUSTATY and ANTOINE DOUCET
+    THI TUYET HAI NGUYEN, ADAM JATOWT, MICKAEL COUSTATY and ANTOINE DOUCET,
     \textit{Survey of Post-OCR Processing Approaches}, 
     2025.
 
     \bibitem{LightweightOCR}
     Yuning Du, Chenxia Li, Ruoyu Guo, Xiaoting Yin, Weiwei Liu,
-Jun Zhou, Yifan Bai, Zilin Yu, Yehua Yang, Qingqing Dang, Haoshuang Wang
+    Jun Zhou, Yifan Bai, Zilin Yu, Yehua Yang, Qingqing Dang, Haoshuang Wang,
     \textit{PP-OCR: A Practical Ultra Lightweight OCR System}
     
     \bibitem{IJARSCT2023extraction}
-    Prof. Anuradha Thorat, Mayur Zagade, Shivani More, Manish Pasalkar, Anand Narute
+    Prof. Anuradha Thorat, Mayur Zagade, Shivani More, Manish Pasalkar, Anand Narute,
     \textit{Research Paper on Text Extraction using OCR}, 
     IJARSCT, Volume 3, Issue 14, May 2023
 
     \bibitem{IJIREM2022extraction}
-    Ojas Kumar Barawal, and Dr Yojna Arora
-    \textit{Text Extraction from Image }, 
+    Ojas Kumar Barawal, and Dr Yojna Arora,
+    \textit{Text Extraction from Image}, 
     IJIREM, Volume 9, Issue 3, May 2022
 
 \end{thebibliography}
 
-
-\end{document} $
+\end{document}

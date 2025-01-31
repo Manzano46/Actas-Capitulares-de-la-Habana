@@ -253,6 +253,7 @@ INPUT ./transkribus.png
 INPUT ./transkribus.png
 INPUT ./transkribus.png
 INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
+INPUT c:/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm
 INPUT ./original.jpg
 INPUT ./original.jpg
 INPUT ./original.jpg
@@ -289,7 +290,7 @@ INPUT report.bbl
 INPUT report.aux
 INPUT ./report.out
 INPUT ./report.out
-INPUT c:/Users/Admin/.texlive2024/texmf-var/fonts/pk/ljfour/public/cm/cmmi10.657pk
+INPUT c:/Users/Admin/.texlive2024/texmf-var/fonts/pk/ljfour/public/cm/cmtt10.657pk
 INPUT c:/Users/Admin/.texlive2024/texmf-var/fonts/pk/ljfour/public/cm/cmti10.657pk
 INPUT c:/Users/Admin/.texlive2024/texmf-var/fonts/pk/ljfour/public/cm/cmbx12.600pk
 INPUT c:/Users/Admin/.texlive2024/texmf-var/fonts/pk/ljfour/public/cm/cmr10.657pk

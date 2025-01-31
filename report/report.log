@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.10)  30 JAN 2025 19:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.10)  30 JAN 2025 20:04
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -384,26 +384,26 @@ LaTeX Info: Redefining \% on input line 11.
 )
 \openout1 = `report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Info: Redefining \. on input line 33.
-LaTeX Info: Redefining \% on input line 33.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Info: Redefining \. on input line 35.
+LaTeX Info: Redefining \% on input line 35.
  (c:/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count300
@@ -423,17 +423,17 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (c:/texlive/2024/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring OFF on input line 33.
+Package hyperref Info: Link coloring OFF on input line 35.
  (./report.out) (./report.out)
 \@outlinefile=\write4
 \openout4 = `report.out'.
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 36.
+(Font)              <12> on input line 38.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 36.
+(Font)              <8> on input line 38.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 36.
+(Font)              <6> on input line 38.
  (./report.toc
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
@@ -449,17 +449,17 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
 pdfTeX warning: pdflatex.exe (file pdftex.map): cannot open font map file
 ]
-<transkribus.png, id=80, 1070.8005pt x 378.81525pt>
+<transkribus.png, id=85, 1070.8005pt x 378.81525pt>
 File: transkribus.png Graphic file (type png)
 <use transkribus.png>
-Package pdftex.def Info: transkribus.png  used on input line 59.
+Package pdftex.def Info: transkribus.png  used on input line 62.
 (pdftex.def)             Requested size: 360.0pt x 127.35619pt.
- [2 <./transkribus.png>] [3]
-Overfull \hbox (7.28148pt too wide) in paragraph at lines 114--115
-\OT1/cmr/m/n/10.95 ci^^Son, si-mi-lar a los en-fo-ques mo-der-nos de mo-de-los de len-gua-je (\OT1/cmr/bx/n/10.95 LLM\OT1/cmr/m/n/10.95 ). Adem^^Sas,
+
+Overfull \hbox (3.05077pt too wide) in paragraph at lines 67--68
+[]\OT1/cmr/m/n/10.95 Ante es-tas cir-cuns-tan-cias, el pro-yec-to se orien-ta ha-cia la b^^Susque-da exhaus-
  []
 
-
+[2 <./transkribus.png>] [3]
 Underfull \hbox (badness 10000) in paragraph at lines 120--121
 
  []
@@ -470,76 +470,60 @@ Underfull \hbox (badness 10000) in paragraph at lines 128--129
  []
 
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 133--134
-
- []
-
-<original.jpg, id=100, 601.0455pt x 770.88pt>
+<original.jpg, id=107, 601.0455pt x 770.88pt>
 File: original.jpg Graphic file (type jpg)
 <use original.jpg>
-Package pdftex.def Info: original.jpg  used on input line 137.
+Package pdftex.def Info: original.jpg  used on input line 140.
 (pdftex.def)             Requested size: 115.20264pt x 147.75085pt.
-<morph.jpg, id=101, 568.524pt x 770.88pt>
+<morph.jpg, id=108, 568.524pt x 770.88pt>
 File: morph.jpg Graphic file (type jpg)
 <use morph.jpg>
-Package pdftex.def Info: morph.jpg  used on input line 137.
+Package pdftex.def Info: morph.jpg  used on input line 141.
 (pdftex.def)             Requested size: 115.20264pt x 156.2082pt.
-<kraken.jpg, id=102, 568.524pt x 770.88pt>
+<kraken.jpg, id=109, 568.524pt x 770.88pt>
 File: kraken.jpg Graphic file (type jpg)
 <use kraken.jpg>
-Package pdftex.def Info: kraken.jpg  used on input line 137.
+Package pdftex.def Info: kraken.jpg  used on input line 142.
 (pdftex.def)             Requested size: 115.20264pt x 156.2082pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 139--140
-
- []
-
-[5 <./original.jpg> <./morph.jpg> <./kraken.jpg>]
 <CODEA-0205_2v.jpg, id=111, 1204.5pt x 1606.0pt>
 File: CODEA-0205_2v.jpg Graphic file (type jpg)
 <use CODEA-0205_2v.jpg>
-Package pdftex.def Info: CODEA-0205_2v.jpg  used on input line 141.
+Package pdftex.def Info: CODEA-0205_2v.jpg  used on input line 153.
 (pdftex.def)             Requested size: 115.20264pt x 153.60081pt.
 <canny_image_aftergauss_eq2.png, id=112, 1204.5pt x 1606.0pt>
 File: canny_image_aftergauss_eq2.png Graphic file (type png)
 <use canny_image_aftergauss_eq2.png>
-Package pdftex.def Info: canny_image_aftergauss_eq2.png  used on input line 141.
+Package pdftex.def Info: canny_image_aftergauss_eq2.png  used on input line 154.
 (pdftex.def)             Requested size: 115.20264pt x 153.60081pt.
 <photo_2025-01-27_21-34-01.jpg, id=113, 963.6pt x 1284.8pt>
 File: photo_2025-01-27_21-34-01.jpg Graphic file (type jpg)
 <use photo_2025-01-27_21-34-01.jpg>
-Package pdftex.def Info: photo_2025-01-27_21-34-01.jpg  used on input line 141.
+Package pdftex.def Info: photo_2025-01-27_21-34-01.jpg  used on input line 155.
 (pdftex.def)             Requested size: 115.20264pt x 153.60081pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 143--144
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 161--162
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 146--148
+Underfull \hbox (badness 10000) in paragraph at lines 163--164
 
  []
 
-[6 <./CODEA-0205_2v.jpg> <./canny_image_aftergauss_eq2.png (PNG copy)> <./photo_2025-01-27_21-34-01.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 149--150
-
+[5 <./original.jpg> <./morph.jpg> <./kraken.jpg>]
+Overfull \hbox (8.09824pt too wide) in paragraph at lines 173--175
+\OT1/cmr/m/n/10.95 tres OCR (\OT1/cmtt/m/n/10.95 SimpleHTR\OT1/cmr/m/n/10.95 , \OT1/cmtt/m/n/10.95 sinai-sam-rec-v4-best \OT1/cmr/m/n/10.95 y \OT1/cmtt/m/n/10.95 McCATMuS-nfd-nofix-V1\OT1/cmr/m/n/10.95 ),
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 151--152
-
- []
-
-[7]
-Underfull \hbox (badness 10000) in paragraph at lines 176--177
-
- []
-
-(./report.bbl
+[6 <./CODEA-0205_2v.jpg> <./canny_image_aftergauss_eq2.png (PNG copy)> <./photo_2025-01-27_21-34-01.jpg>] (./report.bbl [7]
 
 LaTeX Warning: Empty `thebibliography' environment on input line 3.
 
-) [8] [9] (./report.aux
+) [8] (./report.aux
 LaTeX Info: Redefining \. on input line 11.
 LaTeX Info: Redefining \% on input line 11.
 )
@@ -548,21 +532,21 @@ LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-04-11>
  ***********
 Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: B87DF2F1F63F1E29B9D0ADD34D398164;1746.
+(rerunfilecheck)             Checksum: C2EC26EA7592C4F2924893069F039006;1963.
  ) 
 Here is how much of TeX's memory you used:
- 21486 strings out of 474050
- 409979 string characters out of 5746298
- 1939754 words of memory out of 5000000
- 43555 multiletter control sequences out of 15000+600000
- 563586 words of font info for 54 fonts, out of 8000000 for 9000
+ 21482 strings out of 474050
+ 409959 string characters out of 5746298
+ 1938754 words of memory out of 5000000
+ 43550 multiletter control sequences out of 15000+600000
+ 563754 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,8n,93p,927b,787s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <c:/Users/Admin/.texlive2024/texmf-var/fonts/pk/ljfour/public/cm/cmmi10.657pk> <c:/Users/Admin/.texlive2024/texmf-var/fonts/pk/ljfour/public/cm/cmti10.657pk> <c:/Users/Admin/.texlive2024/texmf-var/fonts/pk/ljfour/public/cm/cmbx12.600pk> <c:/Users/Admin/.texlive2024/texmf-var/fonts/pk/ljfour/public/cm/cmr10.657pk> <c:/Users/Admin/.texlive2024/texmf-var/fonts/pk/ljfour/public/cm/cmbx10.657pk> <c:/Users/Admin/.texlive2024/texmf-var/fonts/pk/ljfour/public/cm/cmbx12.720pk> <c:/texlive/2024/texmf-dist/fonts/pk/ljfour/public/cm/dpi600/cmr12.pk> <c:/texlive/2024/texmf-dist/fonts/pk/ljfour/public/cm/dpi600/cmr17.pk>
-Output written on report.pdf (9 pages, 2134857 bytes).
+ 84i,8n,93p,721b,787s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <c:/Users/Admin/.texlive2024/texmf-var/fonts/pk/ljfour/public/cm/cmtt10.657pk> <c:/Users/Admin/.texlive2024/texmf-var/fonts/pk/ljfour/public/cm/cmti10.657pk> <c:/Users/Admin/.texlive2024/texmf-var/fonts/pk/ljfour/public/cm/cmbx12.600pk> <c:/Users/Admin/.texlive2024/texmf-var/fonts/pk/ljfour/public/cm/cmr10.657pk> <c:/Users/Admin/.texlive2024/texmf-var/fonts/pk/ljfour/public/cm/cmbx10.657pk> <c:/Users/Admin/.texlive2024/texmf-var/fonts/pk/ljfour/public/cm/cmbx12.720pk> <c:/texlive/2024/texmf-dist/fonts/pk/ljfour/public/cm/dpi600/cmr12.pk> <c:/texlive/2024/texmf-dist/fonts/pk/ljfour/public/cm/dpi600/cmr17.pk>
+Output written on report.pdf (8 pages, 2136572 bytes).
 PDF statistics:
- 495 PDF objects out of 1000 (max. 8388607)
- 164 compressed objects within 2 object streams
+ 513 PDF objects out of 1000 (max. 8388607)
+ 166 compressed objects within 2 object streams
  39 named destinations out of 1000 (max. 500000)
- 144 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 152 words of extra memory for PDF output out of 10000 (max. 10000000)
 
