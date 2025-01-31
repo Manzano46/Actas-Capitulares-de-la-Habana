@@ -87,22 +87,10 @@ def load_corrector_model(spacy_model: str, frequency_dictionary_path: str, max_e
     return nlp, sym_spell
 
 
-def refine_text_with_gemini(original_text: str, corrected_text: str, gemini_model_name="gemini-2.0-flash-exp"):
+def refine_text_with_gemini(original_text: str, corrected_text: str, chat):
     """
     Envía el texto corregido a Gemini para refinamiento.
     """
-    # Crear el sistema de instrucciones para Gemini
-    chat = genai.GenerativeModel(
-        model_name=gemini_model_name,
-        system_instruction=[
-            """
-            Eres un asistente que ayuda a refinar textos. Analiza el siguiente texto original y corregido,
-            y reescríbelo en un formato limpio, coherente y gramaticalmente correcto. Los textos son documentos históricos
-            extraídos mediante OCR, por lo que pueden contener errores típicos del procesamiento OCR. Los documentos son
-            cartas en Cuba de los siglos XV y XVI.
-            """
-        ]
-    ).start_chat(history=[])
 
     # Crear el mensaje de entrada para Gemini
     message = (
@@ -118,6 +106,61 @@ def refine_text_with_gemini(original_text: str, corrected_text: str, gemini_mode
     except Exception as e:
         print(f"An error occurred with Gemini: {e}")
         return corrected_text  # Devuelve el texto corregido si hay un error
+
+def correction(text_ocr: str, nlp, sym_spell, chat) -> str:
+    """
+        Procesa el texto proviniente del OCR para mejorarlo
+        
+        Args:
+        text_ocr (str): Texto extraído mediante OCR.
+        
+        Returns:
+        str: Texto refinado final.
+    """
+
+    # Corregir texto usando SymSpell y Spacy
+    corrected_text = correct_text(text_ocr, nlp, sym_spell, try_segmentation=True)
+
+    # Refinar texto con Gemini
+    final_text = refine_text_with_gemini(text_ocr, corrected_text, chat)
+    
+    return final_text
+
+from typing import List
+import os
+import google.generativeai as genai
+from dotenv import load_dotenv
+
+def combine(texts: List[str], chat) -> str:
+    """
+    Procesa las diferentes representaciones de una línea devueltas por OCR y otros métodos,
+    y devuelve una versión refinada con ayuda de Gemini.
+
+    Args:
+        texts (List[str]): Lista de representaciones de una misma línea.
+        gemini_model_name (str): Nombre del modelo de Gemini a usar.
+
+    Returns:
+        str: Texto refinado final.
+    """
+
+    # Concatenar las representaciones de la línea
+    aux = "\n\n".join([f"- {text}" for text in texts])
+
+    # Crear el mensaje para Gemini
+    message = (
+        f"Representaciones de la línea (extraídas del OCR y otros métodos):\n{aux}\n\n"
+        f"Por favor reescribe el texto correcto en un formato limpio y refinado, manteniendo sentido y contexto histórico."
+    )
+
+    try:
+        # Enviar el mensaje al modelo Gemini
+        response = chat.send_message(message)
+        return response.text.strip()
+    except Exception as e:
+        print(f"An error occurred with Gemini: {e}")
+        # Devuelve la concatenación de textos si hay un error
+        return "\n".join(texts)
 
 
 if __name__ == "__main__":
