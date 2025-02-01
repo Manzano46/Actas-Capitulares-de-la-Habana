@@ -153,7 +153,7 @@ def infer(model: Model, fn_img: Path) -> None:
     img = preprocessor.process_img(img)
 
     batch = Batch([img], None, 1)
-    recognized, probability = model.infer_batch(batch, True)
+    recognized, probability = model.infer_batch(batch, False)
     return recognized, probability
 
 
@@ -167,7 +167,7 @@ def parse_args() -> SimpleNamespace:
     args.batch_size = 100  # Tamaño de lote
     args.data_dir = False  # No se especifica un directorio de datos
     args.fast = False  # No carga muestras de LMDB por defecto
-    args.line_mode = False  # No leer líneas de texto por defecto
+    args.line_mode = True  # No leer líneas de texto por defecto
     args.img_file = Path('../data/word.jpg')  # Ruta de la imagen predeterminada
     args.early_stopping = 25  # Número de épocas de parada temprana
     args.dump = False  # No volcar salida a CSV por defecto
@@ -231,7 +231,7 @@ def main():
         return infer(model, args.img_file)
     
 
-def run_inference(images_file: Path):
+def run_inference(image_file: Path):
     """Run inference on the provided image file."""
     args = parse_args()
 
@@ -242,8 +242,7 @@ def run_inference(images_file: Path):
 
     # Infer text on test image
     model = Model(char_list_from_file(), decoder_type, must_restore=True, dump=args.dump)
-    simpleHTR_lines = []
-    for line in os.listdir(images_file):
-        simpleHTR_lines.append(infer(model, 'Recognition/Kraken/segmented_lines/' + line)[0])
 
-    return simpleHTR_lines
+    return infer(model, image_file)[0]
+
+
