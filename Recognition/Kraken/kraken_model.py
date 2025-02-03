@@ -145,12 +145,9 @@ def get_transcription(input_image):
     # Paso 1: Binarización
     #binarize_image(input_image, output_bw_image)
 
-    #segment_image(output_bw_image, output_lines_dir)
-    simpleHTR_lines = []
+    segment_image(output_bw_image, output_lines_dir)
 
-    for line in os.listdir(output_lines_dir):
-        simpleHTR_lines.append(run_inference('Recognition/Kraken/segmented_lines/' + line)[0] )
-
+    simpleHTR_lines = run_inference('Recognition/Kraken/segmented_lines/')
 
     HTR_text = ''
 
@@ -161,7 +158,7 @@ def get_transcription(input_image):
                 HTR_text += word 
 
     # Paso 2: Segmentacion y OCR 
-    #run_ocr_on_image(output_bw_image, output_dir, ocr_models)
+    run_ocr_on_image(output_bw_image, output_dir, ocr_models)
 
     ocr_results = []
 

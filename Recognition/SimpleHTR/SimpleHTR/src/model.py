@@ -83,9 +83,8 @@ class Model:
 
         # basic cells which is used to build RNN
         num_hidden = 256
-
-        with tf.compat.v1.variable_scope("rnn", reuse=tf.compat.v1.AUTO_REUSE):
-            cells = [tf.compat.v1.nn.rnn_cell.LSTMCell(num_units=num_hidden, state_is_tuple=True, reuse=True) for _ in range(2)]  # 2 layers
+        cells = [tf.compat.v1.nn.rnn_cell.LSTMCell(num_units=num_hidden, state_is_tuple=True) for _ in
+                 range(2)]  # 2 layers
 
         # stack basic cells
         stacked = tf.compat.v1.nn.rnn_cell.MultiRNNCell(cells, state_is_tuple=True)
@@ -101,7 +100,7 @@ class Model:
         # project output to chars (including blank): BxTx1x2H -> BxTx1xC -> BxTxC
         kernel = tf.Variable(tf.random.truncated_normal([1, 1, num_hidden * 2, len(self.char_list) + 1], stddev=0.1))
         self.rnn_out_3d = tf.squeeze(tf.nn.atrous_conv2d(value=concat, filters=kernel, rate=1, padding='SAME'),
-                                    axis=[2])
+                                     axis=[2])
 
     def setup_ctc(self) -> None:
         """Create CTC loss and decoder."""
