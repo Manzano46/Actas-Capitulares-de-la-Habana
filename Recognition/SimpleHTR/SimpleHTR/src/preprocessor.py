@@ -4,7 +4,11 @@ from typing import Tuple
 import cv2
 import numpy as np
 
-from Recognition.SimpleHTR.SimpleHTR.src.dataloader_iam import Batch
+try:
+    from Recognition.SimpleHTR.SimpleHTR.src.dataloader_iam import Batch
+except:
+    from dataloader_iam import Batch
+
 
 
 class Preprocessor:

@@ -5,7 +5,11 @@ from typing import List, Tuple
 import numpy as np
 import tensorflow as tf
 
-from Recognition.SimpleHTR.SimpleHTR.src.dataloader_iam import Batch
+try:
+    from Recognition.SimpleHTR.SimpleHTR.src.dataloader_iam import Batch
+except:
+    from dataloader_iam import Batch
+
 
 # Disable eager mode
 tf.compat.v1.disable_eager_execution()
@@ -134,8 +138,8 @@ class Model:
         elif self.decoder_type == DecoderType.WordBeamSearch:
             # prepare information about language (dictionary, characters in dataset, characters forming words)
             chars = ''.join(self.char_list)
-            word_chars = open('../model/wordCharList.txt').read().splitlines()[0]
-            corpus = open('../data/corpus.txt').read()
+            word_chars = open('Recognition/SimpleHTR/SimpleHTR/model/wordCharList.txt').read().splitlines()[0]
+            corpus = open('Recognition/SimpleHTR/SimpleHTR/data/corpus.txt').read()
 
             # decode using the "Words" mode of word beam search
             from word_beam_search import WordBeamSearch

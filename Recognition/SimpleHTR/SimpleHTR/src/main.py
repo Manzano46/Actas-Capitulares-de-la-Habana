@@ -1,5 +1,7 @@
+import argparse
 import json
 import os
+import subprocess
 from types import SimpleNamespace
 from typing import Tuple, List
 
@@ -7,9 +9,15 @@ import cv2
 import editdistance 
 from path import Path 
 
-from Recognition.SimpleHTR.SimpleHTR.src.dataloader_iam import DataLoaderIAM, Batch
-from Recognition.SimpleHTR.SimpleHTR.src.model import Model, DecoderType
-from Recognition.SimpleHTR.SimpleHTR.src.preprocessor import Preprocessor
+try:
+    from Recognition.SimpleHTR.SimpleHTR.src.dataloader_iam import DataLoaderIAM, Batch
+    from Recognition.SimpleHTR.SimpleHTR.src.model import Model, DecoderType
+    from Recognition.SimpleHTR.SimpleHTR.src.preprocessor import Preprocessor
+except:
+    from dataloader_iam import DataLoaderIAM, Batch
+    from model import Model, DecoderType
+    from preprocessor import Preprocessor
+
 from PIL import Image 
 
 
@@ -18,6 +26,7 @@ class FilePaths:
     fn_char_list = 'Recognition/SimpleHTR/SimpleHTR/model/charList.txt'
     fn_summary = 'Recognition/SimpleHTR/SimpleHTR/model/summary.json'
     fn_corpus = 'Recognition/SimpleHTR/SimpleHTR/data/corpus.txt'
+
 
 
 def get_img_height() -> int:
@@ -102,7 +111,7 @@ def train(model: Model,
             break
 
 
-#def validate(model: Model, loader: DataLoaderIAM, line_mode: bool) -> Tuple[float, float]:
+def validate(model: Model, loader: DataLoaderIAM, line_mode: bool) -> Tuple[float, float]:
     """Validates NN."""
     print('Validate NN')
     loader.validation_set()
@@ -154,41 +163,25 @@ def infer(model: Model, fn_img: Path) -> None:
 
     batch = Batch([img], None, 1)
     recognized, probability = model.infer_batch(batch, True)
-    return recognized, probability
+    return recognized[0],probability[0]
 
 
-def parse_args() -> SimpleNamespace:
-    """Parses arguments with default values."""
-    
-    # Definir los valores predeterminados
-    args = SimpleNamespace()
-    args.mode = 'infer'  # Siempre en 'infer'
-    args.decoder = 'bestpath'  # Valor por defecto del decodificador
-    args.batch_size = 100  # Tamaño de lote
-    args.data_dir = False  # No se especifica un directorio de datos
-    args.fast = False  # No carga muestras de LMDB por defecto
-    args.line_mode = False  # No leer líneas de texto por defecto
-    args.img_file = Path('../data/word.jpg')  # Ruta de la imagen predeterminada
-    args.early_stopping = 25  # Número de épocas de parada temprana
-    args.dump = False  # No volcar salida a CSV por defecto
+def parse_args() -> argparse.Namespace:
+    """Parses arguments from the command line."""
+    parser = argparse.ArgumentParser()
 
-    return args
+    parser.add_argument('--mode', choices=['train', 'validate', 'infer'], default='infer')
+    parser.add_argument('--decoder', choices=['bestpath', 'beamsearch', 'wordbeamsearch'], default='bestpath')
+    parser.add_argument('--batch_size', help='Batch size.', type=int, default=100)
+    parser.add_argument('--data_dir', help='Directory containing IAM dataset.', type=Path, required=False)
+    parser.add_argument('--fast', help='Load samples from LMDB.', action='store_true')
+    parser.add_argument('--line_mode', help='Train to read text lines instead of single words.', action='store_true')
+    parser.add_argument('--img_file', help='Image used for inference.', type=Path, default='../data/word.jpg')
+    parser.add_argument('--early_stopping', help='Early stopping epochs.', type=int, default=25)
+    parser.add_argument('--dump', help='Dump output of NN to CSV file(s).', action='store_true')
 
-# def parse_args() -> argparse.Namespace:
-#     """Parses arguments from the command line."""
-#     parser = argparse.ArgumentParser()
+    return parser.parse_args()
 
-#     parser.add_argument('--mode', choices=['train', 'validate', 'infer'], default='infer')
-#     parser.add_argument('--decoder', choices=['bestpath', 'beamsearch', 'wordbeamsearch'], default='bestpath')
-#     parser.add_argument('--batch_size', help='Batch size.', type=int, default=100)
-#     parser.add_argument('--data_dir', help='Directory containing IAM dataset.', type=Path, required=False)
-#     parser.add_argument('--fast', help='Load samples from LMDB.', action='store_true')
-#     parser.add_argument('--line_mode', help='Train to read text lines instead of single words.', action='store_true')
-#     parser.add_argument('--img_file', help='Image used for inference.', type=Path, default='../data/word.jpg')
-#     parser.add_argument('--early_stopping', help='Early stopping epochs.', type=int, default=25)
-#     parser.add_argument('--dump', help='Dump output of NN to CSV file(s).', action='store_true')
-
-#     return parser.parse_args()
 
 def main():
     """Main function."""
@@ -228,22 +221,19 @@ def main():
     # infer text on test image
     elif args.mode == 'infer':
         model = Model(char_list_from_file(), decoder_type, must_restore=True, dump=args.dump)
-        return infer(model, args.img_file)
-    
+        r, p = infer(model, args.img_file)
+        with open("data/output_ocr/simpleHTR.txt", "a") as archivo:
+            archivo.write(r + "\n")
+
+
+if __name__ == '__main__':
+    main()
+
 
 def run_inference(images_file: Path):
     """Run inference on the provided image file."""
-    args = parse_args()
+    
+    for image in sorted(os.listdir(images_file)):
+        #print('python' + 'Recognition/SimpleHTR/SimpleHTR/src/main.py' + '--img_file' + images_file + image)
+        subprocess.run(['python', 'Recognition/SimpleHTR/SimpleHTR/src/main.py', '--img_file', images_file + image])
 
-    decoder_mapping = {'bestpath': DecoderType.BestPath,
-                       'beamsearch': DecoderType.BeamSearch,
-                       'wordbeamsearch': DecoderType.WordBeamSearch}
-    decoder_type = decoder_mapping[args.decoder]
-
-    # Infer text on test image
-    model = Model(char_list_from_file(), decoder_type, must_restore=True, dump=args.dump)
-    simpleHTR_lines = []
-    for line in os.listdir(images_file):
-        simpleHTR_lines.append(infer(model, 'Recognition/Kraken/segmented_lines/' + line)[0])
-
-    return simpleHTR_lines
