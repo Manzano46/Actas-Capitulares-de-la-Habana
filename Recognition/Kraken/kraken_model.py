@@ -7,7 +7,6 @@ from PIL import Image
 
 from Recognition.SimpleHTR.SimpleHTR.src.main import run_inference
 
-
 def binarize_image(input_image, output_bw_image):
     """Binariza la imagen y guarda el resultado."""
     subprocess.run(['kraken', '-i', input_image, output_bw_image, 'binarize'])
@@ -127,7 +126,7 @@ def get_transcription(input_image):
 
     #output_bw_image = input_image[:-4] + '.png'  # Imagen binarizada
     output_bw_image = input_image
-    output_lines_dir = 'Recognition/Kraken/segmented_lines'  # Directorio para las líneas segmentadas
+    output_lines_dir = 'Recognition/Kraken/segmented_lines/'  # Directorio para las líneas segmentadas
     output_dir = 'data/output_ocr'  # Archivo donde se guardará el texto OCR
     ocr_models = ['bdd-wormser-scriptorium-abbreviated-0.2', 'McCATMuS_nfd_nofix_V1']
 
@@ -142,27 +141,19 @@ def get_transcription(input_image):
             except Exception as e:
                 print(f"Error al eliminar {ruta_archivo}: {e}")
 
-    # Paso 1: Binarización
-    #binarize_image(input_image, output_bw_image)
+    # Binarización
+    binarize_image(input_image, output_bw_image)
 
+    # Segmentar la imagen y picar las lineas en imagenes
     segment_image(output_bw_image, output_lines_dir)
 
-    simpleHTR_lines = run_inference('Recognition/Kraken/segmented_lines/')
+    # Inferir texto con SImpleHTR
+    run_inference(output_lines_dir)
 
-    HTR_text = ''
-
-    with open("data/output_ocr/simpleHTR.txt", "w") as archivo:
-        for item in simpleHTR_lines:
-            for word in item:
-                archivo.write(word) 
-                HTR_text += word 
-
-    # Paso 2: Segmentacion y OCR 
+    # Segmentacion y OCR con modelos Kraken
     run_ocr_on_image(output_bw_image, output_dir, ocr_models)
 
     ocr_results = []
-
-    #ocr_results.append(HTR_text)
 
     for result in os.listdir(output_dir):
         # Leer el archivo generado por Kraken para esta imagen
