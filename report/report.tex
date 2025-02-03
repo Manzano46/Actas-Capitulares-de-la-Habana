@@ -160,7 +160,27 @@ También se evalúan algoritmos de detección de bordes como \textit{sobel}, \te
 
 También se prueba el filtrado mediano para reducir el ruido “sal y pimienta” y el filtrado bilateral, sin mejoras significativas. La binarización mediante un umbral fijo no detecta bien la letra en zonas de sombra, y la binarización adaptativa convencional recupera demasiado ruido.\\
 
-Tras la binarización, las imágenes pasan por dos procesos de segmentación: uno interno de \texttt{Kraken} y otro basado en proyección de histogramas. El primero ofrece resultados superiores. Para segmentaciones manuales se investiga \texttt{SAM2}, sin lograr automatización completa. Dicha herramienta es efectiva con líneas rectas, algo que no se cumple en manuscritos antiguos.\\
+Tras la binarización, las imágenes pasan por dos procesos de segmentación: uno interno de \texttt{Kraken} y otro basado en proyección de histogramas. El primero ofrece resultados superiores. Para segmentaciones manuales se investiga \texttt{SAM2}, sin lograr automatización completa. Dicha herramienta es efectiva con líneas rectas, algo que no se cumple en manuscritos antiguos. Resultado obtenido hasta el momento por \texttt{SAM2}se muestra en las figuras \ref{fig:sam2} y \ref{fig:sam 2}.
+
+\begin{figure}[h] 
+\centering 
+\begin{minipage}{1.0\textwidth} 
+\includegraphics[width=0.32\textwidth]{source_image.png} 
+\includegraphics[width=0.32\textwidth]{segmented_image.png} 
+\caption{Imagen original con boxes aplicados manualmente, y la imagen segmentada a partir de estos} 
+\label{fig:sam2} 
+\end{minipage} 
+\end{figure}
+
+\begin{figure}[h] 
+\centering 
+\begin{minipage}{1.0\textwidth} 
+\includegraphics[width=0.32\textwidth]{mask_2.png} 
+\includegraphics[width=0.32\textwidth]{mask_22.png} 
+\caption{Imágenes de varias segmentaciones} 
+\label{fig:sam 2} 
+\end{minipage} 
+\end{figure}
 
 Finalmente, la imagen segmentada se procesa con tres OCR distintos: \texttt{SimpleHTR}, \texttt{sinai-sam-rec-v4-best} y \texttt{McCATMuS-nfd-nofix-V1}. Los dos últimos aprovechan \texttt{Kraken}, mientras que \texttt{SimpleHTR} requiere una segmentación previa en líneas.
 
@@ -202,7 +222,7 @@ Este proyecto se concibe para la transcripción de documentos históricos resgua
 
 \subsection{Recomendaciones para Futuras Implementaciones}
 
-Se sugiere explorar el uso de \textit{DBSCAN} para la segmentación de líneas en manuscritos curvos e irregulares, propios de la tipografía \textit{procesal-cortesana}. También se recomienda entrenar o afinar (\textit{fine-tuning}) \texttt{SimpleHTR} y el modelo generativo para mejorar la precisión en español antiguo. Por último, \texttt{GPT-2} podría reutilizarse entrenándose específicamente en este dominio, lo que potencialmente derivaría en buenos resultados.
+Se sugiere explorar el uso de SAM2 en la segmentación de imágenes. También se recomienda entrenar o afinar (\textit{fine-tuning}) \texttt{SimpleHTR} y el modelo generativo para mejorar la precisión en español antiguo. Por último, \texttt{GPT-2} podría reutilizarse entrenándose específicamente en este dominio, lo que potencialmente derivaría en buenos resultados.
 
 \bibliographystyle{plain} 
 \bibliography{referencias}

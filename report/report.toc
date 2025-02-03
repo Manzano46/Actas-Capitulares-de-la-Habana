@@ -8,7 +8,7 @@
 \contentsline {section}{\numberline {3}Resultados}{4}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Logros Principales}{4}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}Posprocesamiento y Combinación}{6}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Desafíos Superados}{7}{subsection.3.3}%
-\contentsline {section}{\numberline {4}Conclusiones}{7}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Impacto del Proyecto}{7}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Recomendaciones para Futuras Implementaciones}{7}{subsection.4.2}%
+\contentsline {subsection}{\numberline {3.3}Desafíos Superados}{8}{subsection.3.3}%
+\contentsline {section}{\numberline {4}Conclusiones}{8}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Impacto del Proyecto}{8}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Recomendaciones para Futuras Implementaciones}{8}{subsection.4.2}%
