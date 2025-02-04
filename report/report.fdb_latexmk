@@ -1,5 +1,5 @@
 # Fdb version 4
-["bibtex report"] 0 "report.aux" "report.bbl" "report" 1738430223.5984 0
+["bibtex report"] 0 "report.aux" "report.bbl" "report" 0 0
   "c:/texlive/2024/texmf-dist/bibtex/bst/base/plain.bst" 1715269414 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
   "referencias.bib" 0 -1 0 ""
   "report.aux" 0 -1 0 "pdflatex"
@@ -7,7 +7,7 @@
   "report.bbl"
   "report.blg"
   (rewritten before read)
-["pdflatex"] 1738430220.60991 "d:/escuela/4to/ML/proyecto/Actas-Capitulares-de-la-Habana/report/report.tex" "report.pdf" "report" 1738430223.59996 0
+["pdflatex"] 1738641829.36105 "d:/escuela/4to/ML/proyecto/Actas-Capitulares-de-la-Habana/report/report.tex" "report.pdf" "report" 1738641833.14459 0
   "CODEA-0205_2v.jpg" 1738345856 359515 a78dad1cbc511c6febb5a02652657bf2 ""
   "c:/Users/Admin/.texlive2024/texmf-var/fonts/pk/ljfour/public/cm/cmbx10.657pk" 1733276177 12764 0cd67d6174a7b0a117be259b5712511f ""
   "c:/Users/Admin/.texlive2024/texmf-var/fonts/pk/ljfour/public/cm/cmbx12.600pk" 1715723650 14156 ed375431c6f98bf9c9714fdc4fe1023b ""
@@ -153,20 +153,23 @@
   "c:/texlive/2024/texmf-dist/web2c/texmf.cnf" 1715262327 41983 7ec6bfd6bf34339a61f0f08f42298e60 ""
   "c:/texlive/2024/texmf.cnf" 1715331559 713 e69b156964470283e0530f5060668171 ""
   "canny_image_aftergauss_eq2.png" 1738345856 160325 5c0d6b72357473f331f0b00fb5ca62f6 ""
-  "d:/escuela/4to/ML/proyecto/Actas-Capitulares-de-la-Habana/report/report.tex" 1738430190 17300 5520e8855c29fd29906915911e116b2c ""
+  "d:/escuela/4to/ML/proyecto/Actas-Capitulares-de-la-Habana/report/report.tex" 1738641828 20778 e72c4aebf5a383a1a1a8565c3e45ea73 ""
   "kraken.jpg" 1738345856 205363 9ff3783cce678af8d60f33d572da9aa0 ""
-  "mask_2.png" 1738430190 3810 b16ebd9df88a1c1f84838a7b9b0f402b ""
-  "mask_22.png" 1738430190 5347 2655d68956b6083980bf0d00efc08071 ""
+  "kraken_segmentation.png" 1738640871 281472 6d8021d2cd5e98f968006d33f0ce35c6 ""
+  "line_1.png" 1738640871 10005 b71fb4d5f6b7405de826f487b7edbe4b ""
+  "line_3.png" 1738640871 5225 0a1d26117d22d0c063c5164bbc7beb30 ""
+  "mask_2.png" 1738640871 3810 b16ebd9df88a1c1f84838a7b9b0f402b ""
+  "mask_22.png" 1738640871 5347 2655d68956b6083980bf0d00efc08071 ""
   "morph.jpg" 1738345856 228791 866f837b3ee2e86bbde3166783a70b99 ""
   "original.jpg" 1738345856 180649 1d3373db6de42093f3a2d2e7769f2e02 ""
   "photo_2025-01-27_21-34-01.jpg" 1738345856 266686 7adfb8eb87600849db5cef376c225aaa ""
-  "report.aux" 1738430222 3723 577a25be5a1fd4d82393894a6bfbedcf "pdflatex"
+  "report.aux" 1738641831 4010 88064e9a2ffaf3c323bef423d522c91b "pdflatex"
   "report.bbl" 1738345856 52 0eba253fc001332e731e8aba3f23127b "bibtex report"
-  "report.out" 1738430222 1963 c2ec26ea7592c4f2924893069f039006 "pdflatex"
-  "report.tex" 1738430190 17300 5520e8855c29fd29906915911e116b2c ""
-  "report.toc" 1738430222 1096 1f2831b691fa8326c1057feab6922528 "pdflatex"
-  "segmented_image.png" 1738430190 1313802 c7dac241eb09416b1457ca2468df9808 ""
-  "source_image.png" 1738430191 1174138 bc2d9aff3f33b7ae10b92c326b102bb2 ""
+  "report.out" 1738641831 1963 c2ec26ea7592c4f2924893069f039006 "pdflatex"
+  "report.tex" 1738641828 20778 e72c4aebf5a383a1a1a8565c3e45ea73 ""
+  "report.toc" 1738641831 1096 caa5d89911e77441fcde6ca544cc60f4 "pdflatex"
+  "segmented_image.png" 1738640871 1313802 c7dac241eb09416b1457ca2468df9808 ""
+  "source_image.png" 1738640871 1174138 bc2d9aff3f33b7ae10b92c326b102bb2 ""
   "transkribus.png" 1738345856 628999 79e247a322f2fc494faeb3b1835ceff6 ""
   (generated)
   "report.aux"
