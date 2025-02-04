@@ -109,6 +109,41 @@ Ante estas circunstancias, el proyecto se orienta hacia la búsqueda exhaustiva 
 
 Se ha elegido Python como lenguaje principal por su facilidad de acceso a bibliotecas de procesamiento de texto e imágenes. Entre las utilizadas destacan: \texttt{Kraken}, \texttt{PIL}, \texttt{TensorFlow}, \texttt{Numpy}, \texttt{matplotlib}, \texttt{scipy}, \texttt{spaCy}, \texttt{symspellpy}, \texttt{transformers}, \texttt{cv2} y \texttt{sam2}.
 
+El espaciado entre palabras y líneas en la letra \textit{procesal cortesana} no era tan generoso como lo es en la escritura moderna. La densidad del texto era mayor, lo que daba a los documentos un aspecto más compacto. Este espaciado pequeño reflejaba la naturaleza de la escritura manual en la época, donde los escribientes trataban de maximizar el uso del espacio en el pergamino o el papel.
+
+Dadas estas características la segmentación del texto en las imagenes en líneas o palabras sería una tarea difícil. Para comenzar usamos técnicas clásicas para segmentar imagenes como proyección de histogramas, e implementamos un algoritmo sencillo que básicamente reconoce líneas de texto según la densidad de pixeles en una cierta vecindad. Posteriormente en busca de mejores resultados usamos un modelo entrenado específicamentepara esta tarea, usando Kraken.
+
+\begin{figure}[h] 
+  \centering 
+  \begin{minipage}{1.0\textwidth} 
+  \includegraphics[width=0.32\textwidth]{line_1.png} 
+  \includegraphics[width=0.32\textwidth]{kraken_segmentation.png} 
+  \includegraphics[width=0.32\textwidth]{line_3.png} 
+  \caption{Segmentación de la imagen en líneas de texto usando Kraken.} 
+  \label{fig:tresfotosmodelo} 
+  \end{minipage} 
+  \end{figure} 
+
+Una vez segmentadas las imagenes en líneas pasamos al reconocimiento de caracteres, usando los siguientes OCR:
+
+\texttt{SimpleHTR (Handwritten Text Recognition)} es un sistema de reconocimiento de texto escrito a mano (HTR) implementado con TensorFlow (TF) y entrenado en el conjunto de datos HTR de IAM. El modelo toma imágenes de palabras individuales o líneas de texto (varias palabras) como entrada y genera el texto reconocido. Tres cuartas partes de las palabras del conjunto de validación se reconocen correctamente y la tasa de error de caracteres ronda el 10\%. Dada la complejidad de la segmentación en las imágenes, ya que el texto está aglomerado y los trazos sobrepasan las líneas, no sería efectivo usar el modelo para reconocer palabras. Por lo tanto, usamos el modelo entrenado para reconocer líneas completas (\url{https://www.dropbox.com/s/7xwkcilho10rthn/line-model.zip?dl=1}). El modelo es una versión simplificada de un sistema HTR implementado en una tesis (\url{https://repositum.tuwien.ac.at/obvutwhs/download/pdf/2874742}). Consta de 5 capas CNN, 2 capas RNN (LSTM) y la capa de pérdida y decodificación CTC.
+
+\texttt{bdd-wormser-scriptorium-abbreviated-0.2} Se entrenó el modelo con datos de licencia abierta de HTR-United desde el siglo XVII hasta el XXI.
+
+Hasta donde sabemos, todos los datos siguen las mismas pautas de transcripción.
+
+El superíndice se presenta con un \textasciicircum antes de los caracteres. En algún momento, se usaría \texttt{< >} para marcar el tachado.
+
+\texttt{McCATMuS-nfd-nofix-V1} es un modelo de transcripción de documentos manuscritos, impresos y mecanografiados desde el siglo XVI hasta el siglo XXI. Basado en conjuntos de datos de instituciones y proyectos comprometidos con la ciencia abierta, McCATMuS proporciona un conjunto de datos interoperable que abarca más de 180 manuscritos en 7 idiomas diferentes (francés, latín, español, inglés, alemán, italiano y occitano). Incluye más de 118.000 líneas de texto y casi 4 millones de caracteres, abarcando un período desde principios del siglo XVI hasta la actualidad.
+
+Todos los conjuntos de datos fueron corregidos automáticamente o, cuando fue preciso, manualmente, para corresponder a las directrices de transcripción CATMuS, disponibles aquí: \url{https://catmus-guidelines.github.io/}.
+
+Las anotaciones en el conjunto de datos resultan de la extracción de diseño, extracción de líneas, escritura y transcripción de los creadores originales del conjunto de datos en la mayoría de los casos, o de correcciones automáticas o manuales realizadas por el curador del conjunto de datos moderno de CATMuS.
+
+Este modelo fue entrenado en el conjunto de datos McCATMuS, con Kraken v.4.3.13, con normalización NFD Unicode y un tamaño de lote de 32 en 157 épocas.
+
+Transcritas las líneas con diferentes OCR, usamos estas salidas para combinarlas intentando recuperar la mayor cantidad de texto posible, corregir errores ortográficos y dar coherencia usando un LLM.
+
 El LLM utilizado es \texttt{Gemini}, principalmente por motivos económicos. Como diccionario de frecuencias se empleó \href{https://github.com/hermitdave/FrequencyWords/blob/master/content/2016/es/es_full.txt}{spanish frequency dictionary}, pues la creación de un diccionario a partir de obras antiguas resultaba muy limitada. El modelo de \texttt{spaCy} usado fue \texttt{es\_core\_news\_sm}.
 
 \texttt{Gemini} adopta una arquitectura \textit{transformer} basada en autoatención, de forma similar a los LLM modernos. Además, se ha entrenado en un corpus mixto multilingüe que incluye español. Aunque no se especializa en español antiguo, su sólido manejo del idioma y su facilidad de uso resultaron decisivos.
@@ -118,14 +153,6 @@ Por contraste, \texttt{GPT-2} se centra mayoritariamente en inglés y requiere o
 Por ello, se optó por \texttt{Gemini} como un equilibrio entre rendimiento y compatibilidad con el español, un factor esencial al manejar gran volumen de documentos y requerir un ciclo iterativo de corrección.
 
 Para la recopilación de datos se comenzó con el \href{https://zenodo.org/records/1490009/files/Rodrigo%20corpus%201.0.0.tar.gz?download=1}{dataset de Rodrigo}, que abarca español antiguo pero tipografía gótica (no procesal-cortesana). Luego se recurrió al corpus \href{https://corpuscodea.es/}{CODEA}, con documentos anteriores a 1900 que incluyen imágenes, transcripciones paleográficas y versiones críticas. Tras filtrar por el tipo de letra requerida, el total se redujo a 546 documentos, lo cual demuestra la dificultad de obtener datos adecuados.\\
-
-\texttt{SimpleHTR} se basa en una red neuronal recurrente (LSTM) con \textit{Connectionist Temporal Classification} (CTC) para alinear secuencias de caracteres sin segmentación estricta. Entrenado en manuscritos latinos, ofrece una estructura cercana al español antiguo.
-
-\texttt{sinai-sam-rec-v4-best} emplea una arquitectura CRNN (red neuronal de convolución y LSTM), utilizada frecuentemente en \textit{Handwritten Text Recognition} al capturar rasgos tanto espaciales como temporales. Está optimizado para manuscritos históricos, útil ante trazos irregulares.
-
-\texttt{McCATMuS-nfd-nofix-V1} también se basa en métodos neuronales profundos, con foco en textos históricos de variada tipografía. En particular, se ajusta a grafías antiguas y caracteres poco comunes, reduciendo la tasa de error en documentos premodernos.
-
-\textbf{AQUÍ FALTAN AGREGAR RESULTADOS} (comparación de cada OCR)\\
 
 \section{Resultados}
 \subsection{Logros Principales}
