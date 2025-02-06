@@ -162,7 +162,7 @@ def get_transcription(input_image):
 
         # Añadir los resultados de OCR del modelo
         ocr_results.append({
-            'image-model': result,
+            'model': result,
             'text': ocr_text
         })
 
