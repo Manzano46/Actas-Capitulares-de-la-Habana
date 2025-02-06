@@ -113,16 +113,19 @@ El espaciado entre palabras y líneas en la letra \textit{procesal cortesana} no
 
 Dadas estas características la segmentación del texto en las imagenes en líneas o palabras sería una tarea difícil. Para comenzar usamos técnicas clásicas para segmentar imagenes como proyección de histogramas, e implementamos un algoritmo sencillo que básicamente reconoce líneas de texto según la densidad de pixeles en una cierta vecindad. Posteriormente en busca de mejores resultados usamos un modelo entrenado específicamentepara esta tarea, usando Kraken.
 
-\begin{figure}[h] 
-  \centering 
-  \begin{minipage}{1.0\textwidth} 
-  \includegraphics[width=0.32\textwidth]{line_1.png} 
-  \includegraphics[width=0.32\textwidth]{kraken_segmentation.png} 
-  \includegraphics[width=0.32\textwidth]{line_3.png} 
-  \caption{Segmentación de la imagen en líneas de texto usando Kraken.} 
-  \label{fig:tresfotosmodelo} 
-  \end{minipage} 
-  \end{figure} 
+\begin{figure}[h]
+  \centering
+  \begin{minipage}{1.0\textwidth}
+  \begin{minipage}[t]{0.45\textwidth}
+  \includegraphics[width=\textwidth]{line_1.png}\\[2em]
+  \includegraphics[width=\textwidth]{line_3.png}
+  \end{minipage}
+  \hfill
+  \raisebox{-0.5\height}{\includegraphics[width=0.45\textwidth]{kraken_segmentation.png}}
+  \caption{Segmentación de la imagen en líneas de texto usando Kraken.}
+  \label{fig:tresfotosmodelos}
+  \end{minipage}
+  \end{figure}
 
 Una vez segmentadas las imagenes en líneas pasamos al reconocimiento de caracteres, usando los siguientes OCR:
 
@@ -140,7 +143,8 @@ Todos los conjuntos de datos fueron corregidos automáticamente o, cuando fue pr
 
 Las anotaciones en el conjunto de datos resultan de la extracción de diseño, extracción de líneas, escritura y transcripción de los creadores originales del conjunto de datos en la mayoría de los casos, o de correcciones automáticas o manuales realizadas por el curador del conjunto de datos moderno de CATMuS.
 
-Este modelo fue entrenado en el conjunto de datos McCATMuS, con Kraken v.4.3.13, con normalización NFD Unicode y un tamaño de lote de 32 en 157 épocas.
+Este modelo fue entrenado en el conjunto de datos McCATMuS, con Kraken v.4.3.13, con normalización NFD Unicode y un tamaño de lote de 32 en 157 épocas.\\
+
 
 Transcritas las líneas con diferentes OCR, usamos estas salidas para combinarlas intentando recuperar la mayor cantidad de texto posible, corregir errores ortográficos y dar coherencia usando un LLM.
 
