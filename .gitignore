@@ -1,6 +1,8 @@
 testing/filtered_documents
 scrapper/Filtered_Documents
 scrapper/Documents
+scrapper/Selected
+scrapper/Selected.zip
 scrapper/corpus_data.json
 .env
 .pyc
