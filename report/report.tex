@@ -7,6 +7,7 @@
 \usepackage{graphicx}
 \usepackage{hyperref}
 \usepackage{tikz}
+\usepackage{float}
 \usetikzlibrary{shapes.geometric, arrows}
 
 % Definición de estilos para los bloques y flechas
@@ -127,6 +128,264 @@ Para la recopilación de datos se comenzó con el \href{https://zenodo.org/recor
 
 \textbf{AQUÍ FALTAN AGREGAR RESULTADOS} (comparación de cada OCR)\\
 
+\section{Pruebas realizadas}
+\subsection{Segmentación}
+
+Para realizar la segmentación se probó 3 modelos: proyección de histogramas, la biblioteca \textit{kraken} de python, y el modelo SAM2 (en fase experimental). Se reallizó la prueba con 7 imágenes distintas provenientes del \textit{dataset} de CODEA, cuya fecha de los documentos (siglo XV) y tipografía de letra (procesal-cortesana) coinciden con el dataset original. A continuación, se presentarán las 7 (siete) imágenes y las primeras 3 (tres) líneas segmentadas por los primeros dos modelos.\\
+
+\begin{figure}[H] 
+\centering 
+\begin{minipage}{1.0\textwidth} 
+\includegraphics[width=0.32\textwidth]{CODEA-0143_1r.jpg} 
+\caption{1ra original de CODEA. 42 líneas contadas a simple vista} 
+\label{fig:1ra CODEA} 
+\end{minipage} 
+\end{figure}
+
+\begin{figure}[H] 
+\centering 
+\begin{minipage}{1.0\textwidth} 
+\includegraphics[width=0.32\textwidth]{1_CODEA_1_PH.png} 
+\includegraphics[width=0.32\textwidth]{1_CODEA_2_PH.png} 
+\includegraphics[width=0.32\textwidth]{1_CODEA_3_PH.png} 
+\caption{3 primeros renglones detectdos con proyección de histogramas.} 
+\label{fig:3 líneas PH 1ra CODEA} 
+\end{minipage} 
+\end{figure}
+
+\begin{figure}[H] 
+\centering 
+\begin{minipage}{1.0\textwidth} 
+\includegraphics[width=0.32\textwidth]{1_CODEA_1_kraken.png} 
+\includegraphics[width=0.32\textwidth]{1_CODEA_2_kraken.png} 
+\includegraphics[width=0.32\textwidth]{1_CODEA_3_kraken.png} 
+\caption{3 primeros renglones detectados con kraken.} 
+\label{fig:3 líneas kraken 1ra CODEA} 
+\end{minipage} 
+\end{figure}
+%/////////////////////////////////////////////////////////////////////////////////
+
+\begin{figure}[H] 
+\centering 
+\begin{minipage}{1.0\textwidth} 
+\includegraphics[width=0.32\textwidth]{CODEA-0206_1r.jpg} 
+\caption{2da original de CODEA. 38 líneas contadas a simple vista} 
+\label{fig:2da CODEA} 
+\end{minipage} 
+\end{figure}
+
+\begin{figure}[H] 
+\centering 
+\begin{minipage}{1.0\textwidth} 
+\includegraphics[width=0.32\textwidth]{2_CODEA_1_PH.png} 
+\includegraphics[width=0.32\textwidth]{2_CODEA_2_PH.png} 
+\includegraphics[width=0.32\textwidth]{2_CODEA_3_PH.png} 
+\caption{3 primeros renglones detectdos con proyección de histogramas.} 
+\label{fig:3 líneas PH 2da CODEA} 
+\end{minipage} 
+\end{figure}
+
+\begin{figure}[H] 
+\centering 
+\begin{minipage}{1.0\textwidth} 
+\includegraphics[width=0.32\textwidth]{2_CODEA_1_kraken.png} 
+\includegraphics[width=0.32\textwidth]{2_CODEA_2_kraken.png} 
+\includegraphics[width=0.32\textwidth]{2_CODEA_3_kraken.png} 
+\caption{3 primeros renglones detectados con kraken.} 
+\label{fig:3 líneas kraken 2da CODEA} 
+\end{minipage} 
+\end{figure}
+
+%////////////////////////////////////////////////////////////////////////////////
+
+\begin{figure}[H] 
+\centering 
+\begin{minipage}{1.0\textwidth} 
+\includegraphics[width=0.32\textwidth]{CODEA-0871_1r.jpg} 
+\caption{3ra original de CODEA. 26 líneas contadas a simple vista} 
+\label{fig:3ra CODEA} 
+\end{minipage} 
+\end{figure}
+
+\begin{figure}[H] 
+\centering 
+\begin{minipage}{1.0\textwidth} 
+\includegraphics[width=0.32\textwidth]{3_CODEA_1_PH.png} 
+\includegraphics[width=0.32\textwidth]{3_CODEA_2_PH.png} 
+\includegraphics[width=0.32\textwidth]{3_CODEA_3_PH.png} 
+\caption{3 primeros renglones detectdos con proyección de histogramas.} 
+\label{fig:3 líneas PH 3ra CODEA} 
+\end{minipage} 
+\end{figure}
+
+\begin{figure}[H] 
+\centering 
+\begin{minipage}{1.0\textwidth} 
+\includegraphics[width=0.32\textwidth]{3_CODEA_1_kraken.png} 
+\includegraphics[width=0.32\textwidth]{3_CODEA_2_kraken.png} 
+\includegraphics[width=0.32\textwidth]{3_CODEA_3_kraken.png} 
+\caption{3 primeros renglones detectados con kraken.} 
+\label{fig:3 líneas kraken 3ra CODEA} 
+\end{minipage} 
+\end{figure}
+%///////////////////////////////////////////////////////////////////////////////////////////
+
+\begin{figure}[H] 
+\centering 
+\begin{minipage}{1.0\textwidth} 
+\includegraphics[width=0.32\textwidth]{CODEA-2038_1r.jpg} 
+\caption{4ta original de CODEA. 43 líneas contadas a simple vista} 
+\label{fig:4ta CODEA} 
+\end{minipage} 
+\end{figure}
+
+\begin{figure}[H] 
+\centering 
+\begin{minipage}{1.0\textwidth} 
+\includegraphics[width=0.32\textwidth]{4_CODEA_1_PH.png} 
+\includegraphics[width=0.32\textwidth]{4_CODEA_2_PH.png} 
+\includegraphics[width=0.32\textwidth]{4_CODEA_3_PH.png} 
+\caption{3 primeros renglones detectdos con proyección de histogramas.} 
+\label{fig:3 líneas PH 4ta CODEA} 
+\end{minipage} 
+\end{figure}
+
+\begin{figure}[H] 
+\centering 
+\begin{minipage}{1.0\textwidth} 
+\includegraphics[width=0.32\textwidth]{4_CODEA_1_kraken.png} 
+\includegraphics[width=0.32\textwidth]{4_CODEA_2_kraken.png} 
+\includegraphics[width=0.32\textwidth]{4_CODEA_3_kraken.png} 
+\caption{3 primeros renglones detectados con kraken.} 
+\label{fig:3 líneas kraken 4ta CODEA} 
+\end{minipage} 
+\end{figure}
+
+%/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+\begin{figure}[H] 
+\centering 
+\begin{minipage}{1.0\textwidth} 
+\includegraphics[width=0.32\textwidth]{CODEA-2497_1r.jpg} 
+\caption{5ta original de CODEA. 16 líneas contadas a simple vista} 
+\label{fig:5ta CODEA} 
+\end{minipage} 
+\end{figure}
+
+\begin{figure}[H] 
+\centering 
+\begin{minipage}{1.0\textwidth} 
+\includegraphics[width=0.32\textwidth]{5_CODEA_1_PH.png} 
+\includegraphics[width=0.32\textwidth]{5_CODEA_2_PH.png} 
+\includegraphics[width=0.32\textwidth]{5_CODEA_3_PH.png} 
+\caption{3 primeros renglones detectdos con proyección de histogramas.} 
+\label{fig:3 líneas PH 5Ta CODEA} 
+\end{minipage} 
+\end{figure}
+
+\begin{figure}[H] 
+\centering 
+\begin{minipage}{1.0\textwidth} 
+\includegraphics[width=0.32\textwidth]{5_CODEA_1_kraken.png} 
+\includegraphics[width=0.32\textwidth]{5_CODEA_2_kraken.png} 
+\includegraphics[width=0.32\textwidth]{5_CODEA_3_kraken.png} 
+\caption{3 primeros renglones detectados con kraken.} 
+\label{fig:3 líneas kraken 5ta CODEA} 
+\end{minipage} 
+\end{figure}
+%///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+\begin{figure}[H] 
+\centering 
+\begin{minipage}{1.0\textwidth} 
+\includegraphics[width=0.32\textwidth]{CODEA-2651_1r.jpg} 
+\caption{6ta original de CODEA. 54 líneas contadas a simple vista} 
+\label{fig:6ta CODEA} 
+\end{minipage} 
+\end{figure}
+
+\begin{figure}[H] 
+\centering 
+\begin{minipage}{1.0\textwidth} 
+\includegraphics[width=0.32\textwidth]{6_CODEA_1_PH.png} 
+\includegraphics[width=0.32\textwidth]{6_CODEA_2_PH.png} 
+\includegraphics[width=0.32\textwidth]{6_CODEA_3_PH.png} 
+\caption{3 primeros renglones detectdos con proyección de histogramas.} 
+\label{fig:3 líneas PH 6Ta CODEA} 
+\end{minipage} 
+\end{figure}
+
+\begin{figure}[H] 
+\centering 
+\begin{minipage}{1.0\textwidth} 
+\includegraphics[width=0.32\textwidth]{6_CODEA_1_kraken.png} 
+\includegraphics[width=0.32\textwidth]{6_CODEA_2_kraken.png} 
+\includegraphics[width=0.32\textwidth]{6_CODEA_3_kraken.png} 
+\caption{3 primeros renglones detectados con kraken.} 
+\label{fig:3 líneas kraken 6ta CODEA} 
+\end{minipage} 
+\end{figure}
+
+%////////////////////////////////////////////////////////////////////////////////////////////
+
+\begin{figure}[H] 
+\centering 
+\begin{minipage}{1.0\textwidth} 
+\includegraphics[width=0.32\textwidth]{CODEA-3601_1r.jpg} 
+\caption{7ma original de CODEA. 41 líneas contadas a simple vista} 
+\label{fig:7ma CODEA} 
+\end{minipage} 
+\end{figure}
+
+\begin{figure}[H] 
+\centering 
+\begin{minipage}{1.0\textwidth} 
+\includegraphics[width=0.32\textwidth]{7_CODEA_1_PH.png} 
+\includegraphics[width=0.32\textwidth]{7_CODEA_2_PH.png} 
+\includegraphics[width=0.32\textwidth]{7_CODEA_3_PH.png} 
+\caption{3 primeros renglones detectdos con proyección de histogramas.} 
+\label{fig:3 líneas PH 7ma CODEA} 
+\end{minipage} 
+\end{figure}
+
+\begin{figure}[H] 
+\centering 
+\begin{minipage}{1.0\textwidth} 
+\includegraphics[width=0.32\textwidth]{7_CODEA_1_kraken.png} 
+\includegraphics[width=0.32\textwidth]{7_CODEA_2_kraken.png} 
+\includegraphics[width=0.32\textwidth]{7_CODEA_3_kraken.png} 
+\caption{3 primeros renglones detectados con kraken.} 
+\label{fig:3 líneas kraken 7ma CODEA} 
+\end{minipage} 
+\end{figure}
+
+Como se puede observar en las pruebas anteriores, las letras en los renglones definidos por \textit{kraken} son visibles en su totalidad (aunque incluye partes de los renglones inferior y superior), mientras que estas aparecen cortadas en aquellos renglones defifinidos por la \textit{proyección de histogramas}. Cabe destacar la sensibilidad de kraken a los grandes trazos de las letras, los cuales define como renglones aparte. Asimismo, cabe resaltar la dificultad que presentan ambos modelos para separar renglones muy pequeños, como es el caso de la figura \ref{fig:6ta CODEA}. \\
+
+Para segmentaciones manuales se investiga \texttt{SAM2}, sin lograr automatización completa. Dicha herramienta es efectiva con líneas rectas, algo que no se cumple en manuscritos antiguos. El resultado obtenido hasta el momento por \texttt{SAM2}se muestra en las figuras \ref{fig:sam2} y \ref{fig:sam 2}.
+
+\begin{figure}[H] 
+\centering 
+\begin{minipage}{1.0\textwidth} 
+\includegraphics[width=0.32\textwidth]{source_image.png} 
+\includegraphics[width=0.32\textwidth]{segmented_image.png} 
+\caption{Imagen original con boxes aplicados manualmente, y la imagen segmentada a partir de estos} 
+\label{fig:sam2} 
+\end{minipage} 
+\end{figure}
+
+\begin{figure}[H] 
+\centering 
+\begin{minipage}{1.0\textwidth} 
+\includegraphics[width=0.32\textwidth]{mask_2.png} 
+\includegraphics[width=0.32\textwidth]{mask_22.png} 
+\caption{Imágenes de varias segmentaciones} 
+\label{fig:sam 2} 
+\end{minipage} 
+\end{figure}
+
+Por lo antes expuesto se decidió usar el modelo de kraken para segmentar las imágenes, como parte del pipeline para la extracción de texto a partir de este tipo de documentos antiguos.
+
+
 \section{Resultados}
 \subsection{Logros Principales}
 
@@ -147,7 +406,7 @@ Para tratar las manchas producidas por la antigüedad (tonos amarillos), se impl
 
 También se evalúan algoritmos de detección de bordes como \textit{sobel}, \textit{Canny} y \textit{laplaciano}. El último no funciona bien por su sensibilidad a cambios drásticos pixel a pixel (papel vs. tinta). Sobel y Canny muestran algunos buenos resultados en ciertos documentos, como se aprecia en la figura \ref{fig:tresfotos}, pero no de modo uniforme.
 
-\begin{figure}[h] 
+\begin{figure}[H] 
 \centering 
 \begin{minipage}{1.0\textwidth} 
 \includegraphics[width=0.32\textwidth]{CODEA-0205_2v.jpg} 
@@ -160,27 +419,7 @@ También se evalúan algoritmos de detección de bordes como \textit{sobel}, \te
 
 También se prueba el filtrado mediano para reducir el ruido “sal y pimienta” y el filtrado bilateral, sin mejoras significativas. La binarización mediante un umbral fijo no detecta bien la letra en zonas de sombra, y la binarización adaptativa convencional recupera demasiado ruido.\\
 
-Tras la binarización, las imágenes pasan por dos procesos de segmentación: uno interno de \texttt{Kraken} y otro basado en proyección de histogramas. El primero ofrece resultados superiores. Para segmentaciones manuales se investiga \texttt{SAM2}, sin lograr automatización completa. Dicha herramienta es efectiva con líneas rectas, algo que no se cumple en manuscritos antiguos. Resultado obtenido hasta el momento por \texttt{SAM2}se muestra en las figuras \ref{fig:sam2} y \ref{fig:sam 2}.
-
-\begin{figure}[h] 
-\centering 
-\begin{minipage}{1.0\textwidth} 
-\includegraphics[width=0.32\textwidth]{source_image.png} 
-\includegraphics[width=0.32\textwidth]{segmented_image.png} 
-\caption{Imagen original con boxes aplicados manualmente, y la imagen segmentada a partir de estos} 
-\label{fig:sam2} 
-\end{minipage} 
-\end{figure}
-
-\begin{figure}[h] 
-\centering 
-\begin{minipage}{1.0\textwidth} 
-\includegraphics[width=0.32\textwidth]{mask_2.png} 
-\includegraphics[width=0.32\textwidth]{mask_22.png} 
-\caption{Imágenes de varias segmentaciones} 
-\label{fig:sam 2} 
-\end{minipage} 
-\end{figure}
+Tras la binarización, las imágenes pasan por dos procesos de segmentación: uno interno de \texttt{Kraken} y otro basado en proyección de histogramas. El primero ofrece resultados superiores. 
 
 Finalmente, la imagen segmentada se procesa con tres OCR distintos: \texttt{SimpleHTR}, \texttt{sinai-sam-rec-v4-best} y \texttt{McCATMuS-nfd-nofix-V1}. Los dos últimos aprovechan \texttt{Kraken}, mientras que \texttt{SimpleHTR} requiere una segmentación previa en líneas.
 

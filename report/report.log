@@ -1,193 +1,275 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.5.10)  1 FEB 2025 12:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.6.1)  24 FEB 2025 05:08
 entering extended mode
  restricted \write18 enabled.
- file:line:error style messages enabled.
  %&-line parsing enabled.
-**d:/escuela/4to/ML/proyecto/Actas-Capitulares-de-la-Habana/report/report.tex
-(d:/escuela/4to/ML/proyecto/Actas-Capitulares-de-la-Habana/report/report.tex
+**./report.tex
+(report.tex
 LaTeX2e <2023-11-01> patch level 1
-L3 programming layer <2024-04-11>
-(c:/texlive/2024/texmf-dist/tex/latex/base/article.cls
+L3 programming layer <2024-01-04>
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
 Document Class: article 2023/05/17 v1.4n Standard LaTeX document class
-(c:/texlive/2024/texmf-dist/tex/latex/base/size11.clo
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/latex/base\size11.clo
 File: size11.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
 )
-\c@part=\count189
-\c@section=\count190
-\c@subsection=\count191
-\c@subsubsection=\count192
-\c@paragraph=\count193
-\c@subparagraph=\count194
-\c@figure=\count195
-\c@table=\count196
+\c@part=\count187
+\c@section=\count188
+\c@subsection=\count189
+\c@subsubsection=\count190
+\c@paragraph=\count191
+\c@subparagraph=\count192
+\c@figure=\count193
+\c@table=\count194
 \abovecaptionskip=\skip48
 \belowcaptionskip=\skip49
 \bibindent=\dimen140
-) (c:/texlive/2024/texmf-dist/tex/generic/babel/babel.sty
-Package: babel 2024/04/20 v24.4 The Babel package
-\babel@savecnt=\count197
+)
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.sty
+Package: babel 2024/01/07 v24.1 The Babel package
+\babel@savecnt=\count195
 \U@D=\dimen141
-\l@unhyphenated=\language89
- (c:/texlive/2024/texmf-dist/tex/generic/babel/txtbabel.def)
+\l@unhyphenated=\language79
+
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/generic/babel\txtbabel.def)
 \bbl@readstream=\read2
-\bbl@dirlevel=\count198
- (c:/texlive/2024/texmf-dist/tex/generic/babel-spanish/spanish.ldf
+\bbl@dirlevel=\count196
+
+*************************************
+* Local config file bblopts.cfg used
+*
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/latex/arabi\bblopts.cfg
+File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
+ babel
+)
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/latex/babel-spanish\spanish.l
+df
 Language: spanish.ldf 2021/05/27 v5.0q Spanish support from the babel system
 \es@quottoks=\toks17
-\es@quotdepth=\count199
+\es@quotdepth=\count197
 Package babel Info: Making " an active character on input line 570.
 Package babel Info: Making . an active character on input line 675.
 Package babel Info: Making < an active character on input line 722.
 Package babel Info: Making > an active character on input line 722.
-)) (c:/texlive/2024/texmf-dist/tex/generic/babel/locale/es/babel-spanish.tex
+))
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/generic/babel/locale/es\babel
+-spanish.tex
 Package babel Info: Importing font and identification data for spanish
 (babel)             from babel-es.ini. Reported on input line 11.
-) (c:/texlive/2024/texmf-dist/tex/latex/base/inputenc.sty
+)
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty
 Package: inputenc 2021/02/14 v1.3d Input encoding file
 \inpenc@prehook=\toks18
 \inpenc@posthook=\toks19
-) (c:/texlive/2024/texmf-dist/tex/latex/graphics/graphicx.sty
+)
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
 Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
- (c:/texlive/2024/texmf-dist/tex/latex/graphics/keyval.sty
+
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
 Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
 \KV@toks@=\toks20
-) (c:/texlive/2024/texmf-dist/tex/latex/graphics/graphics.sty
+)
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
 Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
- (c:/texlive/2024/texmf-dist/tex/latex/graphics/trig.sty
+
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
 Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
-) (c:/texlive/2024/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+)
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.c
+fg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 107.
- (c:/texlive/2024/texmf-dist/tex/latex/graphics-def/pdftex.def
-File: pdftex.def 2024/04/13 v1.2c Graphics/color driver for pdftex
+
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
+File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
 ))
 \Gin@req@height=\dimen142
 \Gin@req@width=\dimen143
-) (c:/texlive/2024/texmf-dist/tex/latex/hyperref/hyperref.sty
-Package: hyperref 2024-01-20 v7.01h Hypertext links for LaTeX
- (c:/texlive/2024/texmf-dist/tex/generic/iftex/iftex.sty
+)
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
+Package: hyperref 2023-11-26 v7.01g Hypertext links for LaTeX
+
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
 Package: iftex 2022/02/03 v1.0f TeX engine tests
-) (c:/texlive/2024/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
-Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
-) (c:/texlive/2024/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
-Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
-) (c:/texlive/2024/texmf-dist/tex/generic/pdfescape/pdfescape.sty
-Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
- (c:/texlive/2024/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
-Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
-) (c:/texlive/2024/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
-Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
- (c:/texlive/2024/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+)
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr.s
+ty
 Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+)
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefine
+keys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+)
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/generic/pdfescape\pdfescape.s
+ty
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
+Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
+)
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds
+.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
 )
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
-)) (c:/texlive/2024/texmf-dist/tex/latex/hycolor/hycolor.sty
+))
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/latex/hycolor\hycolor.sty
 Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
-) (c:/texlive/2024/texmf-dist/tex/latex/auxhook/auxhook.sty
+)
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/latex/letltxmacro\letltxmacro
+.sty
+Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
+)
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/latex/auxhook\auxhook.sty
 Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
-) (c:/texlive/2024/texmf-dist/tex/latex/hyperref/nameref.sty
+)
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
 Package: nameref 2023-11-26 v2.56 Cross-referencing by name of section
- (c:/texlive/2024/texmf-dist/tex/latex/refcount/refcount.sty
+
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/latex/refcount\refcount.sty
 Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
-) (c:/texlive/2024/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+)
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/generic/gettitlestring\gettit
+lestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
- (c:/texlive/2024/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
 Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 ))
-\c@section@level=\count266
-) (c:/texlive/2024/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+\c@section@level=\count198
+)
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty
 Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count267
+\etb@tempcnta=\count199
 )
 \@linkdim=\dimen144
-\Hy@linkcounter=\count268
-\Hy@pagecounter=\count269
- (c:/texlive/2024/texmf-dist/tex/latex/hyperref/pd1enc.def
-File: pd1enc.def 2024-01-20 v7.01h Hyperref: PDFDocEncoding definition (HO)
+\Hy@linkcounter=\count266
+\Hy@pagecounter=\count267
+
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
+File: pd1enc.def 2023-11-26 v7.01g Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
-) (c:/texlive/2024/texmf-dist/tex/generic/intcalc/intcalc.sty
+)
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
-\Hy@SavedSpaceFactor=\count270
- (c:/texlive/2024/texmf-dist/tex/latex/hyperref/puenc.def
-File: puenc.def 2024-01-20 v7.01h Hyperref: PDF Unicode definition (HO)
+\Hy@SavedSpaceFactor=\count268
+
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def
+File: puenc.def 2023-11-26 v7.01g Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
 ... no UTF-8 mapping file for font encoding PU
 )
-Package hyperref Info: Hyper figures OFF on input line 4179.
-Package hyperref Info: Link nesting OFF on input line 4184.
-Package hyperref Info: Hyper index ON on input line 4187.
-Package hyperref Info: Plain pages OFF on input line 4194.
-Package hyperref Info: Backreferencing OFF on input line 4199.
+Package hyperref Info: Hyper figures OFF on input line 4181.
+Package hyperref Info: Link nesting OFF on input line 4186.
+Package hyperref Info: Hyper index ON on input line 4189.
+Package hyperref Info: Plain pages OFF on input line 4196.
+Package hyperref Info: Backreferencing OFF on input line 4201.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
-Package hyperref Info: Bookmarks ON on input line 4446.
-\c@Hy@tempcnt=\count271
- (c:/texlive/2024/texmf-dist/tex/latex/url/url.sty
+Package hyperref Info: Bookmarks ON on input line 4448.
+\c@Hy@tempcnt=\count269
+
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
 \Urlmuskip=\muskip16
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-LaTeX Info: Redefining \url on input line 4784.
+LaTeX Info: Redefining \url on input line 4786.
 \XeTeXLinkMargin=\dimen145
- (c:/texlive/2024/texmf-dist/tex/generic/bitset/bitset.sty
+
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
- (c:/texlive/2024/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
-Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
+
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/generic/bigintcalc\bigintcalc
+.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
+)
 ))
-\Fld@menulength=\count272
+\Fld@menulength=\count270
 \Field@Width=\dimen146
 \Fld@charsize=\dimen147
-Package hyperref Info: Hyper figures OFF on input line 6063.
-Package hyperref Info: Link nesting OFF on input line 6068.
-Package hyperref Info: Hyper index ON on input line 6071.
-Package hyperref Info: backreferencing OFF on input line 6078.
-Package hyperref Info: Link coloring OFF on input line 6083.
-Package hyperref Info: Link coloring with OCG OFF on input line 6088.
-Package hyperref Info: PDF/A mode OFF on input line 6093.
- (c:/texlive/2024/texmf-dist/tex/latex/base/atbegshi-ltx.sty
+Package hyperref Info: Hyper figures OFF on input line 6065.
+Package hyperref Info: Link nesting OFF on input line 6070.
+Package hyperref Info: Hyper index ON on input line 6073.
+Package hyperref Info: backreferencing OFF on input line 6080.
+Package hyperref Info: Link coloring OFF on input line 6085.
+Package hyperref Info: Link coloring with OCG OFF on input line 6090.
+Package hyperref Info: PDF/A mode OFF on input line 6095.
+
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/latex/base\atbegshi-ltx.sty
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 )
-\Hy@abspage=\count273
-\c@Item=\count274
-\c@Hfootnote=\count275
+\Hy@abspage=\count271
+\c@Item=\count272
+\c@Hfootnote=\count273
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
- (c:/texlive/2024/texmf-dist/tex/latex/hyperref/hpdftex.def
-File: hpdftex.def 2024-01-20 v7.01h Hyperref driver for pdfTeX
- (c:/texlive/2024/texmf-dist/tex/latex/base/atveryend-ltx.sty
-Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend package
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
+File: hpdftex.def 2023-11-26 v7.01g Hyperref driver for pdfTeX
+
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/latex/base\atveryend-ltx.sty
+Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend pac
+kage
 with kernel methods
 )
-\Fld@listcount=\count276
-\c@bookmark@seq@number=\count277
- (c:/texlive/2024/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+\Fld@listcount=\count274
+\c@bookmark@seq@number=\count275
+
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfil
+echeck.sty
 Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
- (c:/texlive/2024/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/generic/uniquecounter\uniquec
+ounter.sty
 Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 )
-Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 285.
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+85.
 )
 \Hy@SectionHShift=\skip50
-) (c:/texlive/2024/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty (c:/texlive/2024/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty (c:/texlive/2024/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty (c:/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
+)
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/latex/pgf/frontendlayer\tikz.
+sty
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer\pgf.sty
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgfrcs.st
+y
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil
+-common.tex
 \pgfutil@everybye=\toks21
 \pgfutil@tempdima=\dimen148
 \pgfutil@tempdimb=\dimen149
-) (c:/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
+)
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil
+-latex.def
 \pgfutil@abb=\box51
-) (c:/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex (c:/texlive/2024/texmf-dist/tex/generic/pgf/pgf.revision.tex)
+)
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfrcs.
+code.tex
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/generic/pgf\pgf.revision.tex)
 Package: pgfrcs 2023-01-15 v3.1.10 (3.1.10)
 ))
 Package: pgf 2023-01-15 v3.1.10 (3.1.10)
- (c:/texlive/2024/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty (c:/texlive/2024/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty (c:/texlive/2024/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
+
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer\pgfcore.
+sty
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/latex/pgf/systemlayer\pgfsys.
+sty
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
+s.code.tex
 Package: pgfsys 2023-01-15 v3.1.10 (3.1.10)
- (c:/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeys
+.code.tex
 \pgfkeys@pathtoks=\toks22
 \pgfkeys@temptoks=\toks23
- (c:/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfiltered.code.tex
+
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeys
+libraryfiltered.code.tex
 \pgfkeys@tmptoks=\toks24
 ))
 \pgf@x=\dimen150
@@ -202,35 +284,47 @@ Package: pgfsys 2023-01-15 v3.1.10 (3.1.10)
 \pgf@yd=\dimen159
 \w@pgf@writea=\write3
 \r@pgf@reada=\read3
-\c@pgf@counta=\count278
-\c@pgf@countb=\count279
-\c@pgf@countc=\count280
-\c@pgf@countd=\count281
+\c@pgf@counta=\count276
+\c@pgf@countb=\count277
+\c@pgf@countc=\count278
+\c@pgf@countd=\count279
 \t@pgf@toka=\toks25
 \t@pgf@tokb=\toks26
 \t@pgf@tokc=\toks27
-\pgf@sys@id@count=\count282
- (c:/texlive/2024/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
+\pgf@sys@id@count=\count280
+
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgf.c
+fg
 File: pgf.cfg 2023-01-15 v3.1.10 (3.1.10)
 )
 Driver file for pgf: pgfsys-pdftex.def
- (c:/texlive/2024/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.def
+
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
+s-pdftex.def
 File: pgfsys-pdftex.def 2023-01-15 v3.1.10 (3.1.10)
- (c:/texlive/2024/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.def
+
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
+s-common-pdf.def
 File: pgfsys-common-pdf.def 2023-01-15 v3.1.10 (3.1.10)
-))) (c:/texlive/2024/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
+)))
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
+ssoftpath.code.tex
 File: pgfsyssoftpath.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfsyssoftpath@smallbuffer@items=\count283
-\pgfsyssoftpath@bigbuffer@items=\count284
-) (c:/texlive/2024/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
+\pgfsyssoftpath@smallbuffer@items=\count281
+\pgfsyssoftpath@bigbuffer@items=\count282
+)
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
+sprotocol.code.tex
 File: pgfsysprotocol.code.tex 2023-01-15 v3.1.10 (3.1.10)
-)) (c:/texlive/2024/texmf-dist/tex/latex/xcolor/xcolor.sty
+))
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
 Package: xcolor 2023/11/15 v3.01 LaTeX color extensions (UK)
- (c:/texlive/2024/texmf-dist/tex/latex/graphics-cfg/color.cfg
+
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package xcolor Info: Driver file: pdftex.def on input line 274.
- (c:/texlive/2024/texmf-dist/tex/latex/graphics/mathcolor.ltx)
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx)
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1350.
 Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1354.
 Package xcolor Info: Model `RGB' extended on input line 1366.
@@ -240,18 +334,52 @@ Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1370.
 Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1371.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1372.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1373.
-) (c:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
+)
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+e.code.tex
 Package: pgfcore 2023-01-15 v3.1.10 (3.1.10)
- (c:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex (c:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex) (c:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
+
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmath.code
+.tex
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathutil.
+code.tex)
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathparse
+r.code.tex
 \pgfmath@dimen=\dimen160
-\pgfmath@count=\count285
+\pgfmath@count=\count283
 \pgfmath@box=\box52
 \pgfmath@toks=\toks28
 \pgfmath@stack@operand=\toks29
 \pgfmath@stack@operation=\toks30
-) (c:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex) (c:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex) (c:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonometric.code.tex) (c:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.code.tex) (c:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison.code.tex) (c:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex) (c:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code.tex) (c:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex) (c:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithmetics.code.tex) (c:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex) (c:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count286
-)) (c:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfint.code.tex) (c:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
+)
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.code.tex)
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.basic.code.tex)
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.trigonometric.code.tex)
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.random.code.tex)
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.comparison.code.tex)
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.base.code.tex)
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.round.code.tex)
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.misc.code.tex)
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.integerarithmetics.code.tex)
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathcalc.
+code.tex)
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfloat
+.code.tex
+\c@pgfmathroundto@lastzeros=\count284
+))
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfint.code.
+tex)
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+epoints.code.tex
 File: pgfcorepoints.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgf@picminx=\dimen161
 \pgf@picmaxx=\dimen162
@@ -267,77 +395,132 @@ File: pgfcorepoints.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgf@yy=\dimen172
 \pgf@zx=\dimen173
 \pgf@zy=\dimen174
-) (c:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.code.tex
+)
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+epathconstruct.code.tex
 File: pgfcorepathconstruct.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgf@path@lastx=\dimen175
 \pgf@path@lasty=\dimen176
-) (c:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code.tex
+)
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+epathusage.code.tex
 File: pgfcorepathusage.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgf@shorten@end@additional=\dimen177
 \pgf@shorten@start@additional=\dimen178
-) (c:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.tex
+)
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+escopes.code.tex
 File: pgfcorescopes.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgfpic=\box53
 \pgf@hbox=\box54
 \pgf@layerbox@main=\box55
-\pgf@picture@serial@count=\count287
-) (c:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex
+\pgf@picture@serial@count=\count285
+)
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+egraphicstate.code.tex
 File: pgfcoregraphicstate.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgflinewidth=\dimen179
-) (c:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformations.code.tex
+)
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+etransformations.code.tex
 File: pgfcoretransformations.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgf@pt@x=\dimen180
 \pgf@pt@y=\dimen181
 \pgf@pt@temp=\dimen182
-) (c:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
+)
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+equick.code.tex
 File: pgfcorequick.code.tex 2023-01-15 v3.1.10 (3.1.10)
-) (c:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.code.tex
+)
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+eobjects.code.tex
 File: pgfcoreobjects.code.tex 2023-01-15 v3.1.10 (3.1.10)
-) (c:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathprocessing.code.tex
+)
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+epathprocessing.code.tex
 File: pgfcorepathprocessing.code.tex 2023-01-15 v3.1.10 (3.1.10)
-) (c:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.tex
+)
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+earrows.code.tex
 File: pgfcorearrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgfarrowsep=\dimen183
-) (c:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
+)
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+eshade.code.tex
 File: pgfcoreshade.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgf@max=\dimen184
-\pgf@sys@shading@range@num=\count288
-\pgf@shadingcount=\count289
-) (c:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
+\pgf@sys@shading@range@num=\count286
+\pgf@shadingcount=\count287
+)
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+eimage.code.tex
 File: pgfcoreimage.code.tex 2023-01-15 v3.1.10 (3.1.10)
-) (c:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.tex
+)
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+eexternal.code.tex
 File: pgfcoreexternal.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgfexternal@startupbox=\box56
-) (c:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.tex
+)
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+elayers.code.tex
 File: pgfcorelayers.code.tex 2023-01-15 v3.1.10 (3.1.10)
-) (c:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.code.tex
+)
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+etransparency.code.tex
 File: pgfcoretransparency.code.tex 2023-01-15 v3.1.10 (3.1.10)
-) (c:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.code.tex
+)
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+epatterns.code.tex
 File: pgfcorepatterns.code.tex 2023-01-15 v3.1.10 (3.1.10)
-) (c:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorerdf.code.tex
+)
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+erdf.code.tex
 File: pgfcorerdf.code.tex 2023-01-15 v3.1.10 (3.1.10)
-))) (c:/texlive/2024/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
+)))
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodule
+shapes.code.tex
 File: pgfmoduleshapes.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgfnodeparttextbox=\box57
-) (c:/texlive/2024/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex
+)
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodule
+plot.code.tex
 File: pgfmoduleplot.code.tex 2023-01-15 v3.1.10 (3.1.10)
-) (c:/texlive/2024/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65.sty
+)
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgfco
+mp-version-0-65.sty
 Package: pgfcomp-version-0-65 2023-01-15 v3.1.10 (3.1.10)
 \pgf@nodesepstart=\dimen185
 \pgf@nodesepend=\dimen186
-) (c:/texlive/2024/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18.sty
+)
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgfco
+mp-version-1-18.sty
 Package: pgfcomp-version-1-18 2023-01-15 v3.1.10 (3.1.10)
-)) (c:/texlive/2024/texmf-dist/tex/latex/pgf/utilities/pgffor.sty (c:/texlive/2024/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty (c:/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex)) (c:/texlive/2024/texmf-dist/tex/latex/pgf/math/pgfmath.sty (c:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)) (c:/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
+))
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgffor.st
+y
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgfkeys.s
+ty
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeys
+.code.tex))
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/latex/pgf/math\pgfmath.sty
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmath.code
+.tex))
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgffor.
+code.tex
 Package: pgffor 2023-01-15 v3.1.10 (3.1.10)
 \pgffor@iter=\dimen187
 \pgffor@skip=\dimen188
 \pgffor@stack=\toks31
 \pgffor@toks=\toks32
-)) (c:/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
+))
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z\tikz.code.tex
 Package: tikz 2023-01-15 v3.1.10 (3.1.10)
- (c:/texlive/2024/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex
+
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibr
+aryplothandlers.code.tex
 File: pgflibraryplothandlers.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@plot@mark@count=\count290
+\pgf@plot@mark@count=\count288
 \pgfplotmarksize=\dimen189
 )
 \tikz@lastx=\dimen190
@@ -352,89 +535,118 @@ File: pgflibraryplothandlers.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \tikz@figbox@bg=\box59
 \tikz@tempbox=\box60
 \tikz@tempbox@bg=\box61
-\tikztreelevel=\count291
-\tikznumberofchildren=\count292
-\tikznumberofcurrentchild=\count293
-\tikz@fig@count=\count294
- (c:/texlive/2024/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
+\tikztreelevel=\count289
+\tikznumberofchildren=\count290
+\tikznumberofcurrentchild=\count291
+\tikz@fig@count=\count292
+
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodule
+matrix.code.tex
 File: pgfmodulematrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfmatrixcurrentrow=\count295
-\pgfmatrixcurrentcolumn=\count296
-\pgf@matrix@numberofcolumns=\count297
+\pgfmatrixcurrentrow=\count293
+\pgfmatrixcurrentcolumn=\count294
+\pgf@matrix@numberofcolumns=\count295
 )
-\tikz@expandcount=\count298
- (c:/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
+\tikz@expandcount=\count296
+
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibrarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2023-01-15 v3.1.10 (3.1.10)
-))) (c:/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.geometric.code.tex
+)))
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count297
+\float@exts=\toks33
+\float@box=\box62
+\@float@everytoks=\toks34
+\@floatcapt=\box63
+)
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibraryshapes.geometric.code.tex
 File: tikzlibraryshapes.geometric.code.tex 2023-01-15 v3.1.10 (3.1.10)
- (c:/texlive/2024/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.geometric.code.tex
+
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/shapes\
+pgflibraryshapes.geometric.code.tex
 File: pgflibraryshapes.geometric.code.tex 2023-01-15 v3.1.10 (3.1.10)
-)) (c:/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryarrows.code.tex
+))
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibraryarrows.code.tex
 File: tikzlibraryarrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
- (c:/texlive/2024/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.code.tex
+
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibr
+aryarrows.code.tex
 File: pgflibraryarrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \arrowsize=\dimen198
-)) (c:/texlive/2024/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-File: l3backend-pdftex.def 2024-04-11 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count299
-\l__pdf_internal_box=\box62
-) (./report.aux
+))
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
+tex.def
+File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count298
+\l__pdf_internal_box=\box64
+) (report.aux
 LaTeX Info: Redefining \. on input line 11.
 LaTeX Info: Redefining \% on input line 11.
 )
 \openout1 = `report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Info: Redefining \. on input line 35.
-LaTeX Info: Redefining \% on input line 35.
- (c:/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Info: Redefining \. on input line 36.
+LaTeX Info: Redefining \% on input line 36.
+
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
+ii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count300
+\scratchcounter=\count299
 \scratchdimen=\dimen199
-\scratchbox=\box63
-\nofMPsegments=\count301
-\nofMParguments=\count302
-\everyMPshowfont=\toks33
-\MPscratchCnt=\count303
+\scratchbox=\box65
+\nofMPsegments=\count300
+\nofMParguments=\count301
+\everyMPshowfont=\toks35
+\MPscratchCnt=\count302
 \MPscratchDim=\dimen256
-\MPnumerator=\count304
-\makeMPintoPDFobject=\count305
-\everyMPtoPDFconversion=\toks34
-) (c:/texlive/2024/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+\MPnumerator=\count303
+\makeMPintoPDFobject=\count304
+\everyMPtoPDFconversion=\toks36
+)
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
+ase.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
-Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
- (c:/texlive/2024/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
-File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(C:\Users\Massy\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.c
+fg
+File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-Package hyperref Info: Link coloring OFF on input line 35.
- (./report.out) (./report.out)
+Package hyperref Info: Link coloring OFF on input line 36.
+ (report.out) (report.out)
 \@outlinefile=\write4
 \openout4 = `report.out'.
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 38.
+(Font)              <12> on input line 39.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 38.
+(Font)              <8> on input line 39.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 38.
- (./report.toc
+(Font)              <6> on input line 39.
+ (report.toc
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -445,129 +657,564 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
  [1
 
-
-
-pdfTeX warning: pdflatex.exe (file pdftex.map): cannot open font map file
-]
-<transkribus.png, id=85, 1070.8005pt x 378.81525pt>
+{C:/Users/Massy/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
+<transkribus.png, id=93, 1070.8005pt x 378.81525pt>
 File: transkribus.png Graphic file (type png)
 <use transkribus.png>
-Package pdftex.def Info: transkribus.png  used on input line 62.
+Package pdftex.def Info: transkribus.png  used on input line 63.
 (pdftex.def)             Requested size: 360.0pt x 127.35619pt.
 
-Overfull \hbox (3.05077pt too wide) in paragraph at lines 67--68
-[]\OT1/cmr/m/n/10.95 Ante es-tas cir-cuns-tan-cias, el pro-yec-to se orien-ta ha-cia la b^^Susque-da exhaus-
+Overfull \hbox (3.05077pt too wide) in paragraph at lines 68--69
+[]\OT1/cmr/m/n/10.95 Ante es-tas cir-cuns-tan-cias, el pro-yec-to se orien-ta h
+a-cia la b^^Susque-da exhaus-
  []
 
-[2 <./transkribus.png>] [3]
-Underfull \hbox (badness 10000) in paragraph at lines 120--121
+[2 <./transkribus.png>] [3
+pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.114 
+      ]
+Underfull \hbox (badness 10000) in paragraph at lines 121--122
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 128--129
+Underfull \hbox (badness 10000) in paragraph at lines 129--130
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 134--135
 
  []
 
 [4]
-<original.jpg, id=107, 601.0455pt x 770.88pt>
-File: original.jpg Graphic file (type jpg)
-<use original.jpg>
-Package pdftex.def Info: original.jpg  used on input line 140.
-(pdftex.def)             Requested size: 115.20264pt x 147.75085pt.
-<morph.jpg, id=108, 568.524pt x 770.88pt>
-File: morph.jpg Graphic file (type jpg)
-<use morph.jpg>
-Package pdftex.def Info: morph.jpg  used on input line 141.
-(pdftex.def)             Requested size: 115.20264pt x 156.2082pt.
-<kraken.jpg, id=109, 568.524pt x 770.88pt>
-File: kraken.jpg Graphic file (type jpg)
-<use kraken.jpg>
-Package pdftex.def Info: kraken.jpg  used on input line 142.
-(pdftex.def)             Requested size: 115.20264pt x 156.2082pt.
-<CODEA-0205_2v.jpg, id=111, 1204.5pt x 1606.0pt>
-File: CODEA-0205_2v.jpg Graphic file (type jpg)
-<use CODEA-0205_2v.jpg>
-Package pdftex.def Info: CODEA-0205_2v.jpg  used on input line 153.
+<CODEA-0143_1r.jpg, id=114, 2011.515pt x 3011.25pt>
+File: CODEA-0143_1r.jpg Graphic file (type jpg)
+<use CODEA-0143_1r.jpg>
+Package pdftex.def Info: CODEA-0143_1r.jpg  used on input line 139.
+(pdftex.def)             Requested size: 115.20264pt x 172.44252pt.
+<1_CODEA_1_PH.png, id=115, 2682.02pt x 41.15375pt>
+File: 1_CODEA_1_PH.png Graphic file (type png)
+<use 1_CODEA_1_PH.png>
+Package pdftex.def Info: 1_CODEA_1_PH.png  used on input line 148.
+(pdftex.def)             Requested size: 115.20264pt x 1.76768pt.
+<1_CODEA_2_PH.png, id=116, 2682.02pt x 1.00375pt>
+File: 1_CODEA_2_PH.png Graphic file (type png)
+<use 1_CODEA_2_PH.png>
+Package pdftex.def Info: 1_CODEA_2_PH.png  used on input line 149.
+(pdftex.def)             Requested size: 115.20264pt x 0.0431pt.
+<1_CODEA_3_PH.png, id=117, 2682.02pt x 19.07124pt>
+File: 1_CODEA_3_PH.png Graphic file (type png)
+<use 1_CODEA_3_PH.png>
+Package pdftex.def Info: 1_CODEA_3_PH.png  used on input line 150.
+(pdftex.def)             Requested size: 115.20264pt x 0.81917pt.
+<1_CODEA_1_kraken.png, id=118, 1886.04625pt x 169.63374pt>
+File: 1_CODEA_1_kraken.png Graphic file (type png)
+<use 1_CODEA_1_kraken.png>
+Package pdftex.def Info: 1_CODEA_1_kraken.png  used on input line 159.
+(pdftex.def)             Requested size: 115.20264pt x 10.36136pt.
+<1_CODEA_2_kraken.png, id=119, 1893.0725pt x 139.52126pt>
+File: 1_CODEA_2_kraken.png Graphic file (type png)
+<use 1_CODEA_2_kraken.png>
+Package pdftex.def Info: 1_CODEA_2_kraken.png  used on input line 160.
+(pdftex.def)             Requested size: 115.20264pt x 8.49013pt.
+<1_CODEA_3_kraken.png, id=120, 1881.0275pt x 138.5175pt>
+File: 1_CODEA_3_kraken.png Graphic file (type png)
+<use 1_CODEA_3_kraken.png>
+Package pdftex.def Info: 1_CODEA_3_kraken.png  used on input line 161.
+(pdftex.def)             Requested size: 115.20264pt x 8.48189pt.
+<CODEA-0206_1r.jpg, id=121, 1204.5pt x 1606.0pt>
+File: CODEA-0206_1r.jpg Graphic file (type jpg)
+<use CODEA-0206_1r.jpg>
+Package pdftex.def Info: CODEA-0206_1r.jpg  used on input line 171.
 (pdftex.def)             Requested size: 115.20264pt x 153.60081pt.
-<canny_image_aftergauss_eq2.png, id=112, 1204.5pt x 1606.0pt>
-File: canny_image_aftergauss_eq2.png Graphic file (type png)
-<use canny_image_aftergauss_eq2.png>
-Package pdftex.def Info: canny_image_aftergauss_eq2.png  used on input line 154.
-(pdftex.def)             Requested size: 115.20264pt x 153.60081pt.
-<photo_2025-01-27_21-34-01.jpg, id=113, 963.6pt x 1284.8pt>
-File: photo_2025-01-27_21-34-01.jpg Graphic file (type jpg)
-<use photo_2025-01-27_21-34-01.jpg>
-Package pdftex.def Info: photo_2025-01-27_21-34-01.jpg  used on input line 155.
-(pdftex.def)             Requested size: 115.20264pt x 153.60081pt.
+<2_CODEA_1_PH.png, id=122, 1204.5pt x 15.05624pt>
+File: 2_CODEA_1_PH.png Graphic file (type png)
+<use 2_CODEA_1_PH.png>
+Package pdftex.def Info: 2_CODEA_1_PH.png  used on input line 180.
+(pdftex.def)             Requested size: 115.20264pt x 1.44pt.
+<2_CODEA_2_PH.png, id=123, 1204.5pt x 21.07875pt>
+File: 2_CODEA_2_PH.png Graphic file (type png)
+<use 2_CODEA_2_PH.png>
+Package pdftex.def Info: 2_CODEA_2_PH.png  used on input line 181.
+(pdftex.def)             Requested size: 115.20264pt x 2.016pt.
+<2_CODEA_3_PH.png, id=124, 1204.5pt x 3.01125pt>
+File: 2_CODEA_3_PH.png Graphic file (type png)
+<use 2_CODEA_3_PH.png>
+Package pdftex.def Info: 2_CODEA_3_PH.png  used on input line 182.
+(pdftex.def)             Requested size: 115.20264pt x 0.288pt.
+ [5
+pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.187 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.187 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{figure.4}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.187 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{figure.5}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.187 
+       <./CODEA-0143_1r.jpg> <./1_CODEA_1_PH.png (PNG copy)> <./1_CODEA_2_PH.pn
+g (PNG copy)> <./1_CODEA_3_PH.png (PNG copy)> <./1_CODEA_1_kraken.png (PNG copy
+)> <./1_CODEA_2_kraken.png (PNG copy)> <./1_CODEA_3_kraken.png (PNG copy)> <./C
+ODEA-0206_1r.jpg>]
+<2_CODEA_1_kraken.png, id=133, 735.74875pt x 50.1875pt>
+File: 2_CODEA_1_kraken.png Graphic file (type png)
+<use 2_CODEA_1_kraken.png>
+Package pdftex.def Info: 2_CODEA_1_kraken.png  used on input line 191.
+(pdftex.def)             Requested size: 115.20264pt x 7.85785pt.
+<2_CODEA_2_kraken.png, id=134, 735.74875pt x 50.1875pt>
+File: 2_CODEA_2_kraken.png Graphic file (type png)
+<use 2_CODEA_2_kraken.png>
+Package pdftex.def Info: 2_CODEA_2_kraken.png  used on input line 192.
+(pdftex.def)             Requested size: 115.20264pt x 7.85785pt.
+<2_CODEA_3_kraken.png, id=135, 764.8575pt x 50.1875pt>
+File: 2_CODEA_3_kraken.png Graphic file (type png)
+<use 2_CODEA_3_kraken.png>
+Package pdftex.def Info: 2_CODEA_3_kraken.png  used on input line 193.
+(pdftex.def)             Requested size: 115.20264pt x 7.55919pt.
+<CODEA-0871_1r.jpg, id=136, 493.3632pt x 425.4294pt>
+File: CODEA-0871_1r.jpg Graphic file (type jpg)
+<use CODEA-0871_1r.jpg>
+Package pdftex.def Info: CODEA-0871_1r.jpg  used on input line 204.
+(pdftex.def)             Requested size: 115.20264pt x 99.33974pt.
+<3_CODEA_1_PH.png, id=137, 1027.84pt x 19.07124pt>
+File: 3_CODEA_1_PH.png Graphic file (type png)
+<use 3_CODEA_1_PH.png>
+Package pdftex.def Info: 3_CODEA_1_PH.png  used on input line 213.
+(pdftex.def)             Requested size: 115.20264pt x 2.1374pt.
+<3_CODEA_2_PH.png, id=138, 1027.84pt x 11.04124pt>
+File: 3_CODEA_2_PH.png Graphic file (type png)
+<use 3_CODEA_2_PH.png>
+Package pdftex.def Info: 3_CODEA_2_PH.png  used on input line 214.
+(pdftex.def)             Requested size: 115.20264pt x 1.23744pt.
+<3_CODEA_3_PH.png, id=139, 1027.84pt x 12.045pt>
+File: 3_CODEA_3_PH.png Graphic file (type png)
+<use 3_CODEA_3_PH.png>
+Package pdftex.def Info: 3_CODEA_3_PH.png  used on input line 215.
+(pdftex.def)             Requested size: 115.20264pt x 1.34995pt.
+<3_CODEA_1_kraken.png, id=140, 853.1875pt x 31.11626pt>
+File: 3_CODEA_1_kraken.png Graphic file (type png)
+<use 3_CODEA_1_kraken.png>
+Package pdftex.def Info: 3_CODEA_1_kraken.png  used on input line 224.
+(pdftex.def)             Requested size: 115.20264pt x 4.20145pt.
+<3_CODEA_2_kraken.png, id=141, 915.42pt x 35.13126pt>
+File: 3_CODEA_2_kraken.png Graphic file (type png)
+<use 3_CODEA_2_kraken.png>
+Package pdftex.def Info: 3_CODEA_2_kraken.png  used on input line 225.
+(pdftex.def)             Requested size: 115.20264pt x 4.42087pt.
+<3_CODEA_3_kraken.png, id=142, 903.375pt x 24.09pt>
+File: 3_CODEA_3_kraken.png Graphic file (type png)
+<use 3_CODEA_3_kraken.png>
+Package pdftex.def Info: 3_CODEA_3_kraken.png  used on input line 226.
+(pdftex.def)             Requested size: 115.20264pt x 3.07188pt.
+<CODEA-2038_1r.jpg, id=143, 3252.15pt x 4336.2pt>
+File: CODEA-2038_1r.jpg Graphic file (type jpg)
+<use CODEA-2038_1r.jpg>
+Package pdftex.def Info: CODEA-2038_1r.jpg  used on input line 236.
+(pdftex.def)             Requested size: 115.20264pt x 153.56895pt.
+<4_CODEA_1_PH.png, id=144, 3252.15pt x 6.0225pt>
+File: 4_CODEA_1_PH.png Graphic file (type png)
+<use 4_CODEA_1_PH.png>
+Package pdftex.def Info: 4_CODEA_1_PH.png  used on input line 245.
+(pdftex.def)             Requested size: 115.20264pt x 0.21329pt.
+<4_CODEA_2_PH.png, id=145, 3252.15pt x 20.075pt>
+File: 4_CODEA_2_PH.png Graphic file (type png)
+<use 4_CODEA_2_PH.png>
+Package pdftex.def Info: 4_CODEA_2_PH.png  used on input line 246.
+(pdftex.def)             Requested size: 115.20264pt x 0.71095pt.
+<4_CODEA_3_PH.png, id=146, 3252.15pt x 19.07124pt>
+File: 4_CODEA_3_PH.png Graphic file (type png)
+<use 4_CODEA_3_PH.png>
+Package pdftex.def Info: 4_CODEA_3_PH.png  used on input line 247.
+(pdftex.def)             Requested size: 115.20264pt x 0.67542pt.
+<4_CODEA_1_kraken.png, id=147, 1686.3pt x 211.79124pt>
+File: 4_CODEA_1_kraken.png Graphic file (type png)
+<use 4_CODEA_1_kraken.png>
+Package pdftex.def Info: 4_CODEA_1_kraken.png  used on input line 256.
+(pdftex.def)             Requested size: 115.20264pt x 14.46819pt.
+<4_CODEA_2_kraken.png, id=148, 1923.185pt x 169.63374pt>
+File: 4_CODEA_2_kraken.png Graphic file (type png)
+<use 4_CODEA_2_kraken.png>
+Package pdftex.def Info: 4_CODEA_2_kraken.png  used on input line 257.
+(pdftex.def)             Requested size: 115.20264pt x 10.15945pt.
+<4_CODEA_3_kraken.png, id=149, 2020.54875pt x 137.51375pt>
+File: 4_CODEA_3_kraken.png Graphic file (type png)
+<use 4_CODEA_3_kraken.png>
+Package pdftex.def Info: 4_CODEA_3_kraken.png  used on input line 258.
+(pdftex.def)             Requested size: 115.20264pt x 7.8392pt.
+ [6
+pdfTeX warning (ext4): destination with the same identifier (name{figure.6}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.263 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{figure.7}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.263 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{figure.8}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.263 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{figure.9}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.263 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{figure.10}) h
+as been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.263 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{figure.11}) h
+as been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.263 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{figure.12}) h
+as been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.263 
+       <./2_CODEA_1_PH.png (PNG copy)> <./2_CODEA_2_PH.png (PNG copy)> <./2_COD
+EA_3_PH.png (PNG copy)> <./2_CODEA_1_kraken.png (PNG copy)> <./2_CODEA_2_kraken
+.png (PNG copy)> <./2_CODEA_3_kraken.png (PNG copy)> <./CODEA-0871_1r.jpg> <./3
+_CODEA_1_PH.png (PNG copy)> <./3_CODEA_2_PH.png (PNG copy)> <./3_CODEA_3_PH.png
+ (PNG copy)> <./3_CODEA_1_kraken.png (PNG copy)> <./3_CODEA_2_kraken.png (PNG c
+opy)> <./3_CODEA_3_kraken.png (PNG copy)> <./CODEA-2038_1r.jpg> <./4_CODEA_1_PH
+.png (PNG copy)> <./4_CODEA_2_PH.png (PNG copy)> <./4_CODEA_3_PH.png (PNG copy)
+>]
+<CODEA-2497_1r.jpg, id=161, 669.50928pt x 947.02608pt>
+File: CODEA-2497_1r.jpg Graphic file (type jpg)
+<use CODEA-2497_1r.jpg>
+Package pdftex.def Info: CODEA-2497_1r.jpg  used on input line 269.
+(pdftex.def)             Requested size: 115.20264pt x 162.94312pt.
+<5_CODEA_1_PH.png, id=162, 1162.3425pt x 14.0525pt>
+File: 5_CODEA_1_PH.png Graphic file (type png)
+<use 5_CODEA_1_PH.png>
+Package pdftex.def Info: 5_CODEA_1_PH.png  used on input line 278.
+(pdftex.def)             Requested size: 115.20264pt x 1.39267pt.
+<5_CODEA_2_PH.png, id=163, 1162.3425pt x 16.06pt>
+File: 5_CODEA_2_PH.png Graphic file (type png)
+<use 5_CODEA_2_PH.png>
+Package pdftex.def Info: 5_CODEA_2_PH.png  used on input line 279.
+(pdftex.def)             Requested size: 115.20264pt x 1.59163pt.
+<5_CODEA_3_PH.png, id=164, 1162.3425pt x 14.0525pt>
+File: 5_CODEA_3_PH.png Graphic file (type png)
+<use 5_CODEA_3_PH.png>
+Package pdftex.def Info: 5_CODEA_3_PH.png  used on input line 280.
+(pdftex.def)             Requested size: 115.20264pt x 1.39267pt.
+<5_CODEA_1_kraken.png, id=165, 575.14874pt x 58.2175pt>
+File: 5_CODEA_1_kraken.png Graphic file (type png)
+<use 5_CODEA_1_kraken.png>
+Package pdftex.def Info: 5_CODEA_1_kraken.png  used on input line 289.
+(pdftex.def)             Requested size: 115.20264pt x 11.66106pt.
+<5_CODEA_2_kraken.png, id=166, 453.695pt x 60.225pt>
+File: 5_CODEA_2_kraken.png Graphic file (type png)
+<use 5_CODEA_2_kraken.png>
+Package pdftex.def Info: 5_CODEA_2_kraken.png  used on input line 290.
+(pdftex.def)             Requested size: 115.20264pt x 15.29237pt.
+<5_CODEA_3_kraken.png, id=167, 547.04375pt x 61.22874pt>
+File: 5_CODEA_3_kraken.png Graphic file (type png)
+<use 5_CODEA_3_kraken.png>
+Package pdftex.def Info: 5_CODEA_3_kraken.png  used on input line 291.
+(pdftex.def)             Requested size: 115.20264pt x 12.8939pt.
+<CODEA-2651_1r.jpg, id=168, 1109.48904pt x 1271.37384pt>
+File: CODEA-2651_1r.jpg Graphic file (type jpg)
+<use CODEA-2651_1r.jpg>
+Package pdftex.def Info: CODEA-2651_1r.jpg  used on input line 301.
+(pdftex.def)             Requested size: 115.20264pt x 131.99472pt.
+<6_CODEA_1_PH.png, id=169, 1926.19624pt x 24.09pt>
+File: 6_CODEA_1_PH.png Graphic file (type png)
+<use 6_CODEA_1_PH.png>
+Package pdftex.def Info: 6_CODEA_1_PH.png  used on input line 310.
+(pdftex.def)             Requested size: 115.20264pt x 1.44055pt.
+<6_CODEA_2_PH.png, id=170, 1926.19624pt x 467.7475pt>
+File: 6_CODEA_2_PH.png Graphic file (type png)
+<use 6_CODEA_2_PH.png>
+Package pdftex.def Info: 6_CODEA_2_PH.png  used on input line 311.
+(pdftex.def)             Requested size: 115.20264pt x 27.97084pt.
+<6_CODEA_3_PH.png, id=171, 1926.19624pt x 19.07124pt>
+File: 6_CODEA_3_PH.png Graphic file (type png)
+<use 6_CODEA_3_PH.png>
+Package pdftex.def Info: 6_CODEA_3_PH.png  used on input line 312.
+(pdftex.def)             Requested size: 115.20264pt x 1.14043pt.
+ [7
+pdfTeX warning (ext4): destination with the same identifier (name{figure.13}) h
+as been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.317 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{figure.14}) h
+as been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.317 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{figure.15}) h
+as been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.317 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{figure.16}) h
+as been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.317 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{figure.17}) h
+as been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.317 
+       <./4_CODEA_1_kraken.png (PNG copy)> <./4_CODEA_2_kraken.png (PNG copy)> 
+<./4_CODEA_3_kraken.png (PNG copy)> <./CODEA-2497_1r.jpg> <./5_CODEA_1_PH.png (
+PNG copy)> <./5_CODEA_2_PH.png (PNG copy)> <./5_CODEA_3_PH.png (PNG copy)> <./5
+_CODEA_1_kraken.png (PNG copy)> <./5_CODEA_2_kraken.png (PNG copy)> <./5_CODEA_
+3_kraken.png (PNG copy)> <./CODEA-2651_1r.jpg>]
+<6_CODEA_1_kraken.png, id=182, 1307.88625pt x 53.19875pt>
+File: 6_CODEA_1_kraken.png Graphic file (type png)
+<use 6_CODEA_1_kraken.png>
+Package pdftex.def Info: 6_CODEA_1_kraken.png  used on input line 321.
+(pdftex.def)             Requested size: 115.20264pt x 4.6854pt.
+<6_CODEA_2_kraken.png, id=183, 1312.905pt x 50.1875pt>
+File: 6_CODEA_2_kraken.png Graphic file (type png)
+<use 6_CODEA_2_kraken.png>
+Package pdftex.def Info: 6_CODEA_2_kraken.png  used on input line 322.
+(pdftex.def)             Requested size: 115.20264pt x 4.40334pt.
+<6_CODEA_3_kraken.png, id=184, 1319.93124pt x 48.18pt>
+File: 6_CODEA_3_kraken.png Graphic file (type png)
+<use 6_CODEA_3_kraken.png>
+Package pdftex.def Info: 6_CODEA_3_kraken.png  used on input line 323.
+(pdftex.def)             Requested size: 115.20264pt x 4.2044pt.
+<CODEA-3601_1r.jpg, id=185, 2723.17375pt x 4121.3975pt>
+File: CODEA-3601_1r.jpg Graphic file (type jpg)
+<use CODEA-3601_1r.jpg>
+Package pdftex.def Info: CODEA-3601_1r.jpg  used on input line 334.
+(pdftex.def)             Requested size: 115.20264pt x 174.32382pt.
+<7_CODEA_1_PH.png, id=186, 2723.17375pt x 14.0525pt>
+File: 7_CODEA_1_PH.png Graphic file (type png)
+<use 7_CODEA_1_PH.png>
+Package pdftex.def Info: 7_CODEA_1_PH.png  used on input line 343.
+(pdftex.def)             Requested size: 115.20264pt x 0.59438pt.
+<7_CODEA_2_PH.png, id=187, 2723.17375pt x 2.0075pt>
+File: 7_CODEA_2_PH.png Graphic file (type png)
+<use 7_CODEA_2_PH.png>
+Package pdftex.def Info: 7_CODEA_2_PH.png  used on input line 344.
+(pdftex.def)             Requested size: 115.20264pt x 0.0849pt.
+<7_CODEA_3_PH.png, id=188, 2723.17375pt x 99.37125pt>
+File: 7_CODEA_3_PH.png Graphic file (type png)
+<use 7_CODEA_3_PH.png>
+Package pdftex.def Info: 7_CODEA_3_PH.png  used on input line 345.
+(pdftex.def)             Requested size: 115.20264pt x 4.20313pt.
+<7_CODEA_1_kraken.png, id=189, 2342.7525pt x 193.72375pt>
+File: 7_CODEA_1_kraken.png Graphic file (type png)
+<use 7_CODEA_1_kraken.png>
+Package pdftex.def Info: 7_CODEA_1_kraken.png  used on input line 354.
+(pdftex.def)             Requested size: 115.20264pt x 9.52417pt.
+<7_CODEA_2_kraken.png, id=190, 512.91624pt x 96.36pt>
+File: 7_CODEA_2_kraken.png Graphic file (type png)
+<use 7_CODEA_2_kraken.png>
+Package pdftex.def Info: 7_CODEA_2_kraken.png  used on input line 355.
+(pdftex.def)             Requested size: 115.20264pt x 21.64183pt.
+<7_CODEA_3_kraken.png, id=191, 2371.86125pt x 207.77625pt>
+File: 7_CODEA_3_kraken.png Graphic file (type png)
+<use 7_CODEA_3_kraken.png>
+Package pdftex.def Info: 7_CODEA_3_kraken.png  used on input line 356.
+(pdftex.def)             Requested size: 115.20264pt x 10.0914pt.
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 161--162
+Underfull \hbox (badness 10000) in paragraph at lines 362--363
 
  []
 
-<source_image.png, id=116, 963.6pt x 1284.8pt>
+[8
+pdfTeX warning (ext4): destination with the same identifier (name{figure.18}) h
+as been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.365 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{figure.19}) h
+as been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.365 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{figure.20}) h
+as been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.365 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{figure.21}) h
+as been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.365 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{figure.22}) h
+as been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.365 
+       <./6_CODEA_1_PH.png (PNG copy)> <./6_CODEA_2_PH.png (PNG copy)> <./6_COD
+EA_3_PH.png (PNG copy)> <./6_CODEA_1_kraken.png (PNG copy)> <./6_CODEA_2_kraken
+.png (PNG copy)> <./6_CODEA_3_kraken.png (PNG copy)> <./CODEA-3601_1r.jpg> <./7
+_CODEA_1_PH.png (PNG copy)> <./7_CODEA_2_PH.png (PNG copy)> <./7_CODEA_3_PH.png
+ (PNG copy)> <./7_CODEA_1_kraken.png (PNG copy)> <./7_CODEA_2_kraken.png (PNG c
+opy)> <./7_CODEA_3_kraken.png (PNG copy)>]
+<source_image.png, id=204, 963.6pt x 1284.8pt>
 File: source_image.png Graphic file (type png)
 <use source_image.png>
-Package pdftex.def Info: source_image.png  used on input line 168.
+Package pdftex.def Info: source_image.png  used on input line 369.
 (pdftex.def)             Requested size: 115.20264pt x 153.60081pt.
-<segmented_image.png, id=117, 963.6pt x 1284.8pt>
+<segmented_image.png, id=205, 963.6pt x 1284.8pt>
 File: segmented_image.png Graphic file (type png)
 <use segmented_image.png>
-Package pdftex.def Info: segmented_image.png  used on input line 169.
+Package pdftex.def Info: segmented_image.png  used on input line 370.
 (pdftex.def)             Requested size: 115.20264pt x 153.60081pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<mask_2.png, id=118, 963.6pt x 1284.8pt>
+<mask_2.png, id=206, 963.6pt x 1284.8pt>
 File: mask_2.png Graphic file (type png)
 <use mask_2.png>
-Package pdftex.def Info: mask_2.png  used on input line 178.
+Package pdftex.def Info: mask_2.png  used on input line 379.
 (pdftex.def)             Requested size: 115.20264pt x 153.60081pt.
-<mask_22.png, id=119, 963.6pt x 1284.8pt>
+<mask_22.png, id=207, 963.6pt x 1284.8pt>
 File: mask_22.png Graphic file (type png)
 <use mask_22.png>
-Package pdftex.def Info: mask_22.png  used on input line 179.
+Package pdftex.def Info: mask_22.png  used on input line 380.
 (pdftex.def)             Requested size: 115.20264pt x 153.60081pt.
+ [9
+pdfTeX warning (ext4): destination with the same identifier (name{figure.23}) h
+as been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.393 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{figure.24}) h
+as been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.393 
+       <./source_image.png (PNG copy)> <./segmented_image.png (PNG copy)> <./ma
+sk_2.png (PNG copy)> <./mask_22.png (PNG copy)>]
+<original.jpg, id=215, 601.0455pt x 770.88pt>
+File: original.jpg Graphic file (type jpg)
+<use original.jpg>
+Package pdftex.def Info: original.jpg  used on input line 399.
+(pdftex.def)             Requested size: 115.20264pt x 147.75085pt.
+<morph.jpg, id=216, 568.524pt x 770.88pt>
+File: morph.jpg Graphic file (type jpg)
+<use morph.jpg>
+Package pdftex.def Info: morph.jpg  used on input line 400.
+(pdftex.def)             Requested size: 115.20264pt x 156.2082pt.
+<kraken.jpg, id=217, 568.524pt x 770.88pt>
+File: kraken.jpg Graphic file (type jpg)
+<use kraken.jpg>
+Package pdftex.def Info: kraken.jpg  used on input line 401.
+(pdftex.def)             Requested size: 115.20264pt x 156.2082pt.
+<CODEA-0205_2v.jpg, id=219, 1204.5pt x 1606.0pt>
+File: CODEA-0205_2v.jpg Graphic file (type jpg)
+<use CODEA-0205_2v.jpg>
+Package pdftex.def Info: CODEA-0205_2v.jpg  used on input line 412.
+(pdftex.def)             Requested size: 115.20264pt x 153.60081pt.
+<canny_image_aftergauss_eq2.png, id=220, 1204.5pt x 1606.0pt>
+File: canny_image_aftergauss_eq2.png Graphic file (type png)
+<use canny_image_aftergauss_eq2.png>
+Package pdftex.def Info: canny_image_aftergauss_eq2.png  used on input line 413
+.
+(pdftex.def)             Requested size: 115.20264pt x 153.60081pt.
+<photo_2025-01-27_21-34-01.jpg, id=221, 963.6pt x 1284.8pt>
+File: photo_2025-01-27_21-34-01.jpg Graphic file (type jpg)
+<use photo_2025-01-27_21-34-01.jpg>
+Package pdftex.def Info: photo_2025-01-27_21-34-01.jpg  used on input line 414.
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+(pdftex.def)             Requested size: 115.20264pt x 153.60081pt.
+ [10
+pdfTeX warning (ext4): destination with the same identifier (name{figure.25}) h
+as been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.419 
+       <./original.jpg> <./morph.jpg> <./kraken.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 420--421
 
-[5 <./original.jpg> <./morph.jpg> <./kraken.jpg>] [6 <./CODEA-0205_2v.jpg> <./canny_image_aftergauss_eq2.png (PNG copy)> <./photo_2025-01-27_21-34-01.jpg> <./source_image.png (PNG copy)> <./segmented_image.png (PNG copy)>]
-Overfull \hbox (8.09824pt too wide) in paragraph at lines 193--195
-\OT1/cmr/m/n/10.95 tres OCR (\OT1/cmtt/m/n/10.95 SimpleHTR\OT1/cmr/m/n/10.95 , \OT1/cmtt/m/n/10.95 sinai-sam-rec-v4-best \OT1/cmr/m/n/10.95 y \OT1/cmtt/m/n/10.95 McCATMuS-nfd-nofix-V1\OT1/cmr/m/n/10.95 ),
  []
 
-[7 <./mask_2.png (PNG copy)> <./mask_22.png (PNG copy)>] (./report.bbl
+
+Overfull \hbox (8.09824pt too wide) in paragraph at lines 432--434
+\OT1/cmr/m/n/10.95 tres OCR (\OT1/cmtt/m/n/10.95 SimpleHTR\OT1/cmr/m/n/10.95 , 
+\OT1/cmtt/m/n/10.95 sinai-sam-rec-v4-best \OT1/cmr/m/n/10.95 y \OT1/cmtt/m/n/10
+.95 McCATMuS-nfd-nofix-V1\OT1/cmr/m/n/10.95 ),
+ []
+
+[11
+pdfTeX warning (ext4): destination with the same identifier (name{figure.26}) h
+as been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.436 \item T
+             exto A: salida del OCR 1 <./CODEA-0205_2v.jpg> <./canny_image_afte
+rgauss_eq2.png (PNG copy)> <./photo_2025-01-27_21-34-01.jpg>] [12] (report.bbl
 
 LaTeX Warning: Empty `thebibliography' environment on input line 3.
 
-) [8] [9] (./report.aux
+) [13] (report.aux
 LaTeX Info: Redefining \. on input line 11.
 LaTeX Info: Redefining \% on input line 11.
 )
  ***********
 LaTeX2e <2023-11-01> patch level 1
-L3 programming layer <2024-04-11>
+L3 programming layer <2024-01-04>
  ***********
 Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: C2EC26EA7592C4F2924893069F039006;1963.
+(rerunfilecheck)             Checksum: 3DEEAF9270816F964F111969ADD391CD;2221.
  ) 
 Here is how much of TeX's memory you used:
- 21515 strings out of 474050
- 410586 string characters out of 5746298
- 1938754 words of memory out of 5000000
- 43580 multiletter control sequences out of 15000+600000
+ 22033 strings out of 474486
+ 427975 string characters out of 5743756
+ 1938542 words of memory out of 5000000
+ 43920 multiletter control sequences out of 15000+600000
  563754 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,8n,93p,721b,787s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <c:/Users/Admin/.texlive2024/texmf-var/fonts/pk/ljfour/public/cm/cmtt10.657pk> <c:/Users/Admin/.texlive2024/texmf-var/fonts/pk/ljfour/public/cm/cmti10.657pk> <c:/Users/Admin/.texlive2024/texmf-var/fonts/pk/ljfour/public/cm/cmbx12.600pk> <c:/Users/Admin/.texlive2024/texmf-var/fonts/pk/ljfour/public/cm/cmr10.657pk> <c:/Users/Admin/.texlive2024/texmf-var/fonts/pk/ljfour/public/cm/cmbx10.657pk> <c:/Users/Admin/.texlive2024/texmf-var/fonts/pk/ljfour/public/cm/cmbx12.720pk> <c:/texlive/2024/texmf-dist/fonts/pk/ljfour/public/cm/dpi600/cmr12.pk> <c:/texlive/2024/texmf-dist/fonts/pk/ljfour/public/cm/dpi600/cmr17.pk>
-Output written on report.pdf (9 pages, 4631276 bytes).
+ 84i,8n,93p,658b,791s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/Massy/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
+cmbx10.pfb><C:/Users/Massy/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
+fonts/cm/cmbx12.pfb><C:/Users/Massy/AppData/Local/Programs/MiKTeX/fonts/type1/p
+ublic/amsfonts/cm/cmr10.pfb><C:/Users/Massy/AppData/Local/Programs/MiKTeX/fonts
+/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Massy/AppData/Local/Programs/MiKT
+eX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/Massy/AppData/Local/Progr
+ams/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/Massy/AppData/Lo
+cal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on report.pdf (13 pages, 13046444 bytes).
 PDF statistics:
- 524 PDF objects out of 1000 (max. 8388607)
- 173 compressed objects within 2 object streams
- 42 named destinations out of 1000 (max. 500000)
- 172 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 301 PDF objects out of 1000 (max. 8388607)
+ 69 named destinations out of 1000 (max. 500000)
+ 433 words of extra memory for PDF output out of 10000 (max. 10000000)
 
